@@ -1,0 +1,65 @@
+{
+  "id": "greeting",
+  "about": "Greeting: explains what it covers.",
+  "turns": [
+    {
+      "turn": 1,
+      "sent": {
+        "text": "Hello",
+        "mode": "auto",
+        "language": "auto"
+      },
+      "status": 200,
+      "elapsed_ms": 1470,
+      "llm_calls": [
+        {
+          "id": 181,
+          "node": "triage",
+          "provider": "openai",
+          "model": "gpt-4.1-mini",
+          "input_tokens": 583,
+          "output_tokens": 17,
+          "latency_ms": 1396,
+          "ok": true,
+          "error": ""
+        }
+      ],
+      "assistant": {
+        "role": "assistant",
+        "mode": "build_case",
+        "content": "Tell me what happened, in your own words. I can help with a deposit your landlord won't return, a refund that never came, salary that stopped, or a notice you don't understand.",
+        "meta": {
+          "risks": [],
+          "blocks": {
+            "text": "Tell me what happened, in your own words. I can help with a deposit your landlord won't return, a refund that never came, salary that stopped, or a notice you don't understand.",
+            "canned": "welcome"
+          },
+          "dropped": 0,
+          "citations": []
+        }
+      },
+      "case_after": {
+        "domain": "unknown",
+        "language": "en",
+        "facts": [],
+        "missing": [],
+        "events": [],
+        "notice": null,
+        "pending": null
+      },
+      "checks": [
+        {
+          "check": "canned",
+          "ok": true,
+          "detail": "welcome"
+        },
+        {
+          "check": "citations_exist",
+          "ok": true,
+          "detail": "unknown []"
+        }
+      ]
+    }
+  ],
+  "passed": true
+}

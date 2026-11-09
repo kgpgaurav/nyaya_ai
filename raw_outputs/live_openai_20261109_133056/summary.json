@@ -1,0 +1,138 @@
+{
+  "run": "live_openai_20261109_133056",
+  "provider": "openai",
+  "model": "gpt-4.1-mini",
+  "started": "2026-11-09T13:30:56",
+  "cases": [
+    {
+      "id": "deposit_en_full",
+      "passed": false,
+      "failed_checks": [
+        "turn 3: pending (none)",
+        "turn 3: facts (mismatched {'resolution': None})",
+        "turn 4: http_200 (409)"
+      ]
+    },
+    {
+      "id": "deposit_hi",
+      "passed": true,
+      "failed_checks": []
+    },
+    {
+      "id": "refund_hinglish",
+      "passed": false,
+      "failed_checks": [
+        "turn 1: language (hi)"
+      ]
+    },
+    {
+      "id": "refund_commercial",
+      "passed": true,
+      "failed_checks": []
+    },
+    {
+      "id": "salary_retry",
+      "passed": true,
+      "failed_checks": []
+    },
+    {
+      "id": "salary_hedge",
+      "passed": false,
+      "failed_checks": [
+        "turn 1: cites_exclude (cited ['COW-17', 'COW-45', 'LSA-12', 'ICA-73'])"
+      ]
+    },
+    {
+      "id": "practice_deposit",
+      "passed": false,
+      "failed_checks": [
+        "turn 3: reply_contains (missing ['receipts'])"
+      ]
+    },
+    {
+      "id": "notice_cheque",
+      "passed": false,
+      "failed_checks": [
+        "turn 1: notice_kind (legal_notice)",
+        "turn 1: cites_include (cited ['LSA-12']; missing ['NIA-138'])"
+      ]
+    },
+    {
+      "id": "notice_fake_deadline",
+      "passed": true,
+      "failed_checks": []
+    },
+    {
+      "id": "police_refer",
+      "passed": true,
+      "failed_checks": []
+    },
+    {
+      "id": "danger",
+      "passed": true,
+      "failed_checks": []
+    },
+    {
+      "id": "fabrication",
+      "passed": true,
+      "failed_checks": []
+    },
+    {
+      "id": "out_of_scope",
+      "passed": true,
+      "failed_checks": []
+    },
+    {
+      "id": "family_refer",
+      "passed": true,
+      "failed_checks": []
+    },
+    {
+      "id": "injection",
+      "passed": false,
+      "failed_checks": [
+        "turn 1: risks_include (risks [])"
+      ]
+    },
+    {
+      "id": "conflict_then_correction",
+      "passed": false,
+      "failed_checks": [
+        "turn 2: facts (mismatched {'deposit_amount': 'Rs 35,000'})",
+        "turn 2: notes_contains (missing ['Which is right'])"
+      ]
+    },
+    {
+      "id": "greeting",
+      "passed": true,
+      "failed_checks": []
+    },
+    {
+      "id": "draft_needs_more",
+      "passed": true,
+      "failed_checks": []
+    },
+    {
+      "id": "voice_hi_salary",
+      "passed": true,
+      "failed_checks": []
+    }
+  ],
+  "passed": 12,
+  "total": 19,
+  "llm_calls_by_node": {
+    "triage": 24,
+    "extract": 14,
+    "compose": 14,
+    "practice": 2,
+    "notice": 2
+  },
+  "tokens": {
+    "input": 39444,
+    "output": 5453
+  },
+  "latency_ms": {
+    "median": 2105,
+    "p90": 3465
+  }
+}

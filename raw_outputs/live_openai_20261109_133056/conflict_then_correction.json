@@ -1,0 +1,569 @@
+{
+  "id": "conflict_then_correction",
+  "about": "A contradictory amount is held back and queried; an explicit correction then replaces it.",
+  "turns": [
+    {
+      "turn": 1,
+      "sent": {
+        "text": "Landlord Mr. Gupta in Delhi kept my deposit of Rs 30,000 after I moved out.",
+        "mode": "auto",
+        "language": "auto"
+      },
+      "status": 200,
+      "elapsed_ms": 10505,
+      "llm_calls": [
+        {
+          "id": 172,
+          "node": "triage",
+          "provider": "openai",
+          "model": "gpt-4.1-mini",
+          "input_tokens": 603,
+          "output_tokens": 18,
+          "latency_ms": 2579,
+          "ok": true,
+          "error": ""
+        },
+        {
+          "id": 173,
+          "node": "extract",
+          "provider": "openai",
+          "model": "gpt-4.1-mini",
+          "input_tokens": 550,
+          "output_tokens": 119,
+          "latency_ms": 3622,
+          "ok": true,
+          "error": ""
+        },
+        {
+          "id": 174,
+          "node": "compose",
+          "provider": "openai",
+          "model": "gpt-4.1-mini",
+          "input_tokens": 763,
+          "output_tokens": 181,
+          "latency_ms": 4199,
+          "ok": true,
+          "error": ""
+        }
+      ],
+      "assistant": {
+        "role": "assistant",
+        "mode": "build_case",
+        "content": "You moved out of a rented property in Delhi and your landlord Mr. Gupta has kept your deposit of Rs 30,000.\n\nIf your tenancy agreement is governed by the Model Tenancy Act and Delhi has adopted it, the landlord must refund the deposit after deducting only your actual liabilities, and the deposit cannot exceed two months' rent for residential property. [1]\n\nSince a rent agreement is a contract, if the landlord breaches it by not returning your deposit, you may claim compensation for losses that naturally arose from this breach through a civil court. [2]\n\nIf you need legal help and qualify under certain categories or income limits, you may get free legal aid by contacting the District Legal Services Authority or the NALSA helpline. [3]\n\nNext: Which property was it, and in which city?",
+        "meta": {
+          "risks": [],
+          "blocks": {
+            "hedge": "",
+            "notes": [],
+            "points": [
+              {
+                "refs": [],
+                "text": "You moved out of a rented property in Delhi and your landlord Mr. Gupta has kept your deposit of Rs 30,000."
+              },
+              {
+                "refs": [
+                  1
+                ],
+                "text": "If your tenancy agreement is governed by the Model Tenancy Act and Delhi has adopted it, the landlord must refund the deposit after deducting only your actual liabilities, and the deposit cannot exceed two months' rent for residential property."
+              },
+              {
+                "refs": [
+                  2
+                ],
+                "text": "Since a rent agreement is a contract, if the landlord breaches it by not returning your deposit, you may claim compensation for losses that naturally arose from this breach through a civil court."
+              },
+              {
+                "refs": [
+                  3
+                ],
+                "text": "If you need legal help and qualify under certain categories or income limits, you may get free legal aid by contacting the District Legal Services Authority or the NALSA helpline."
+              }
+            ],
+            "question": "Which property was it, and in which city?"
+          },
+          "dropped": 0,
+          "citations": [
+            {
+              "n": 1,
+              "id": "MTA-11",
+              "url": "https://udd.delhi.gov.in/sites/default/files/UD/generic_multiple_files/mta_hindi_english.pdf",
+              "title": "Security deposit under the Model Tenancy Act",
+              "caveat": "Rent law is state-specific. Whether this applies depends on your state and whether you have a lease or a leave-and-licence agreement.",
+              "locator": "Section 11 and summary point (xi)",
+              "summary": "The Model Tenancy Act is a model law. It applies only in states that have passed a tenancy law based on it. Where it applies, a residential deposit cannot exceed two months' rent (six months for non-residential), and the landlord must refund it when taking back vacant possession, after deducting only the tenant's actual liabilities.",
+              "citation": "Section 11, Model Tenancy Act, 2021",
+              "reviewed_on": "2026-11-09"
+            },
+            {
+              "n": 2,
+              "id": "ICA-73",
+              "url": "https://indiankanoon.org/doc/339747/",
+              "title": "Breach of a written or oral agreement",
+              "caveat": "Recovering money through a civil court has its own time limits and procedure. Ask a lawyer or the District Legal Services Authority early.",
+              "locator": "Section 73",
+              "summary": "A rent agreement or an employment agreement is a contract. When one side breaks it, the other side can claim compensation for loss that naturally arose from the breach. Remote or indirect losses are not covered.",
+              "citation": "Section 73, Indian Contract Act, 1872",
+              "reviewed_on": "2026-11-09"
+            },
+            {
+              "n": 3,
+              "id": "LSA-12",
+              "url": "https://nalsa.gov.in/",
+              "title": "Free legal aid",
+              "caveat": "The income limit varies by state.",
+              "locator": "Legal aid eligibility; helpline 15100",
+              "summary": "Women, children, members of Scheduled Castes and Scheduled Tribes, persons with disabilities, industrial workmen, people in custody and people below the income limit can get a free lawyer. Call the NALSA helpline 15100 or visit your District Legal Services Authority.",
+              "citation": "Section 12, Legal Services Authorities Act, 1987",
+              "reviewed_on": "2026-11-09"
+            }
+          ]
+        }
+      },
+      "case_after": {
+        "domain": "deposit",
+        "language": "en",
+        "facts": [
+          {
+            "field": "landlord",
+            "label": "Landlord",
+            "value": "Mr. Gupta",
+            "quote": "Landlord Mr. Gupta",
+            "confirmed": false,
+            "edited": false
+          },
+          {
+            "field": "state",
+            "label": "State",
+            "value": "Delhi",
+            "quote": "Landlord Mr. Gupta in Delhi",
+            "confirmed": false,
+            "edited": false
+          },
+          {
+            "field": "deposit_amount",
+            "label": "Deposit paid",
+            "value": "Rs 30,000",
+            "quote": "deposit of Rs 30,000",
+            "confirmed": false,
+            "edited": false
+          }
+        ],
+        "missing": [
+          "Property",
+          "Monthly rent",
+          "Move-out date",
+          "Rent agreement",
+          "Deductions claimed",
+          "Steps already taken",
+          "Proof you have",
+          "What you want"
+        ],
+        "events": [
+          {
+            "when": "",
+            "what": "Moved out and landlord kept deposit",
+            "quote": "Landlord Mr. Gupta in Delhi kept my deposit of Rs 30,000 after I moved out.",
+            "turn": 1
+          }
+        ],
+        "notice": null,
+        "pending": null
+      },
+      "checks": [
+        {
+          "check": "facts",
+          "ok": true,
+          "detail": "mismatched {}"
+        },
+        {
+          "check": "citations_exist",
+          "ok": true,
+          "detail": "unknown []"
+        },
+        {
+          "check": "displayed_points_reverify",
+          "ok": true,
+          "detail": []
+        }
+      ]
+    },
+    {
+      "turn": 2,
+      "sent": {
+        "text": "The deposit was Rs 35,000.",
+        "mode": "auto",
+        "language": "auto"
+      },
+      "status": 200,
+      "elapsed_ms": 5174,
+      "llm_calls": [
+        {
+          "id": 175,
+          "node": "triage",
+          "provider": "openai",
+          "model": "gpt-4.1-mini",
+          "input_tokens": 804,
+          "output_tokens": 18,
+          "latency_ms": 1442,
+          "ok": true,
+          "error": ""
+        },
+        {
+          "id": 176,
+          "node": "extract",
+          "provider": "openai",
+          "model": "gpt-4.1-mini",
+          "input_tokens": 563,
+          "output_tokens": 37,
+          "latency_ms": 1450,
+          "ok": true,
+          "error": ""
+        },
+        {
+          "id": 177,
+          "node": "compose",
+          "provider": "openai",
+          "model": "gpt-4.1-mini",
+          "input_tokens": 751,
+          "output_tokens": 153,
+          "latency_ms": 2159,
+          "ok": true,
+          "error": ""
+        }
+      ],
+      "assistant": {
+        "role": "assistant",
+        "mode": "build_case",
+        "content": "You have paid a deposit of Rs 35,000 to your landlord Mr. Gupta in Delhi.\n\nIn states where the Model Tenancy Act applies, a residential deposit cannot exceed two months' rent, and the landlord must refund it after deducting only actual liabilities when taking back vacant possession. [1]\n\nA rent agreement is a contract, so if either side breaks it, the other can claim compensation for losses that naturally arise from the breach. [2]\n\nIf you need legal help, you may be eligible for a free lawyer through the Legal Services Authorities, depending on your income and other factors. [3]\n\nNext: Which property was it, and in which city?",
+        "meta": {
+          "risks": [],
+          "blocks": {
+            "hedge": "",
+            "notes": [],
+            "points": [
+              {
+                "refs": [],
+                "text": "You have paid a deposit of Rs 35,000 to your landlord Mr. Gupta in Delhi."
+              },
+              {
+                "refs": [
+                  1
+                ],
+                "text": "In states where the Model Tenancy Act applies, a residential deposit cannot exceed two months' rent, and the landlord must refund it after deducting only actual liabilities when taking back vacant possession."
+              },
+              {
+                "refs": [
+                  2
+                ],
+                "text": "A rent agreement is a contract, so if either side breaks it, the other can claim compensation for losses that naturally arise from the breach."
+              },
+              {
+                "refs": [
+                  3
+                ],
+                "text": "If you need legal help, you may be eligible for a free lawyer through the Legal Services Authorities, depending on your income and other factors."
+              }
+            ],
+            "question": "Which property was it, and in which city?"
+          },
+          "dropped": 0,
+          "citations": [
+            {
+              "n": 1,
+              "id": "MTA-11",
+              "url": "https://udd.delhi.gov.in/sites/default/files/UD/generic_multiple_files/mta_hindi_english.pdf",
+              "title": "Security deposit under the Model Tenancy Act",
+              "caveat": "Rent law is state-specific. Whether this applies depends on your state and whether you have a lease or a leave-and-licence agreement.",
+              "locator": "Section 11 and summary point (xi)",
+              "summary": "The Model Tenancy Act is a model law. It applies only in states that have passed a tenancy law based on it. Where it applies, a residential deposit cannot exceed two months' rent (six months for non-residential), and the landlord must refund it when taking back vacant possession, after deducting only the tenant's actual liabilities.",
+              "citation": "Section 11, Model Tenancy Act, 2021",
+              "reviewed_on": "2026-11-09"
+            },
+            {
+              "n": 2,
+              "id": "ICA-73",
+              "url": "https://indiankanoon.org/doc/339747/",
+              "title": "Breach of a written or oral agreement",
+              "caveat": "Recovering money through a civil court has its own time limits and procedure. Ask a lawyer or the District Legal Services Authority early.",
+              "locator": "Section 73",
+              "summary": "A rent agreement or an employment agreement is a contract. When one side breaks it, the other side can claim compensation for loss that naturally arose from the breach. Remote or indirect losses are not covered.",
+              "citation": "Section 73, Indian Contract Act, 1872",
+              "reviewed_on": "2026-11-09"
+            },
+            {
+              "n": 3,
+              "id": "LSA-12",
+              "url": "https://nalsa.gov.in/",
+              "title": "Free legal aid",
+              "caveat": "The income limit varies by state.",
+              "locator": "Legal aid eligibility; helpline 15100",
+              "summary": "Women, children, members of Scheduled Castes and Scheduled Tribes, persons with disabilities, industrial workmen, people in custody and people below the income limit can get a free lawyer. Call the NALSA helpline 15100 or visit your District Legal Services Authority.",
+              "citation": "Section 12, Legal Services Authorities Act, 1987",
+              "reviewed_on": "2026-11-09"
+            }
+          ]
+        }
+      },
+      "case_after": {
+        "domain": "deposit",
+        "language": "en",
+        "facts": [
+          {
+            "field": "landlord",
+            "label": "Landlord",
+            "value": "Mr. Gupta",
+            "quote": "Landlord Mr. Gupta",
+            "confirmed": false,
+            "edited": false
+          },
+          {
+            "field": "state",
+            "label": "State",
+            "value": "Delhi",
+            "quote": "Landlord Mr. Gupta in Delhi",
+            "confirmed": false,
+            "edited": false
+          },
+          {
+            "field": "deposit_amount",
+            "label": "Deposit paid",
+            "value": "Rs 35,000",
+            "quote": "The deposit was Rs 35,000.",
+            "confirmed": false,
+            "edited": false
+          }
+        ],
+        "missing": [
+          "Property",
+          "Monthly rent",
+          "Move-out date",
+          "Rent agreement",
+          "Deductions claimed",
+          "Steps already taken",
+          "Proof you have",
+          "What you want"
+        ],
+        "events": [
+          {
+            "when": "",
+            "what": "Moved out and landlord kept deposit",
+            "quote": "Landlord Mr. Gupta in Delhi kept my deposit of Rs 30,000 after I moved out.",
+            "turn": 1
+          }
+        ],
+        "notice": null,
+        "pending": null
+      },
+      "checks": [
+        {
+          "check": "facts",
+          "ok": false,
+          "detail": "mismatched {'deposit_amount': 'Rs 35,000'}"
+        },
+        {
+          "check": "notes_contains",
+          "ok": false,
+          "detail": "missing ['Which is right']"
+        },
+        {
+          "check": "citations_exist",
+          "ok": true,
+          "detail": "unknown []"
+        },
+        {
+          "check": "displayed_points_reverify",
+          "ok": true,
+          "detail": []
+        }
+      ]
+    },
+    {
+      "turn": 3,
+      "sent": {
+        "text": "Sorry, I was wrong earlier, the deposit was actually Rs 35,000.",
+        "mode": "auto",
+        "language": "auto"
+      },
+      "status": 200,
+      "elapsed_ms": 7041,
+      "llm_calls": [
+        {
+          "id": 178,
+          "node": "triage",
+          "provider": "openai",
+          "model": "gpt-4.1-mini",
+          "input_tokens": 986,
+          "output_tokens": 18,
+          "latency_ms": 3153,
+          "ok": true,
+          "error": ""
+        },
+        {
+          "id": 179,
+          "node": "extract",
+          "provider": "openai",
+          "model": "gpt-4.1-mini",
+          "input_tokens": 571,
+          "output_tokens": 38,
+          "latency_ms": 1424,
+          "ok": true,
+          "error": ""
+        },
+        {
+          "id": 180,
+          "node": "compose",
+          "provider": "openai",
+          "model": "gpt-4.1-mini",
+          "input_tokens": 759,
+          "output_tokens": 165,
+          "latency_ms": 2327,
+          "ok": true,
+          "error": ""
+        }
+      ],
+      "assistant": {
+        "role": "assistant",
+        "mode": "build_case",
+        "content": "You have a deposit of Rs 35,000 with your landlord Mr. Gupta in Delhi. [1]\n\nIf Delhi has adopted the Model Tenancy Act, the deposit for a residential property should not exceed two months' rent, and the landlord must refund it after deducting actual liabilities when you vacate. [1]\n\nYour rent agreement is a contract, so if either side breaks it, the other can claim compensation for direct losses that naturally arise from the breach. [2]\n\nIf you need legal help, you may be eligible for free legal aid through the District Legal Services Authority, especially if you belong to certain groups or meet income criteria. [3]\n\nNext: Which property was it, and in which city?",
+        "meta": {
+          "risks": [],
+          "blocks": {
+            "hedge": "",
+            "notes": [],
+            "points": [
+              {
+                "refs": [
+                  1
+                ],
+                "text": "You have a deposit of Rs 35,000 with your landlord Mr. Gupta in Delhi."
+              },
+              {
+                "refs": [
+                  1
+                ],
+                "text": "If Delhi has adopted the Model Tenancy Act, the deposit for a residential property should not exceed two months' rent, and the landlord must refund it after deducting actual liabilities when you vacate."
+              },
+              {
+                "refs": [
+                  2
+                ],
+                "text": "Your rent agreement is a contract, so if either side breaks it, the other can claim compensation for direct losses that naturally arise from the breach."
+              },
+              {
+                "refs": [
+                  3
+                ],
+                "text": "If you need legal help, you may be eligible for free legal aid through the District Legal Services Authority, especially if you belong to certain groups or meet income criteria."
+              }
+            ],
+            "question": "Which property was it, and in which city?"
+          },
+          "dropped": 0,
+          "citations": [
+            {
+              "n": 1,
+              "id": "MTA-11",
+              "url": "https://udd.delhi.gov.in/sites/default/files/UD/generic_multiple_files/mta_hindi_english.pdf",
+              "title": "Security deposit under the Model Tenancy Act",
+              "caveat": "Rent law is state-specific. Whether this applies depends on your state and whether you have a lease or a leave-and-licence agreement.",
+              "locator": "Section 11 and summary point (xi)",
+              "summary": "The Model Tenancy Act is a model law. It applies only in states that have passed a tenancy law based on it. Where it applies, a residential deposit cannot exceed two months' rent (six months for non-residential), and the landlord must refund it when taking back vacant possession, after deducting only the tenant's actual liabilities.",
+              "citation": "Section 11, Model Tenancy Act, 2021",
+              "reviewed_on": "2026-11-09"
+            },
+            {
+              "n": 2,
+              "id": "ICA-73",
+              "url": "https://indiankanoon.org/doc/339747/",
+              "title": "Breach of a written or oral agreement",
+              "caveat": "Recovering money through a civil court has its own time limits and procedure. Ask a lawyer or the District Legal Services Authority early.",
+              "locator": "Section 73",
+              "summary": "A rent agreement or an employment agreement is a contract. When one side breaks it, the other side can claim compensation for loss that naturally arose from the breach. Remote or indirect losses are not covered.",
+              "citation": "Section 73, Indian Contract Act, 1872",
+              "reviewed_on": "2026-11-09"
+            },
+            {
+              "n": 3,
+              "id": "LSA-12",
+              "url": "https://nalsa.gov.in/",
+              "title": "Free legal aid",
+              "caveat": "The income limit varies by state.",
+              "locator": "Legal aid eligibility; helpline 15100",
+              "summary": "Women, children, members of Scheduled Castes and Scheduled Tribes, persons with disabilities, industrial workmen, people in custody and people below the income limit can get a free lawyer. Call the NALSA helpline 15100 or visit your District Legal Services Authority.",
+              "citation": "Section 12, Legal Services Authorities Act, 1987",
+              "reviewed_on": "2026-11-09"
+            }
+          ]
+        }
+      },
+      "case_after": {
+        "domain": "deposit",
+        "language": "en",
+        "facts": [
+          {
+            "field": "landlord",
+            "label": "Landlord",
+            "value": "Mr. Gupta",
+            "quote": "Landlord Mr. Gupta",
+            "confirmed": false,
+            "edited": false
+          },
+          {
+            "field": "state",
+            "label": "State",
+            "value": "Delhi",
+            "quote": "Landlord Mr. Gupta in Delhi",
+            "confirmed": false,
+            "edited": false
+          },
+          {
+            "field": "deposit_amount",
+            "label": "Deposit paid",
+            "value": "Rs 35,000",
+            "quote": "the deposit was actually Rs 35,000",
+            "confirmed": false,
+            "edited": false
+          }
+        ],
+        "missing": [
+          "Property",
+          "Monthly rent",
+          "Move-out date",
+          "Rent agreement",
+          "Deductions claimed",
+          "Steps already taken",
+          "Proof you have",
+          "What you want"
+        ],
+        "events": [
+          {
+            "when": "",
+            "what": "Moved out and landlord kept deposit",
+            "quote": "Landlord Mr. Gupta in Delhi kept my deposit of Rs 30,000 after I moved out.",
+            "turn": 1
+          }
+        ],
+        "notice": null,
+        "pending": null
+      },
+      "checks": [
+        {
+          "check": "facts",
+          "ok": true,
+          "detail": "mismatched {}"
+        },
+        {
+          "check": "citations_exist",
+          "ok": true,
+          "detail": "unknown []"
+        },
+        {
+          "check": "displayed_points_reverify",
+          "ok": true,
+          "detail": []
+        }
+      ]
+    }
+  ],
+  "passed": false
+}

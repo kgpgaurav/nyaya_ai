@@ -1,0 +1,234 @@
+{
+  "id": "salary_retry",
+  "about": "Salary case where the first answer cites the repealed Payment of Wages Act; the verifier rejects it and the retry succeeds.",
+  "turns": [
+    {
+      "turn": 1,
+      "sent": {
+        "text": "My employer BrightTech Solutions in Bengaluru hasn't paid my salary of Rs 35,000 for September and October 2026. I resigned and my last working day was 31 October. HR keeps saying next week.",
+        "mode": "auto",
+        "language": "auto"
+      },
+      "status": 200,
+      "elapsed_ms": 6735,
+      "llm_calls": [
+        {
+          "id": 147,
+          "node": "triage",
+          "provider": "openai",
+          "model": "gpt-4.1-mini",
+          "input_tokens": 625,
+          "output_tokens": 18,
+          "latency_ms": 1274,
+          "ok": true,
+          "error": ""
+        },
+        {
+          "id": 148,
+          "node": "extract",
+          "provider": "openai",
+          "model": "gpt-4.1-mini",
+          "input_tokens": 563,
+          "output_tokens": 237,
+          "latency_ms": 2811,
+          "ok": true,
+          "error": ""
+        },
+        {
+          "id": 149,
+          "node": "compose",
+          "provider": "openai",
+          "model": "gpt-4.1-mini",
+          "input_tokens": 1133,
+          "output_tokens": 198,
+          "latency_ms": 2539,
+          "ok": true,
+          "error": ""
+        }
+      ],
+      "assistant": {
+        "role": "assistant",
+        "mode": "build_case",
+        "content": "You resigned from BrightTech Solutions in Bengaluru and have not been paid your salary of Rs 35,000 for September and October 2026. [1]\n\nUnder the Code on Wages, 2019, wages due after resignation must be paid within two working days, so your employer is late in paying your salary. [1]\n\nYou can file a claim with the authority appointed by the government to hear wage disputes in your area, but this must be done within three years of the unpaid salary date. [2] [3]\n\nIf you want to recover your unpaid salary as a breach of contract, you may claim compensation for losses that naturally arose from the breach, but this requires going to civil court and has its own procedures and time limits; a lawyer can advise you on this. [4]\n\nNext: What was your job there?",
+        "meta": {
+          "risks": [],
+          "blocks": {
+            "hedge": "",
+            "notes": [],
+            "points": [
+              {
+                "refs": [
+                  1
+                ],
+                "text": "You resigned from BrightTech Solutions in Bengaluru and have not been paid your salary of Rs 35,000 for September and October 2026."
+              },
+              {
+                "refs": [
+                  1
+                ],
+                "text": "Under the Code on Wages, 2019, wages due after resignation must be paid within two working days, so your employer is late in paying your salary."
+              },
+              {
+                "refs": [
+                  2,
+                  3
+                ],
+                "text": "You can file a claim with the authority appointed by the government to hear wage disputes in your area, but this must be done within three years of the unpaid salary date."
+              },
+              {
+                "refs": [
+                  4
+                ],
+                "text": "If you want to recover your unpaid salary as a breach of contract, you may claim compensation for losses that naturally arose from the breach, but this requires going to civil court and has its own procedures and time limits; a lawyer can advise you on this."
+              }
+            ],
+            "question": "What was your job there?"
+          },
+          "dropped": 0,
+          "citations": [
+            {
+              "n": 1,
+              "id": "COW-17",
+              "url": "https://static.pib.gov.in/WriteReadData/specificdocs/documents/2025/nov/doc20251123703501.pdf",
+              "title": "When wages must be paid",
+              "caveat": "The government can set a different time limit under Section 17(3). The two-day rule covers wages, not every item in a full-and-final settlement.",
+              "locator": "Section 17(1) and 17(2)",
+              "summary": "Monthly wages must be paid before the end of the seventh day of the following month. Weekly wages are due on the last working day of the week, and daily wages at the end of the shift. If you were removed, dismissed, retrenched, resigned, or the establishment closed, wages due must be paid within two working days.",
+              "citation": "Section 17, Code on Wages, 2019",
+              "reviewed_on": "2026-11-09"
+            },
+            {
+              "n": 2,
+              "id": "COW-45",
+              "url": "https://indiankanoon.org/doc/138728918/",
+              "title": "Filing a claim for unpaid wages",
+              "caveat": "Who the authority is in your area depends on your state's notification. Ask the local labour office.",
+              "locator": "Section 45(1), 45(4), 45(6)",
+              "summary": "Claims under the Code are heard by an authority the government appoints. The employee, their registered trade union, or an Inspector-cum-Facilitator can file. The claim should be filed within three years of the date it arose; a later claim needs sufficient cause. The authority tries to decide within three months.",
+              "citation": "Section 45, Code on Wages, 2019",
+              "reviewed_on": "2026-11-09"
+            },
+            {
+              "n": 3,
+              "id": "COW-COMMENCE",
+              "url": "https://static.pib.gov.in/WriteReadData/specificdocs/documents/2025/nov/doc20251123703501.pdf",
+              "title": "Which wage law applies now",
+              "caveat": "Which authority hears claims, and some details, depend on your state's rules.",
+              "locator": "PIB explainer on the Labour Codes, November 2025",
+              "summary": "The Code on Wages, 2019 came into force on 21 November 2025 and replaced the Payment of Wages Act 1936, the Minimum Wages Act 1948, the Payment of Bonus Act 1965 and the Equal Remuneration Act 1976. Some rules under it are still being notified state by state.",
+              "citation": "Code on Wages, 2019",
+              "reviewed_on": "2026-11-09"
+            },
+            {
+              "n": 4,
+              "id": "ICA-73",
+              "url": "https://indiankanoon.org/doc/339747/",
+              "title": "Breach of a written or oral agreement",
+              "caveat": "Recovering money through a civil court has its own time limits and procedure. Ask a lawyer or the District Legal Services Authority early.",
+              "locator": "Section 73",
+              "summary": "A rent agreement or an employment agreement is a contract. When one side breaks it, the other side can claim compensation for loss that naturally arose from the breach. Remote or indirect losses are not covered.",
+              "citation": "Section 73, Indian Contract Act, 1872",
+              "reviewed_on": "2026-11-09"
+            }
+          ]
+        }
+      },
+      "case_after": {
+        "domain": "salary",
+        "language": "en",
+        "facts": [
+          {
+            "field": "employer",
+            "label": "Employer",
+            "value": "BrightTech Solutions",
+            "quote": "My employer BrightTech Solutions in Bengaluru hasn't paid my salary of Rs 35,000 for September and October 2026.",
+            "confirmed": false,
+            "edited": false
+          },
+          {
+            "field": "state",
+            "label": "State",
+            "value": "Bengaluru",
+            "quote": "My employer BrightTech Solutions in Bengaluru hasn't paid my salary of Rs 35,000 for September and October 2026.",
+            "confirmed": false,
+            "edited": false
+          },
+          {
+            "field": "salary",
+            "label": "Salary",
+            "value": "Rs 35,000",
+            "quote": "My employer BrightTech Solutions in Bengaluru hasn't paid my salary of Rs 35,000 for September and October 2026.",
+            "confirmed": false,
+            "edited": false
+          },
+          {
+            "field": "unpaid_period",
+            "label": "Unpaid period",
+            "value": "September and October 2026",
+            "quote": "My employer BrightTech Solutions in Bengaluru hasn't paid my salary of Rs 35,000 for September and October 2026.",
+            "confirmed": false,
+            "edited": false
+          },
+          {
+            "field": "employment_status",
+            "label": "Still working?",
+            "value": "resigned",
+            "quote": "I resigned and my last working day was 31 October.",
+            "confirmed": false,
+            "edited": false
+          }
+        ],
+        "missing": [
+          "Your job",
+          "Amount owed",
+          "Steps already taken",
+          "Proof you have",
+          "What you want"
+        ],
+        "events": [
+          {
+            "when": "31 October",
+            "what": "Last working day",
+            "quote": "my last working day was 31 October",
+            "turn": 1
+          }
+        ],
+        "notice": null,
+        "pending": null
+      },
+      "checks": [
+        {
+          "check": "domain",
+          "ok": true,
+          "detail": "salary"
+        },
+        {
+          "check": "cites_include",
+          "ok": true,
+          "detail": "cited ['COW-17', 'COW-45', 'COW-COMMENCE', 'ICA-73']; missing []"
+        },
+        {
+          "check": "reply_excludes",
+          "ok": true,
+          "detail": "found []"
+        },
+        {
+          "check": "facts",
+          "ok": true,
+          "detail": "mismatched {}"
+        },
+        {
+          "check": "citations_exist",
+          "ok": true,
+          "detail": "unknown []"
+        },
+        {
+          "check": "displayed_points_reverify",
+          "ok": true,
+          "detail": []
+        }
+      ]
+    }
+  ],
+  "passed": true
+}

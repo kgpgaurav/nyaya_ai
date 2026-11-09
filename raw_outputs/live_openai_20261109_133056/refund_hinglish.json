@@ -1,0 +1,269 @@
+{
+  "id": "refund_hinglish",
+  "about": "Hinglish refund case: e-commerce grievance route and the consumer helpline.",
+  "turns": [
+    {
+      "turn": 1,
+      "sent": {
+        "text": "Maine Flipkart se 12,000 ka mixer grinder liya tha 2 October ko, woh pehle din se kharab hai. Seller refund nahi de raha. Kya karun?",
+        "mode": "auto",
+        "language": "auto"
+      },
+      "status": 200,
+      "elapsed_ms": 8570,
+      "llm_calls": [
+        {
+          "id": 141,
+          "node": "triage",
+          "provider": "openai",
+          "model": "gpt-4.1-mini",
+          "input_tokens": 622,
+          "output_tokens": 18,
+          "latency_ms": 1998,
+          "ok": true,
+          "error": ""
+        },
+        {
+          "id": 142,
+          "node": "extract",
+          "provider": "openai",
+          "model": "gpt-4.1-mini",
+          "input_tokens": 564,
+          "output_tokens": 281,
+          "latency_ms": 3423,
+          "ok": true,
+          "error": ""
+        },
+        {
+          "id": 143,
+          "node": "compose",
+          "provider": "openai",
+          "model": "gpt-4.1-mini",
+          "input_tokens": 1225,
+          "output_tokens": 237,
+          "latency_ms": 2999,
+          "ok": true,
+          "error": ""
+        }
+      ],
+      "assistant": {
+        "role": "assistant",
+        "mode": "explain",
+        "content": "आप Flipkart से खरीदा सामान उपभोक्ता अधिकारों के तहत आता है क्योंकि आपने व्यक्तिगत उपयोग के लिए खरीदा है। [1]\n\nFlipkart को अपनी वेबसाइट या ऐप पर शिकायत अधिकारी का संपर्क दिखाना होता है, और वे आपकी शिकायत 48 घंटे में स्वीकार कर एक महीने में समाधान करने की कोशिश करेंगे। [2]\n\nअगर आपका mixer grinder खराब है तो Flipkart उसे वापस लेने या रिफंड देने से मना नहीं कर सकता, जब तक कोई अप्रत्याशित बाधा न हो। [3]\n\nआप राष्ट्रीय उपभोक्ता हेल्पलाइन 1915 या 1800-11-4000 पर कॉल कर सकते हैं या consumerhelpline.gov.in पर शिकायत दर्ज कर सकते हैं, जहां मुकदमे से पहले मदद मिल सकती है। [4]\n\nअगर Flipkart से समाधान नहीं मिलता है तो आप उपभोक्ता आयोग में शिकायत कर सकते हैं, लेकिन शिकायत करने की अंतिम सीमा दो साल होती है। [5]\n\nअगला सवाल: क्या आपके पास ऑर्डर या ट्रांज़ैक्शन नंबर है?",
+        "meta": {
+          "risks": [],
+          "blocks": {
+            "hedge": "",
+            "notes": [],
+            "points": [
+              {
+                "refs": [
+                  1
+                ],
+                "text": "आप Flipkart से खरीदा सामान उपभोक्ता अधिकारों के तहत आता है क्योंकि आपने व्यक्तिगत उपयोग के लिए खरीदा है।"
+              },
+              {
+                "refs": [
+                  2
+                ],
+                "text": "Flipkart को अपनी वेबसाइट या ऐप पर शिकायत अधिकारी का संपर्क दिखाना होता है, और वे आपकी शिकायत 48 घंटे में स्वीकार कर एक महीने में समाधान करने की कोशिश करेंगे।"
+              },
+              {
+                "refs": [
+                  3
+                ],
+                "text": "अगर आपका mixer grinder खराब है तो Flipkart उसे वापस लेने या रिफंड देने से मना नहीं कर सकता, जब तक कोई अप्रत्याशित बाधा न हो।"
+              },
+              {
+                "refs": [
+                  4
+                ],
+                "text": "आप राष्ट्रीय उपभोक्ता हेल्पलाइन 1915 या 1800-11-4000 पर कॉल कर सकते हैं या consumerhelpline.gov.in पर शिकायत दर्ज कर सकते हैं, जहां मुकदमे से पहले मदद मिल सकती है।"
+              },
+              {
+                "refs": [
+                  5
+                ],
+                "text": "अगर Flipkart से समाधान नहीं मिलता है तो आप उपभोक्ता आयोग में शिकायत कर सकते हैं, लेकिन शिकायत करने की अंतिम सीमा दो साल होती है।"
+              }
+            ],
+            "question": "क्या आपके पास ऑर्डर या ट्रांज़ैक्शन नंबर है?"
+          },
+          "dropped": 0,
+          "citations": [
+            {
+              "n": 1,
+              "id": "CPA-2-7",
+              "url": "https://www.indiacode.nic.in/",
+              "title": "Who counts as a consumer",
+              "caveat": "Whether a particular purchase is commercial depends on facts. Business purchases need a lawyer's view.",
+              "locator": "India Code: search 'Consumer Protection Act, 2019', Section 2(7)",
+              "summary": "अगर आपने भुगतान करके सामान खरीदा या सेवा ली है तो आप उपभोक्ता हैं। दोबारा बेचने या व्यावसायिक उद्देश्य के लिए खरीद इसमें शामिल नहीं है। केवल स्वरोज़गार से आजीविका कमाने के लिए खरीदा सामान व्यावसायिक नहीं माना जाता।",
+              "citation": "Section 2(7), Consumer Protection Act, 2019",
+              "reviewed_on": "2026-11-09"
+            },
+            {
+              "n": 2,
+              "id": "ECOM-4",
+              "url": "https://thc.nic.in/Central%20Governmental%20Rules/Consumer%20Protection%20%28E-Commerce%29%20Rules%2C%202020.pdf",
+              "title": "E-commerce grievance officer",
+              "caveat": "One month is the redressal timeline for the grievance, not a universal refund deadline.",
+              "locator": "Rule 4, printed page 82",
+              "summary": "हर ई-कॉमर्स संस्था को शिकायत अधिकारी नियुक्त करना होता है और उसका संपर्क प्लेटफॉर्म पर दिखाना होता है। अधिकारी को 48 घंटे में शिकायत की प्राप्ति स्वीकार करनी होती है और एक महीने में निवारण करना होता है।",
+              "citation": "Rules 4(4) and 4(5), Consumer Protection (E-Commerce) Rules, 2020",
+              "reviewed_on": "2026-11-09"
+            },
+            {
+              "n": 3,
+              "id": "ECOM-REFUND",
+              "url": "https://thc.nic.in/Central%20Governmental%20Rules/Consumer%20Protection%20%28E-Commerce%29%20Rules%2C%202020.pdf",
+              "title": "Refusing returns for defective goods",
+              "caveat": "Whether the goods were defective or late is a disputed fact the seller may contest. A refund is not guaranteed.",
+              "locator": "Printed pages 84 and 86",
+              "summary": "मार्केटप्लेस विक्रेता और इन्वेंटरी ई-कॉमर्स संस्थाएं खराब, कमी वाले, नकली या विवरण से अलग सामान, या बताई गई तारीख के बाद देर से पहुंचे सामान को वापस लेने या रिफंड से मना नहीं कर सकतीं, सिवाय अप्रत्याशित बाधा (फोर्स मेज्योर) से हुई देरी के।",
+              "citation": "Rules 6(3) and 7(4), Consumer Protection (E-Commerce) Rules, 2020",
+              "reviewed_on": "2026-11-09"
+            },
+            {
+              "n": 4,
+              "id": "NCH",
+              "url": "https://consumerhelpline.gov.in/public/contact",
+              "title": "National Consumer Helpline",
+              "caveat": "",
+              "locator": "Contact page",
+              "summary": "राष्ट्रीय उपभोक्ता हेल्पलाइन मुकदमे से पहले की मुफ्त व्यवस्था है, अदालत नहीं। 1915 या 1800-11-4000 (सुबह 8 से रात 8 बजे) पर कॉल करें, 8800001915 पर व्हाट्सऐप या एसएमएस करें, या consumerhelpline.gov.in पर दर्ज करें। समाधान की गारंटी नहीं है।",
+              "citation": "National Consumer Helpline, Department of Consumer Affairs",
+              "reviewed_on": "2026-11-09"
+            },
+            {
+              "n": 5,
+              "id": "CPA-69",
+              "url": "https://www.advocatekhoj.com/library/bareacts/consumerprotection2019/69.php",
+              "title": "Time limit for a consumer complaint",
+              "caveat": "When the cause of action arose is a legal question. If you are close to two years, speak to a lawyer now.",
+              "locator": "Section 69(1) and 69(2)",
+              "summary": "कारण उत्पन्न होने के दो साल बाद दायर शिकायत उपभोक्ता आयोग सामान्यतः स्वीकार नहीं करता। देरी का पर्याप्त कारण दिखाने और आयोग द्वारा कारण दर्ज करने पर ही देर से शिकायत स्वीकार हो सकती है।",
+              "citation": "Section 69, Consumer Protection Act, 2019",
+              "reviewed_on": "2026-11-09"
+            }
+          ]
+        }
+      },
+      "case_after": {
+        "domain": "refund",
+        "language": "hi",
+        "facts": [
+          {
+            "field": "seller",
+            "label": "विक्रेता / प्लेटफॉर्म",
+            "value": "Flipkart",
+            "quote": "Maine Flipkart se 12,000 ka mixer grinder liya tha 2 October ko",
+            "confirmed": false,
+            "edited": false
+          },
+          {
+            "field": "product",
+            "label": "सामान या सेवा",
+            "value": "mixer grinder",
+            "quote": "Maine Flipkart se 12,000 ka mixer grinder liya tha 2 October ko",
+            "confirmed": false,
+            "edited": false
+          },
+          {
+            "field": "amount",
+            "label": "भुगतान राशि",
+            "value": "12,000",
+            "quote": "Maine Flipkart se 12,000 ka mixer grinder liya tha 2 October ko",
+            "confirmed": false,
+            "edited": false
+          },
+          {
+            "field": "purchase_date",
+            "label": "खरीद की तारीख",
+            "value": "2 October",
+            "quote": "Maine Flipkart se 12,000 ka mixer grinder liya tha 2 October ko",
+            "confirmed": false,
+            "edited": false
+          },
+          {
+            "field": "problem",
+            "label": "समस्या",
+            "value": "pehle din se kharab hai",
+            "quote": "woh pehle din se kharab hai",
+            "confirmed": false,
+            "edited": false
+          },
+          {
+            "field": "resolution",
+            "label": "आपकी मांग",
+            "value": "refund",
+            "quote": "Seller refund nahi de raha",
+            "confirmed": false,
+            "edited": false
+          }
+        ],
+        "missing": [
+          "ऑर्डर नंबर",
+          "पहले किए गए प्रयास",
+          "आपके पास प्रमाण",
+          "खरीद का उद्देश्य"
+        ],
+        "events": [
+          {
+            "when": "2 October",
+            "what": "Bought mixer grinder",
+            "quote": "Maine Flipkart se 12,000 ka mixer grinder liya tha 2 October ko",
+            "turn": 1
+          },
+          {
+            "when": "",
+            "what": "Mixer grinder was faulty from first day",
+            "quote": "woh pehle din se kharab hai",
+            "turn": 1
+          },
+          {
+            "when": "",
+            "what": "Seller is not giving refund",
+            "quote": "Seller refund nahi de raha",
+            "turn": 1
+          }
+        ],
+        "notice": null,
+        "pending": null
+      },
+      "checks": [
+        {
+          "check": "domain",
+          "ok": true,
+          "detail": "refund"
+        },
+        {
+          "check": "language",
+          "ok": false,
+          "detail": "hi"
+        },
+        {
+          "check": "cites_include",
+          "ok": true,
+          "detail": "cited ['CPA-2-7', 'ECOM-4', 'ECOM-REFUND', 'NCH', 'CPA-69']; missing []"
+        },
+        {
+          "check": "facts",
+          "ok": true,
+          "detail": "mismatched {}"
+        },
+        {
+          "check": "citations_exist",
+          "ok": true,
+          "detail": "unknown []"
+        },
+        {
+          "check": "displayed_points_reverify",
+          "ok": true,
+          "detail": []
+        }
+      ]
+    }
+  ],
+  "passed": false
+}

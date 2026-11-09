@@ -1,0 +1,134 @@
+{
+  "id": "notice_fake_deadline",
+  "about": "Landlord letter. The model invents a deadline that is not in the text; it must be dropped.",
+  "turns": [
+    {
+      "turn": 1,
+      "sent": {
+        "text": "Dear tenant, this is to inform you that the rent for your flat at Indiranagar is being increased from Rs 18,000 to Rs 22,000 from next month. Kindly confirm acceptance or vacate the premises. Regards, Suresh Rao",
+        "mode": "notice",
+        "language": "auto"
+      },
+      "status": 200,
+      "elapsed_ms": 3435,
+      "llm_calls": [
+        {
+          "id": 162,
+          "node": "triage",
+          "provider": "openai",
+          "model": "gpt-4.1-mini",
+          "input_tokens": 634,
+          "output_tokens": 18,
+          "latency_ms": 1558,
+          "ok": true,
+          "error": ""
+        },
+        {
+          "id": 163,
+          "node": "notice",
+          "provider": "openai",
+          "model": "gpt-4.1-mini",
+          "input_tokens": 397,
+          "output_tokens": 95,
+          "latency_ms": 1806,
+          "ok": true,
+          "error": ""
+        }
+      ],
+      "assistant": {
+        "role": "assistant",
+        "mode": "notice",
+        "content": "The landlord informs the tenant that the rent for the flat at Indiranagar will increase from Rs 18,000 to Rs 22,000 starting next month.\n\nThe tenant is asked to either accept this rent increase or move out of the flat.\n\nNo specific deadline is mentioned for the tenant to respond.\n\nConfirm acceptance of the rent increase or vacate the flat.\n\nI didn't find a clear deadline in the text you shared. Check the original carefully.",
+        "meta": {
+          "risks": [],
+          "blocks": {
+            "notice": {
+              "law": [],
+              "asks": "Confirm acceptance of the rent increase or vacate the flat.",
+              "kind": "notice from a landlord",
+              "lawyer": "",
+              "sender": "Suresh Rao",
+              "summary": [
+                "The landlord informs the tenant that the rent for the flat at Indiranagar will increase from Rs 18,000 to Rs 22,000 starting next month.",
+                "The tenant is asked to either accept this rent increase or move out of the flat.",
+                "No specific deadline is mentioned for the tenant to respond."
+              ],
+              "deadline": "",
+              "lawyer_ref": 1,
+              "deadline_line": "I didn't find a clear deadline in the text you shared. Check the original carefully."
+            }
+          },
+          "dropped": 0,
+          "citations": [
+            {
+              "n": 1,
+              "id": "LSA-12",
+              "url": "https://nalsa.gov.in/",
+              "title": "Free legal aid",
+              "caveat": "The income limit varies by state.",
+              "locator": "Legal aid eligibility; helpline 15100",
+              "summary": "Women, children, members of Scheduled Castes and Scheduled Tribes, persons with disabilities, industrial workmen, people in custody and people below the income limit can get a free lawyer. Call the NALSA helpline 15100 or visit your District Legal Services Authority.",
+              "citation": "Section 12, Legal Services Authorities Act, 1987",
+              "reviewed_on": "2026-11-09"
+            }
+          ]
+        }
+      },
+      "case_after": {
+        "domain": "deposit",
+        "language": "en",
+        "facts": [],
+        "missing": [
+          "Landlord",
+          "Property",
+          "State",
+          "Deposit paid",
+          "Monthly rent",
+          "Move-out date",
+          "Rent agreement",
+          "Deductions claimed",
+          "Steps already taken",
+          "Proof you have",
+          "What you want"
+        ],
+        "events": [],
+        "notice": {
+          "kind": "landlord",
+          "sender": "Suresh Rao",
+          "deadline": "",
+          "asks": "Confirm acceptance of the rent increase or vacate the flat.",
+          "excerpt": "Dear tenant, this is to inform you that the rent for your flat at Indiranagar is being increased from Rs 18,000 to Rs 22,000 from next month. Kindly confirm acceptance or vacate the premises. Regards, Suresh Rao"
+        },
+        "pending": null
+      },
+      "checks": [
+        {
+          "check": "mode",
+          "ok": true,
+          "detail": "notice"
+        },
+        {
+          "check": "notice_kind",
+          "ok": true,
+          "detail": "landlord"
+        },
+        {
+          "check": "deadline",
+          "ok": true,
+          "detail": ""
+        },
+        {
+          "check": "reply_excludes",
+          "ok": true,
+          "detail": "found []"
+        },
+        {
+          "check": "citations_exist",
+          "ok": true,
+          "detail": "unknown []"
+        }
+      ]
+    }
+  ],
+  "passed": true
+}

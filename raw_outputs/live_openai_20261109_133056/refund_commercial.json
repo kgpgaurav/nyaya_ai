@@ -1,0 +1,247 @@
+{
+  "id": "refund_commercial",
+  "about": "Resale purchase: should flag that the consumer route may not apply.",
+  "turns": [
+    {
+      "turn": 1,
+      "sent": {
+        "text": "I bought 20 phone covers for Rs 4,000 from a wholesaler on IndiaMart to resell in my shop and half of them are broken. Can I file a consumer case?",
+        "mode": "auto",
+        "language": "auto"
+      },
+      "status": 200,
+      "elapsed_ms": 8424,
+      "llm_calls": [
+        {
+          "id": 144,
+          "node": "triage",
+          "provider": "openai",
+          "model": "gpt-4.1-mini",
+          "input_tokens": 621,
+          "output_tokens": 20,
+          "latency_ms": 1414,
+          "ok": true,
+          "error": ""
+        },
+        {
+          "id": 145,
+          "node": "extract",
+          "provider": "openai",
+          "model": "gpt-4.1-mini",
+          "input_tokens": 563,
+          "output_tokens": 213,
+          "latency_ms": 3725,
+          "ok": true,
+          "error": ""
+        },
+        {
+          "id": 146,
+          "node": "compose",
+          "provider": "openai",
+          "model": "gpt-4.1-mini",
+          "input_tokens": 1119,
+          "output_tokens": 249,
+          "latency_ms": 3174,
+          "ok": true,
+          "error": ""
+        }
+      ],
+      "assistant": {
+        "role": "assistant",
+        "mode": "explain",
+        "content": "Since you bought the phone covers to resell in your shop, this is considered a commercial purchase and you may not be treated as a consumer under the Consumer Protection Act, 2019, so filing a consumer case may not be straightforward. [1]\n\nYou can try to contact the wholesaler through the grievance officer on the IndiaMart platform, who must acknowledge your complaint within 48 hours and try to resolve it within one month. [2]\n\nIf the wholesaler refuses to take back or refund the defective phone covers, you may have a right to a refund or replacement since the goods are defective, but the seller may contest this fact. [3]\n\nIf you want to pursue a consumer complaint, the forum depends on the amount paid; since you paid Rs 4,000, you can file in the District Consumer Commission where you live or work. [4]\n\nYou must file any consumer complaint within two years from when you discovered the defect, or you may need to show sufficient cause for delay to the Commission. [5]\n\nNote: if this was bought for resale or business, the consumer route may not apply. A lawyer should check that.\n\nNext: When did you buy it? An approximate date is fine.",
+        "meta": {
+          "risks": [
+            "commercial"
+          ],
+          "blocks": {
+            "hedge": "",
+            "notes": [
+              "Note: if this was bought for resale or business, the consumer route may not apply. A lawyer should check that."
+            ],
+            "points": [
+              {
+                "refs": [
+                  1
+                ],
+                "text": "Since you bought the phone covers to resell in your shop, this is considered a commercial purchase and you may not be treated as a consumer under the Consumer Protection Act, 2019, so filing a consumer case may not be straightforward."
+              },
+              {
+                "refs": [
+                  2
+                ],
+                "text": "You can try to contact the wholesaler through the grievance officer on the IndiaMart platform, who must acknowledge your complaint within 48 hours and try to resolve it within one month."
+              },
+              {
+                "refs": [
+                  3
+                ],
+                "text": "If the wholesaler refuses to take back or refund the defective phone covers, you may have a right to a refund or replacement since the goods are defective, but the seller may contest this fact."
+              },
+              {
+                "refs": [
+                  4
+                ],
+                "text": "If you want to pursue a consumer complaint, the forum depends on the amount paid; since you paid Rs 4,000, you can file in the District Consumer Commission where you live or work."
+              },
+              {
+                "refs": [
+                  5
+                ],
+                "text": "You must file any consumer complaint within two years from when you discovered the defect, or you may need to show sufficient cause for delay to the Commission."
+              }
+            ],
+            "question": "When did you buy it? An approximate date is fine."
+          },
+          "dropped": 0,
+          "citations": [
+            {
+              "n": 1,
+              "id": "CPA-2-7",
+              "url": "https://www.indiacode.nic.in/",
+              "title": "Who counts as a consumer",
+              "caveat": "Whether a particular purchase is commercial depends on facts. Business purchases need a lawyer's view.",
+              "locator": "India Code: search 'Consumer Protection Act, 2019', Section 2(7)",
+              "summary": "You are a consumer if you bought goods or hired a service for payment. Buying for resale or another commercial purpose is excluded. Goods bought only to earn a livelihood through self-employment are not treated as commercial.",
+              "citation": "Section 2(7), Consumer Protection Act, 2019",
+              "reviewed_on": "2026-11-09"
+            },
+            {
+              "n": 2,
+              "id": "ECOM-4",
+              "url": "https://thc.nic.in/Central%20Governmental%20Rules/Consumer%20Protection%20%28E-Commerce%29%20Rules%2C%202020.pdf",
+              "title": "E-commerce grievance officer",
+              "caveat": "One month is the redressal timeline for the grievance, not a universal refund deadline.",
+              "locator": "Rule 4, printed page 82",
+              "summary": "Every e-commerce entity must appoint a grievance officer and show their contact details on the platform. The officer must acknowledge a complaint within 48 hours and redress it within one month of receiving it.",
+              "citation": "Rules 4(4) and 4(5), Consumer Protection (E-Commerce) Rules, 2020",
+              "reviewed_on": "2026-11-09"
+            },
+            {
+              "n": 3,
+              "id": "ECOM-REFUND",
+              "url": "https://thc.nic.in/Central%20Governmental%20Rules/Consumer%20Protection%20%28E-Commerce%29%20Rules%2C%202020.pdf",
+              "title": "Refusing returns for defective goods",
+              "caveat": "Whether the goods were defective or late is a disputed fact the seller may contest. A refund is not guaranteed.",
+              "locator": "Printed pages 84 and 86",
+              "summary": "Marketplace sellers and inventory e-commerce entities cannot refuse to take back, or refuse a refund for, goods that are defective, deficient, spurious or not as described, or that were delivered late beyond the stated date, except where the delay was due to force majeure.",
+              "citation": "Rules 6(3) and 7(4), Consumer Protection (E-Commerce) Rules, 2020",
+              "reviewed_on": "2026-11-09"
+            },
+            {
+              "n": 4,
+              "id": "CPA-JURIS",
+              "url": "https://pib.gov.in/PressReleasePage.aspx?PRID=1786342",
+              "title": "Which Consumer Commission hears your case",
+              "caveat": "Territorial rules have more options; confirm the right District Commission on e-Jagriti.",
+              "locator": "PIB release, 30 December 2021",
+              "summary": "The forum depends on the amount you paid, not the compensation you claim. Up to Rs 50 lakh goes to the District Commission, above Rs 50 lakh up to Rs 2 crore to the State Commission, and above Rs 2 crore to the National Commission. You can file where you live or work.",
+              "citation": "Consumer Protection (Jurisdiction of the District Commission, the State Commission and the National Commission) Rules, 2021",
+              "reviewed_on": "2026-11-09"
+            },
+            {
+              "n": 5,
+              "id": "CPA-69",
+              "url": "https://www.advocatekhoj.com/library/bareacts/consumerprotection2019/69.php",
+              "title": "Time limit for a consumer complaint",
+              "caveat": "When the cause of action arose is a legal question. If you are close to two years, speak to a lawyer now.",
+              "locator": "Section 69(1) and 69(2)",
+              "summary": "A Consumer Commission will normally not admit a complaint filed more than two years after the cause of action arose. A late complaint can be admitted only if you show sufficient cause and the Commission records its reasons.",
+              "citation": "Section 69, Consumer Protection Act, 2019",
+              "reviewed_on": "2026-11-09"
+            }
+          ]
+        }
+      },
+      "case_after": {
+        "domain": "refund",
+        "language": "en",
+        "facts": [
+          {
+            "field": "seller",
+            "label": "Seller / platform",
+            "value": "wholesaler on IndiaMart",
+            "quote": "I bought 20 phone covers for Rs 4,000 from a wholesaler on IndiaMart to resell in my shop",
+            "confirmed": false,
+            "edited": false
+          },
+          {
+            "field": "product",
+            "label": "Product or service",
+            "value": "20 phone covers",
+            "quote": "I bought 20 phone covers for Rs 4,000 from a wholesaler on IndiaMart to resell in my shop",
+            "confirmed": false,
+            "edited": false
+          },
+          {
+            "field": "amount",
+            "label": "Amount paid",
+            "value": "Rs 4,000",
+            "quote": "I bought 20 phone covers for Rs 4,000 from a wholesaler on IndiaMart to resell in my shop",
+            "confirmed": false,
+            "edited": false
+          },
+          {
+            "field": "problem",
+            "label": "What went wrong",
+            "value": "half of them are broken",
+            "quote": "half of them are broken",
+            "confirmed": false,
+            "edited": false
+          },
+          {
+            "field": "purpose",
+            "label": "Purchase purpose",
+            "value": "to resell in my shop",
+            "quote": "I bought 20 phone covers for Rs 4,000 from a wholesaler on IndiaMart to resell in my shop",
+            "confirmed": false,
+            "edited": false
+          }
+        ],
+        "missing": [
+          "Purchase date",
+          "Order reference",
+          "Steps already taken",
+          "Proof you have",
+          "What you want"
+        ],
+        "events": [],
+        "notice": null,
+        "pending": null
+      },
+      "checks": [
+        {
+          "check": "domain",
+          "ok": true,
+          "detail": "refund"
+        },
+        {
+          "check": "cites_include",
+          "ok": true,
+          "detail": "cited ['CPA-2-7', 'ECOM-4', 'ECOM-REFUND', 'CPA-JURIS', 'CPA-69']; missing []"
+        },
+        {
+          "check": "notes_contains",
+          "ok": true,
+          "detail": "missing []"
+        },
+        {
+          "check": "risks_include",
+          "ok": true,
+          "detail": "risks ['commercial']"
+        },
+        {
+          "check": "citations_exist",
+          "ok": true,
+          "detail": "unknown []"
+        },
+        {
+          "check": "displayed_points_reverify",
+          "ok": true,
+          "detail": []
+        }
+      ]
+    }
+  ],
+  "passed": true
+}

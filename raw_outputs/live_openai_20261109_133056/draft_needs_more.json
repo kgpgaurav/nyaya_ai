@@ -1,0 +1,196 @@
+{
+  "id": "draft_needs_more",
+  "about": "Draft requested too early: lists what's missing and asks, without drafting.",
+  "turns": [
+    {
+      "turn": 1,
+      "sent": {
+        "text": "Write a complaint to Amazon about my broken headphones",
+        "mode": "draft",
+        "language": "auto"
+      },
+      "status": 200,
+      "elapsed_ms": 6085,
+      "llm_calls": [
+        {
+          "id": 182,
+          "node": "triage",
+          "provider": "openai",
+          "model": "gpt-4.1-mini",
+          "input_tokens": 591,
+          "output_tokens": 17,
+          "latency_ms": 1517,
+          "ok": true,
+          "error": ""
+        },
+        {
+          "id": 183,
+          "node": "extract",
+          "provider": "openai",
+          "model": "gpt-4.1-mini",
+          "input_tokens": 533,
+          "output_tokens": 64,
+          "latency_ms": 2251,
+          "ok": true,
+          "error": ""
+        },
+        {
+          "id": 184,
+          "node": "compose",
+          "provider": "openai",
+          "model": "gpt-4.1-mini",
+          "input_tokens": 1031,
+          "output_tokens": 152,
+          "latency_ms": 2192,
+          "ok": true,
+          "error": ""
+        }
+      ],
+      "assistant": {
+        "role": "assistant",
+        "mode": "build_case",
+        "content": "You bought headphones from Amazon that are broken, so you want to complain about this issue.\n\nAmazon, as an e-commerce entity, must have a grievance officer who should acknowledge your complaint within 48 hours and resolve it within one month. [1]\n\nYou can file a consumer complaint online on the e-Jagriti portal without paying a fee if the amount paid is up to Rs 5 lakh. [2]\n\nIf you want to escalate the matter to a Consumer Commission, you should file the complaint within two years of the problem arising, or else you need to show sufficient cause for delay. [3]\n\nBefore I can draft this I still need: Amount paid, Purchase date, What you want.\n\nNext: How much did you pay?",
+        "meta": {
+          "risks": [],
+          "blocks": {
+            "hedge": "",
+            "notes": [
+              "Before I can draft this I still need: Amount paid, Purchase date, What you want."
+            ],
+            "points": [
+              {
+                "refs": [],
+                "text": "You bought headphones from Amazon that are broken, so you want to complain about this issue."
+              },
+              {
+                "refs": [
+                  1
+                ],
+                "text": "Amazon, as an e-commerce entity, must have a grievance officer who should acknowledge your complaint within 48 hours and resolve it within one month."
+              },
+              {
+                "refs": [
+                  2
+                ],
+                "text": "You can file a consumer complaint online on the e-Jagriti portal without paying a fee if the amount paid is up to Rs 5 lakh."
+              },
+              {
+                "refs": [
+                  3
+                ],
+                "text": "If you want to escalate the matter to a Consumer Commission, you should file the complaint within two years of the problem arising, or else you need to show sufficient cause for delay."
+              }
+            ],
+            "question": "How much did you pay?"
+          },
+          "dropped": 0,
+          "citations": [
+            {
+              "n": 1,
+              "id": "ECOM-4",
+              "url": "https://thc.nic.in/Central%20Governmental%20Rules/Consumer%20Protection%20%28E-Commerce%29%20Rules%2C%202020.pdf",
+              "title": "E-commerce grievance officer",
+              "caveat": "One month is the redressal timeline for the grievance, not a universal refund deadline.",
+              "locator": "Rule 4, printed page 82",
+              "summary": "Every e-commerce entity must appoint a grievance officer and show their contact details on the platform. The officer must acknowledge a complaint within 48 hours and redress it within one month of receiving it.",
+              "citation": "Rules 4(4) and 4(5), Consumer Protection (E-Commerce) Rules, 2020",
+              "reviewed_on": "2026-11-09"
+            },
+            {
+              "n": 2,
+              "id": "EJAGRITI",
+              "url": "https://e-jagriti.gov.in",
+              "title": "Filing a consumer complaint online",
+              "caveat": "Check the portal's current fee table before filing.",
+              "locator": "Portal home; fee schedule under the Consumer Protection (Consumer Disputes Redressal Commissions) Rules, 2020",
+              "summary": "Consumer complaints are filed online on e-Jagriti, which replaced e-Daakhil from 1 January 2025. No fee is charged at the District Commission when the amount paid is up to Rs 5 lakh.",
+              "citation": "e-Jagriti portal, Department of Consumer Affairs",
+              "reviewed_on": "2026-11-09"
+            },
+            {
+              "n": 3,
+              "id": "CPA-69",
+              "url": "https://www.advocatekhoj.com/library/bareacts/consumerprotection2019/69.php",
+              "title": "Time limit for a consumer complaint",
+              "caveat": "When the cause of action arose is a legal question. If you are close to two years, speak to a lawyer now.",
+              "locator": "Section 69(1) and 69(2)",
+              "summary": "A Consumer Commission will normally not admit a complaint filed more than two years after the cause of action arose. A late complaint can be admitted only if you show sufficient cause and the Commission records its reasons.",
+              "citation": "Section 69, Consumer Protection Act, 2019",
+              "reviewed_on": "2026-11-09"
+            }
+          ]
+        }
+      },
+      "case_after": {
+        "domain": "refund",
+        "language": "en",
+        "facts": [
+          {
+            "field": "seller",
+            "label": "Seller / platform",
+            "value": "Amazon",
+            "quote": "Amazon",
+            "confirmed": false,
+            "edited": false
+          },
+          {
+            "field": "product",
+            "label": "Product or service",
+            "value": "headphones",
+            "quote": "my broken headphones",
+            "confirmed": false,
+            "edited": false
+          },
+          {
+            "field": "problem",
+            "label": "What went wrong",
+            "value": "broken",
+            "quote": "my broken headphones",
+            "confirmed": false,
+            "edited": false
+          }
+        ],
+        "missing": [
+          "Amount paid",
+          "Purchase date",
+          "Order reference",
+          "Steps already taken",
+          "Proof you have",
+          "What you want",
+          "Purchase purpose"
+        ],
+        "events": [],
+        "notice": null,
+        "pending": null
+      },
+      "checks": [
+        {
+          "check": "mode",
+          "ok": true,
+          "detail": "build_case"
+        },
+        {
+          "check": "pending",
+          "ok": true,
+          "detail": "none"
+        },
+        {
+          "check": "notes_contains",
+          "ok": true,
+          "detail": "missing []"
+        },
+        {
+          "check": "citations_exist",
+          "ok": true,
+          "detail": "unknown []"
+        },
+        {
+          "check": "displayed_points_reverify",
+          "ok": true,
+          "detail": []
+        }
+      ]
+    }
+  ],
+  "passed": true
+}

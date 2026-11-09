@@ -1,0 +1,220 @@
+{
+  "id": "salary_hedge",
+  "about": "Both attempts invent law. The assistant must say it cannot confirm, and give no legal claim.",
+  "turns": [
+    {
+      "turn": 1,
+      "sent": {
+        "text": "The shop owner I worked for in Lucknow has not paid me for 3 months. I was a delivery helper. What does the law say?",
+        "mode": "auto",
+        "language": "auto"
+      },
+      "status": 200,
+      "elapsed_ms": 6919,
+      "llm_calls": [
+        {
+          "id": 150,
+          "node": "triage",
+          "provider": "openai",
+          "model": "gpt-4.1-mini",
+          "input_tokens": 612,
+          "output_tokens": 18,
+          "latency_ms": 1314,
+          "ok": true,
+          "error": ""
+        },
+        {
+          "id": 151,
+          "node": "extract",
+          "provider": "openai",
+          "model": "gpt-4.1-mini",
+          "input_tokens": 550,
+          "output_tokens": 117,
+          "latency_ms": 2105,
+          "ok": true,
+          "error": ""
+        },
+        {
+          "id": 152,
+          "node": "compose",
+          "provider": "openai",
+          "model": "gpt-4.1-mini",
+          "input_tokens": 1104,
+          "output_tokens": 240,
+          "latency_ms": 3381,
+          "ok": true,
+          "error": ""
+        }
+      ],
+      "assistant": {
+        "role": "assistant",
+        "mode": "explain",
+        "content": "Your employer must pay your monthly wages before the end of the seventh day of the following month, so your wages for each month should have been paid by the seventh of the next month. [1]\n\nYou can file a claim for unpaid wages with the authority appointed by the government under the Code on Wages, 2019, within three years from when the wages were due. [2]\n\nThe claim can be filed by you, your registered trade union, or an Inspector-cum-Facilitator, and the authority will try to decide the case within three months. [2]\n\nIf you cannot afford a lawyer, you may be eligible for free legal aid through the District Legal Services Authority, especially if you belong to certain groups or meet income criteria. [3]\n\nYou may also claim compensation for breach of your employment contract under the Indian Contract Act, 1872, but this requires a civil court and has its own procedures and time limits; consulting a lawyer early is advisable. [4]\n\nNext: What is your monthly salary?",
+        "meta": {
+          "risks": [],
+          "blocks": {
+            "hedge": "",
+            "notes": [],
+            "points": [
+              {
+                "refs": [
+                  1
+                ],
+                "text": "Your employer must pay your monthly wages before the end of the seventh day of the following month, so your wages for each month should have been paid by the seventh of the next month."
+              },
+              {
+                "refs": [
+                  2
+                ],
+                "text": "You can file a claim for unpaid wages with the authority appointed by the government under the Code on Wages, 2019, within three years from when the wages were due."
+              },
+              {
+                "refs": [
+                  2
+                ],
+                "text": "The claim can be filed by you, your registered trade union, or an Inspector-cum-Facilitator, and the authority will try to decide the case within three months."
+              },
+              {
+                "refs": [
+                  3
+                ],
+                "text": "If you cannot afford a lawyer, you may be eligible for free legal aid through the District Legal Services Authority, especially if you belong to certain groups or meet income criteria."
+              },
+              {
+                "refs": [
+                  4
+                ],
+                "text": "You may also claim compensation for breach of your employment contract under the Indian Contract Act, 1872, but this requires a civil court and has its own procedures and time limits; consulting a lawyer early is advisable."
+              }
+            ],
+            "question": "What is your monthly salary?"
+          },
+          "dropped": 0,
+          "citations": [
+            {
+              "n": 1,
+              "id": "COW-17",
+              "url": "https://static.pib.gov.in/WriteReadData/specificdocs/documents/2025/nov/doc20251123703501.pdf",
+              "title": "When wages must be paid",
+              "caveat": "The government can set a different time limit under Section 17(3). The two-day rule covers wages, not every item in a full-and-final settlement.",
+              "locator": "Section 17(1) and 17(2)",
+              "summary": "Monthly wages must be paid before the end of the seventh day of the following month. Weekly wages are due on the last working day of the week, and daily wages at the end of the shift. If you were removed, dismissed, retrenched, resigned, or the establishment closed, wages due must be paid within two working days.",
+              "citation": "Section 17, Code on Wages, 2019",
+              "reviewed_on": "2026-11-09"
+            },
+            {
+              "n": 2,
+              "id": "COW-45",
+              "url": "https://indiankanoon.org/doc/138728918/",
+              "title": "Filing a claim for unpaid wages",
+              "caveat": "Who the authority is in your area depends on your state's notification. Ask the local labour office.",
+              "locator": "Section 45(1), 45(4), 45(6)",
+              "summary": "Claims under the Code are heard by an authority the government appoints. The employee, their registered trade union, or an Inspector-cum-Facilitator can file. The claim should be filed within three years of the date it arose; a later claim needs sufficient cause. The authority tries to decide within three months.",
+              "citation": "Section 45, Code on Wages, 2019",
+              "reviewed_on": "2026-11-09"
+            },
+            {
+              "n": 3,
+              "id": "LSA-12",
+              "url": "https://nalsa.gov.in/",
+              "title": "Free legal aid",
+              "caveat": "The income limit varies by state.",
+              "locator": "Legal aid eligibility; helpline 15100",
+              "summary": "Women, children, members of Scheduled Castes and Scheduled Tribes, persons with disabilities, industrial workmen, people in custody and people below the income limit can get a free lawyer. Call the NALSA helpline 15100 or visit your District Legal Services Authority.",
+              "citation": "Section 12, Legal Services Authorities Act, 1987",
+              "reviewed_on": "2026-11-09"
+            },
+            {
+              "n": 4,
+              "id": "ICA-73",
+              "url": "https://indiankanoon.org/doc/339747/",
+              "title": "Breach of a written or oral agreement",
+              "caveat": "Recovering money through a civil court has its own time limits and procedure. Ask a lawyer or the District Legal Services Authority early.",
+              "locator": "Section 73",
+              "summary": "A rent agreement or an employment agreement is a contract. When one side breaks it, the other side can claim compensation for loss that naturally arose from the breach. Remote or indirect losses are not covered.",
+              "citation": "Section 73, Indian Contract Act, 1872",
+              "reviewed_on": "2026-11-09"
+            }
+          ]
+        }
+      },
+      "case_after": {
+        "domain": "salary",
+        "language": "en",
+        "facts": [
+          {
+            "field": "employer",
+            "label": "Employer",
+            "value": "The shop owner I worked for in Lucknow",
+            "quote": "The shop owner I worked for in Lucknow",
+            "confirmed": false,
+            "edited": false
+          },
+          {
+            "field": "role",
+            "label": "Your job",
+            "value": "delivery helper",
+            "quote": "I was a delivery helper",
+            "confirmed": false,
+            "edited": false
+          },
+          {
+            "field": "state",
+            "label": "State",
+            "value": "Lucknow",
+            "quote": "The shop owner I worked for in Lucknow",
+            "confirmed": false,
+            "edited": false
+          },
+          {
+            "field": "unpaid_period",
+            "label": "Unpaid period",
+            "value": "3 months",
+            "quote": "has not paid me for 3 months",
+            "confirmed": false,
+            "edited": false
+          }
+        ],
+        "missing": [
+          "Salary",
+          "Amount owed",
+          "Still working?",
+          "Steps already taken",
+          "Proof you have",
+          "What you want"
+        ],
+        "events": [],
+        "notice": null,
+        "pending": null
+      },
+      "checks": [
+        {
+          "check": "domain",
+          "ok": true,
+          "detail": "salary"
+        },
+        {
+          "check": "cites_exclude",
+          "ok": false,
+          "detail": "cited ['COW-17', 'COW-45', 'LSA-12', 'ICA-73']"
+        },
+        {
+          "check": "reply_excludes",
+          "ok": true,
+          "detail": "found []"
+        },
+        {
+          "check": "citations_exist",
+          "ok": true,
+          "detail": "unknown []"
+        },
+        {
+          "check": "displayed_points_reverify",
+          "ok": true,
+          "detail": []
+        }
+      ]
+    }
+  ],
+  "passed": false
+}

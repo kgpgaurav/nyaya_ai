@@ -1,0 +1,675 @@
+{
+  "id": "deposit_en_full",
+  "about": "English deposit case from first message to a confirmed draft. Planted errors: a fake judgment in compose and an invented legal deadline in the draft.",
+  "turns": [
+    {
+      "turn": 1,
+      "sent": {
+        "text": "My landlord Mr. Sharma in Pune has not returned my deposit of Rs 50,000. I moved out on 31 August 2026 and gave back the keys. What are my options?",
+        "mode": "auto",
+        "language": "auto"
+      },
+      "status": 200,
+      "elapsed_ms": 11233,
+      "llm_calls": [
+        {
+          "id": 129,
+          "node": "triage",
+          "provider": "openai",
+          "model": "gpt-4.1-mini",
+          "input_tokens": 622,
+          "output_tokens": 18,
+          "latency_ms": 3863,
+          "ok": true,
+          "error": ""
+        },
+        {
+          "id": 130,
+          "node": "extract",
+          "provider": "openai",
+          "model": "gpt-4.1-mini",
+          "input_tokens": 569,
+          "output_tokens": 194,
+          "latency_ms": 3465,
+          "ok": true,
+          "error": ""
+        },
+        {
+          "id": 131,
+          "node": "compose",
+          "provider": "openai",
+          "model": "gpt-4.1-mini",
+          "input_tokens": 790,
+          "output_tokens": 193,
+          "latency_ms": 3648,
+          "ok": true,
+          "error": ""
+        }
+      ],
+      "assistant": {
+        "role": "assistant",
+        "mode": "explain",
+        "content": "Since you moved out and returned the keys, your landlord should refund your deposit after deducting any actual liabilities you owe. [1]\n\nIf your landlord refuses to return the deposit, you may claim compensation for the loss caused by this breach of contract through a civil court. [2]\n\nYou should check if your state has adopted the Model Tenancy Act or a similar law, as this affects your rights regarding the deposit. [1]\n\nIf you need legal help and qualify under certain categories or income limits, you can get a free lawyer by contacting the District Legal Services Authority or the NALSA helpline 15100. [3]\n\nKeep all proof of your tenancy, deposit payment, and the date you returned the keys to support your claim if you pursue legal action.\n\nNext: Which property was it, and in which city?",
+        "meta": {
+          "risks": [],
+          "blocks": {
+            "hedge": "",
+            "notes": [],
+            "points": [
+              {
+                "refs": [
+                  1
+                ],
+                "text": "Since you moved out and returned the keys, your landlord should refund your deposit after deducting any actual liabilities you owe."
+              },
+              {
+                "refs": [
+                  2
+                ],
+                "text": "If your landlord refuses to return the deposit, you may claim compensation for the loss caused by this breach of contract through a civil court."
+              },
+              {
+                "refs": [
+                  1
+                ],
+                "text": "You should check if your state has adopted the Model Tenancy Act or a similar law, as this affects your rights regarding the deposit."
+              },
+              {
+                "refs": [
+                  3
+                ],
+                "text": "If you need legal help and qualify under certain categories or income limits, you can get a free lawyer by contacting the District Legal Services Authority or the NALSA helpline 15100."
+              },
+              {
+                "refs": [],
+                "text": "Keep all proof of your tenancy, deposit payment, and the date you returned the keys to support your claim if you pursue legal action."
+              }
+            ],
+            "question": "Which property was it, and in which city?"
+          },
+          "dropped": 0,
+          "citations": [
+            {
+              "n": 1,
+              "id": "MTA-11",
+              "url": "https://udd.delhi.gov.in/sites/default/files/UD/generic_multiple_files/mta_hindi_english.pdf",
+              "title": "Security deposit under the Model Tenancy Act",
+              "caveat": "Rent law is state-specific. Whether this applies depends on your state and whether you have a lease or a leave-and-licence agreement.",
+              "locator": "Section 11 and summary point (xi)",
+              "summary": "The Model Tenancy Act is a model law. It applies only in states that have passed a tenancy law based on it. Where it applies, a residential deposit cannot exceed two months' rent (six months for non-residential), and the landlord must refund it when taking back vacant possession, after deducting only the tenant's actual liabilities.",
+              "citation": "Section 11, Model Tenancy Act, 2021",
+              "reviewed_on": "2026-11-09"
+            },
+            {
+              "n": 2,
+              "id": "ICA-73",
+              "url": "https://indiankanoon.org/doc/339747/",
+              "title": "Breach of a written or oral agreement",
+              "caveat": "Recovering money through a civil court has its own time limits and procedure. Ask a lawyer or the District Legal Services Authority early.",
+              "locator": "Section 73",
+              "summary": "A rent agreement or an employment agreement is a contract. When one side breaks it, the other side can claim compensation for loss that naturally arose from the breach. Remote or indirect losses are not covered.",
+              "citation": "Section 73, Indian Contract Act, 1872",
+              "reviewed_on": "2026-11-09"
+            },
+            {
+              "n": 3,
+              "id": "LSA-12",
+              "url": "https://nalsa.gov.in/",
+              "title": "Free legal aid",
+              "caveat": "The income limit varies by state.",
+              "locator": "Legal aid eligibility; helpline 15100",
+              "summary": "Women, children, members of Scheduled Castes and Scheduled Tribes, persons with disabilities, industrial workmen, people in custody and people below the income limit can get a free lawyer. Call the NALSA helpline 15100 or visit your District Legal Services Authority.",
+              "citation": "Section 12, Legal Services Authorities Act, 1987",
+              "reviewed_on": "2026-11-09"
+            }
+          ]
+        }
+      },
+      "case_after": {
+        "domain": "deposit",
+        "language": "en",
+        "facts": [
+          {
+            "field": "landlord",
+            "label": "Landlord",
+            "value": "Mr. Sharma",
+            "quote": "My landlord Mr. Sharma in Pune has not returned my deposit of Rs 50,000.",
+            "confirmed": false,
+            "edited": false
+          },
+          {
+            "field": "state",
+            "label": "State",
+            "value": "Pune",
+            "quote": "My landlord Mr. Sharma in Pune has not returned my deposit of Rs 50,000.",
+            "confirmed": false,
+            "edited": false
+          },
+          {
+            "field": "deposit_amount",
+            "label": "Deposit paid",
+            "value": "Rs 50,000",
+            "quote": "My landlord Mr. Sharma in Pune has not returned my deposit of Rs 50,000.",
+            "confirmed": false,
+            "edited": false
+          },
+          {
+            "field": "move_out_date",
+            "label": "Move-out date",
+            "value": "31 August 2026",
+            "quote": "I moved out on 31 August 2026 and gave back the keys.",
+            "confirmed": false,
+            "edited": false
+          }
+        ],
+        "missing": [
+          "Property",
+          "Monthly rent",
+          "Rent agreement",
+          "Deductions claimed",
+          "Steps already taken",
+          "Proof you have",
+          "What you want"
+        ],
+        "events": [
+          {
+            "when": "31 August 2026",
+            "what": "Moved out and gave back the keys",
+            "quote": "I moved out on 31 August 2026 and gave back the keys.",
+            "turn": 1
+          }
+        ],
+        "notice": null,
+        "pending": null
+      },
+      "checks": [
+        {
+          "check": "domain",
+          "ok": true,
+          "detail": "deposit"
+        },
+        {
+          "check": "mode",
+          "ok": true,
+          "detail": "explain"
+        },
+        {
+          "check": "cites_include",
+          "ok": true,
+          "detail": "cited ['MTA-11', 'ICA-73', 'LSA-12']; missing []"
+        },
+        {
+          "check": "facts",
+          "ok": true,
+          "detail": "mismatched {}"
+        },
+        {
+          "check": "reply_excludes",
+          "ok": true,
+          "detail": "found []"
+        },
+        {
+          "check": "question",
+          "ok": true,
+          "detail": "Which property was it, and in which city?"
+        },
+        {
+          "check": "citations_exist",
+          "ok": true,
+          "detail": "unknown []"
+        },
+        {
+          "check": "displayed_points_reverify",
+          "ok": true,
+          "detail": []
+        }
+      ]
+    },
+    {
+      "turn": 2,
+      "sent": {
+        "text": "It's in Maharashtra. We signed a leave and licence agreement which says the deposit is refundable on vacating.",
+        "mode": "auto",
+        "language": "auto"
+      },
+      "status": 200,
+      "elapsed_ms": 6959,
+      "llm_calls": [
+        {
+          "id": 132,
+          "node": "triage",
+          "provider": "openai",
+          "model": "gpt-4.1-mini",
+          "input_tokens": 841,
+          "output_tokens": 18,
+          "latency_ms": 1793,
+          "ok": true,
+          "error": ""
+        },
+        {
+          "id": 133,
+          "node": "extract",
+          "provider": "openai",
+          "model": "gpt-4.1-mini",
+          "input_tokens": 588,
+          "output_tokens": 73,
+          "latency_ms": 1915,
+          "ok": true,
+          "error": ""
+        },
+        {
+          "id": 134,
+          "node": "compose",
+          "provider": "openai",
+          "model": "gpt-4.1-mini",
+          "input_tokens": 790,
+          "output_tokens": 210,
+          "latency_ms": 2947,
+          "ok": true,
+          "error": ""
+        }
+      ],
+      "assistant": {
+        "role": "assistant",
+        "mode": "explain",
+        "content": "Since you have a leave and licence agreement stating the deposit is refundable on vacating, you can expect Mr. Sharma to refund your Rs 50,000 deposit after you move out on 31 August 2026. [1]\n\nThe landlord may deduct only your actual liabilities from the deposit before refunding it, not arbitrary amounts. [1]\n\nIf the landlord refuses to refund the deposit, you can claim compensation for breach of contract under the Indian Contract Act, but only for losses that naturally arise from the breach. [2]\n\nIf you need legal help, you may be eligible for free legal aid through the District Legal Services Authority, especially if you belong to certain categories or income limits. [3]\n\nKeep all documents and communication related to the agreement and deposit safe, and consider consulting a lawyer early if the landlord does not refund the deposit as agreed.\n\nNext: Which property was it, and in which city?",
+        "meta": {
+          "risks": [],
+          "blocks": {
+            "hedge": "",
+            "notes": [],
+            "points": [
+              {
+                "refs": [
+                  1
+                ],
+                "text": "Since you have a leave and licence agreement stating the deposit is refundable on vacating, you can expect Mr. Sharma to refund your Rs 50,000 deposit after you move out on 31 August 2026."
+              },
+              {
+                "refs": [
+                  1
+                ],
+                "text": "The landlord may deduct only your actual liabilities from the deposit before refunding it, not arbitrary amounts."
+              },
+              {
+                "refs": [
+                  2
+                ],
+                "text": "If the landlord refuses to refund the deposit, you can claim compensation for breach of contract under the Indian Contract Act, but only for losses that naturally arise from the breach."
+              },
+              {
+                "refs": [
+                  3
+                ],
+                "text": "If you need legal help, you may be eligible for free legal aid through the District Legal Services Authority, especially if you belong to certain categories or income limits."
+              },
+              {
+                "refs": [],
+                "text": "Keep all documents and communication related to the agreement and deposit safe, and consider consulting a lawyer early if the landlord does not refund the deposit as agreed."
+              }
+            ],
+            "question": "Which property was it, and in which city?"
+          },
+          "dropped": 0,
+          "citations": [
+            {
+              "n": 1,
+              "id": "MTA-11",
+              "url": "https://udd.delhi.gov.in/sites/default/files/UD/generic_multiple_files/mta_hindi_english.pdf",
+              "title": "Security deposit under the Model Tenancy Act",
+              "caveat": "Rent law is state-specific. Whether this applies depends on your state and whether you have a lease or a leave-and-licence agreement.",
+              "locator": "Section 11 and summary point (xi)",
+              "summary": "The Model Tenancy Act is a model law. It applies only in states that have passed a tenancy law based on it. Where it applies, a residential deposit cannot exceed two months' rent (six months for non-residential), and the landlord must refund it when taking back vacant possession, after deducting only the tenant's actual liabilities.",
+              "citation": "Section 11, Model Tenancy Act, 2021",
+              "reviewed_on": "2026-11-09"
+            },
+            {
+              "n": 2,
+              "id": "ICA-73",
+              "url": "https://indiankanoon.org/doc/339747/",
+              "title": "Breach of a written or oral agreement",
+              "caveat": "Recovering money through a civil court has its own time limits and procedure. Ask a lawyer or the District Legal Services Authority early.",
+              "locator": "Section 73",
+              "summary": "A rent agreement or an employment agreement is a contract. When one side breaks it, the other side can claim compensation for loss that naturally arose from the breach. Remote or indirect losses are not covered.",
+              "citation": "Section 73, Indian Contract Act, 1872",
+              "reviewed_on": "2026-11-09"
+            },
+            {
+              "n": 3,
+              "id": "LSA-12",
+              "url": "https://nalsa.gov.in/",
+              "title": "Free legal aid",
+              "caveat": "The income limit varies by state.",
+              "locator": "Legal aid eligibility; helpline 15100",
+              "summary": "Women, children, members of Scheduled Castes and Scheduled Tribes, persons with disabilities, industrial workmen, people in custody and people below the income limit can get a free lawyer. Call the NALSA helpline 15100 or visit your District Legal Services Authority.",
+              "citation": "Section 12, Legal Services Authorities Act, 1987",
+              "reviewed_on": "2026-11-09"
+            }
+          ]
+        }
+      },
+      "case_after": {
+        "domain": "deposit",
+        "language": "en",
+        "facts": [
+          {
+            "field": "landlord",
+            "label": "Landlord",
+            "value": "Mr. Sharma",
+            "quote": "My landlord Mr. Sharma in Pune has not returned my deposit of Rs 50,000.",
+            "confirmed": false,
+            "edited": false
+          },
+          {
+            "field": "state",
+            "label": "State",
+            "value": "Maharashtra",
+            "quote": "It's in Maharashtra.",
+            "confirmed": false,
+            "edited": false
+          },
+          {
+            "field": "deposit_amount",
+            "label": "Deposit paid",
+            "value": "Rs 50,000",
+            "quote": "My landlord Mr. Sharma in Pune has not returned my deposit of Rs 50,000.",
+            "confirmed": false,
+            "edited": false
+          },
+          {
+            "field": "move_out_date",
+            "label": "Move-out date",
+            "value": "31 August 2026",
+            "quote": "I moved out on 31 August 2026 and gave back the keys.",
+            "confirmed": false,
+            "edited": false
+          },
+          {
+            "field": "agreement",
+            "label": "Rent agreement",
+            "value": "leave and licence agreement which says the deposit is refundable on vacating",
+            "quote": "We signed a leave and licence agreement which says the deposit is refundable on vacating.",
+            "confirmed": false,
+            "edited": false
+          }
+        ],
+        "missing": [
+          "Property",
+          "Monthly rent",
+          "Deductions claimed",
+          "Steps already taken",
+          "Proof you have",
+          "What you want"
+        ],
+        "events": [
+          {
+            "when": "31 August 2026",
+            "what": "Moved out and gave back the keys",
+            "quote": "I moved out on 31 August 2026 and gave back the keys.",
+            "turn": 1
+          }
+        ],
+        "notice": null,
+        "pending": null
+      },
+      "checks": [
+        {
+          "check": "domain",
+          "ok": true,
+          "detail": "deposit"
+        },
+        {
+          "check": "facts",
+          "ok": true,
+          "detail": "mismatched {}"
+        },
+        {
+          "check": "cites_include",
+          "ok": true,
+          "detail": "cited ['MTA-11', 'ICA-73', 'LSA-12']; missing []"
+        },
+        {
+          "check": "citations_exist",
+          "ok": true,
+          "detail": "unknown []"
+        },
+        {
+          "check": "displayed_points_reverify",
+          "ok": true,
+          "detail": []
+        }
+      ]
+    },
+    {
+      "turn": 3,
+      "sent": {
+        "text": "Please draft a letter asking for the full Rs 50,000 back",
+        "mode": "draft",
+        "language": "auto"
+      },
+      "status": 200,
+      "elapsed_ms": 5445,
+      "llm_calls": [
+        {
+          "id": 135,
+          "node": "triage",
+          "provider": "openai",
+          "model": "gpt-4.1-mini",
+          "input_tokens": 1071,
+          "output_tokens": 17,
+          "latency_ms": 1486,
+          "ok": true,
+          "error": ""
+        },
+        {
+          "id": 136,
+          "node": "extract",
+          "provider": "openai",
+          "model": "gpt-4.1-mini",
+          "input_tokens": 600,
+          "output_tokens": 36,
+          "latency_ms": 1455,
+          "ok": true,
+          "error": ""
+        },
+        {
+          "id": 137,
+          "node": "compose",
+          "provider": "openai",
+          "model": "gpt-4.1-mini",
+          "input_tokens": 789,
+          "output_tokens": 184,
+          "latency_ms": 2383,
+          "ok": true,
+          "error": ""
+        }
+      ],
+      "assistant": {
+        "role": "assistant",
+        "mode": "build_case",
+        "content": "You have a leave and licence agreement with Mr. Sharma in Maharashtra, stating that the Rs 50,000 deposit is refundable on vacating the property on 31 August 2026.\n\nSince this is a leave and licence agreement, the Model Tenancy Act may not apply, but generally the landlord must refund the deposit after deducting any actual liabilities when you vacate. [1]\n\nIf Mr. Sharma refuses to return the deposit, you may claim compensation for breach of contract under the Indian Contract Act, but you should seek legal advice early due to time limits and procedures. [2]\n\nIf you need legal help and qualify, you may get free legal aid by contacting the District Legal Services Authority or the NALSA helpline 15100. [3]\n\nBefore I can draft this I still need: Property, What you want.\n\nNext: Which property was it, and in which city?",
+        "meta": {
+          "risks": [],
+          "blocks": {
+            "hedge": "",
+            "notes": [
+              "Before I can draft this I still need: Property, What you want."
+            ],
+            "points": [
+              {
+                "refs": [],
+                "text": "You have a leave and licence agreement with Mr. Sharma in Maharashtra, stating that the Rs 50,000 deposit is refundable on vacating the property on 31 August 2026."
+              },
+              {
+                "refs": [
+                  1
+                ],
+                "text": "Since this is a leave and licence agreement, the Model Tenancy Act may not apply, but generally the landlord must refund the deposit after deducting any actual liabilities when you vacate."
+              },
+              {
+                "refs": [
+                  2
+                ],
+                "text": "If Mr. Sharma refuses to return the deposit, you may claim compensation for breach of contract under the Indian Contract Act, but you should seek legal advice early due to time limits and procedures."
+              },
+              {
+                "refs": [
+                  3
+                ],
+                "text": "If you need legal help and qualify, you may get free legal aid by contacting the District Legal Services Authority or the NALSA helpline 15100."
+              }
+            ],
+            "question": "Which property was it, and in which city?"
+          },
+          "dropped": 0,
+          "citations": [
+            {
+              "n": 1,
+              "id": "MTA-11",
+              "url": "https://udd.delhi.gov.in/sites/default/files/UD/generic_multiple_files/mta_hindi_english.pdf",
+              "title": "Security deposit under the Model Tenancy Act",
+              "caveat": "Rent law is state-specific. Whether this applies depends on your state and whether you have a lease or a leave-and-licence agreement.",
+              "locator": "Section 11 and summary point (xi)",
+              "summary": "The Model Tenancy Act is a model law. It applies only in states that have passed a tenancy law based on it. Where it applies, a residential deposit cannot exceed two months' rent (six months for non-residential), and the landlord must refund it when taking back vacant possession, after deducting only the tenant's actual liabilities.",
+              "citation": "Section 11, Model Tenancy Act, 2021",
+              "reviewed_on": "2026-11-09"
+            },
+            {
+              "n": 2,
+              "id": "ICA-73",
+              "url": "https://indiankanoon.org/doc/339747/",
+              "title": "Breach of a written or oral agreement",
+              "caveat": "Recovering money through a civil court has its own time limits and procedure. Ask a lawyer or the District Legal Services Authority early.",
+              "locator": "Section 73",
+              "summary": "A rent agreement or an employment agreement is a contract. When one side breaks it, the other side can claim compensation for loss that naturally arose from the breach. Remote or indirect losses are not covered.",
+              "citation": "Section 73, Indian Contract Act, 1872",
+              "reviewed_on": "2026-11-09"
+            },
+            {
+              "n": 3,
+              "id": "LSA-12",
+              "url": "https://nalsa.gov.in/",
+              "title": "Free legal aid",
+              "caveat": "The income limit varies by state.",
+              "locator": "Legal aid eligibility; helpline 15100",
+              "summary": "Women, children, members of Scheduled Castes and Scheduled Tribes, persons with disabilities, industrial workmen, people in custody and people below the income limit can get a free lawyer. Call the NALSA helpline 15100 or visit your District Legal Services Authority.",
+              "citation": "Section 12, Legal Services Authorities Act, 1987",
+              "reviewed_on": "2026-11-09"
+            }
+          ]
+        }
+      },
+      "case_after": {
+        "domain": "deposit",
+        "language": "en",
+        "facts": [
+          {
+            "field": "landlord",
+            "label": "Landlord",
+            "value": "Mr. Sharma",
+            "quote": "My landlord Mr. Sharma in Pune has not returned my deposit of Rs 50,000.",
+            "confirmed": false,
+            "edited": false
+          },
+          {
+            "field": "state",
+            "label": "State",
+            "value": "Maharashtra",
+            "quote": "It's in Maharashtra.",
+            "confirmed": false,
+            "edited": false
+          },
+          {
+            "field": "deposit_amount",
+            "label": "Deposit paid",
+            "value": "Rs 50,000",
+            "quote": "full Rs 50,000 back",
+            "confirmed": false,
+            "edited": false
+          },
+          {
+            "field": "move_out_date",
+            "label": "Move-out date",
+            "value": "31 August 2026",
+            "quote": "I moved out on 31 August 2026 and gave back the keys.",
+            "confirmed": false,
+            "edited": false
+          },
+          {
+            "field": "agreement",
+            "label": "Rent agreement",
+            "value": "leave and licence agreement which says the deposit is refundable on vacating",
+            "quote": "We signed a leave and licence agreement which says the deposit is refundable on vacating.",
+            "confirmed": false,
+            "edited": false
+          }
+        ],
+        "missing": [
+          "Property",
+          "Monthly rent",
+          "Deductions claimed",
+          "Steps already taken",
+          "Proof you have",
+          "What you want"
+        ],
+        "events": [
+          {
+            "when": "31 August 2026",
+            "what": "Moved out and gave back the keys",
+            "quote": "I moved out on 31 August 2026 and gave back the keys.",
+            "turn": 1
+          }
+        ],
+        "notice": null,
+        "pending": null
+      },
+      "checks": [
+        {
+          "check": "pending",
+          "ok": false,
+          "detail": "none"
+        },
+        {
+          "check": "facts",
+          "ok": false,
+          "detail": "mismatched {'resolution': None}"
+        },
+        {
+          "check": "citations_exist",
+          "ok": true,
+          "detail": "unknown []"
+        },
+        {
+          "check": "displayed_points_reverify",
+          "ok": true,
+          "detail": []
+        }
+      ]
+    },
+    {
+      "turn": 4,
+      "sent": {
+        "confirm": {
+          "confirmed": true,
+          "edits": {
+            "landlord": "Mr. Rajesh Sharma"
+          }
+        }
+      },
+      "status": 409,
+      "elapsed_ms": 15,
+      "llm_calls": [],
+      "error": {
+        "detail": "Nothing is waiting for confirmation."
+      },
+      "checks": [
+        {
+          "check": "http_200",
+          "ok": false,
+          "detail": 409
+        }
+      ]
+    }
+  ],
+  "passed": false
+}

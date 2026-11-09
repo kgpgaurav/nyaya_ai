@@ -1,0 +1,82 @@
+{
+  "id": "out_of_scope",
+  "about": "Outside coverage: says so and points to legal aid.",
+  "turns": [
+    {
+      "turn": 1,
+      "sent": {
+        "text": "How do I get a patent for my invention?",
+        "mode": "auto",
+        "language": "auto"
+      },
+      "status": 200,
+      "elapsed_ms": 1565,
+      "llm_calls": [
+        {
+          "id": 167,
+          "node": "triage",
+          "provider": "openai",
+          "model": "gpt-4.1-mini",
+          "input_tokens": 592,
+          "output_tokens": 18,
+          "latency_ms": 1482,
+          "ok": true,
+          "error": ""
+        }
+      ],
+      "assistant": {
+        "role": "assistant",
+        "mode": "explain",
+        "content": "This looks outside what I can help with. I cover rental deposits, online purchase refunds, unpaid salary and explaining notices. For anything else, please speak to a lawyer. If you can't afford one, call the free legal aid helpline 15100.",
+        "meta": {
+          "risks": [],
+          "blocks": {
+            "text": "This looks outside what I can help with. I cover rental deposits, online purchase refunds, unpaid salary and explaining notices. For anything else, please speak to a lawyer. If you can't afford one, call the free legal aid helpline 15100.",
+            "canned": "out_of_scope"
+          },
+          "dropped": 0,
+          "citations": [
+            {
+              "n": 1,
+              "id": "LSA-12",
+              "url": "https://nalsa.gov.in/",
+              "title": "Free legal aid",
+              "caveat": "The income limit varies by state.",
+              "locator": "Legal aid eligibility; helpline 15100",
+              "summary": "Women, children, members of Scheduled Castes and Scheduled Tribes, persons with disabilities, industrial workmen, people in custody and people below the income limit can get a free lawyer. Call the NALSA helpline 15100 or visit your District Legal Services Authority.",
+              "citation": "Section 12, Legal Services Authorities Act, 1987",
+              "reviewed_on": "2026-11-09"
+            }
+          ]
+        }
+      },
+      "case_after": {
+        "domain": "other",
+        "language": "en",
+        "facts": [],
+        "missing": [],
+        "events": [],
+        "notice": null,
+        "pending": null
+      },
+      "checks": [
+        {
+          "check": "canned",
+          "ok": true,
+          "detail": "out_of_scope"
+        },
+        {
+          "check": "cites_include",
+          "ok": true,
+          "detail": "cited ['LSA-12']; missing []"
+        },
+        {
+          "check": "citations_exist",
+          "ok": true,
+          "detail": "unknown []"
+        }
+      ]
+    }
+  ],
+  "passed": true
+}

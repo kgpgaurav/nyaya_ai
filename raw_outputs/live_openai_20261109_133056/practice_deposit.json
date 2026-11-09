@@ -1,0 +1,525 @@
+{
+  "id": "practice_deposit",
+  "about": "Practise against the landlord. In turn 3 the opponent cites a section and the coach invents a deadline; both are rejected and retried.",
+  "turns": [
+    {
+      "turn": 1,
+      "sent": {
+        "text": "Landlord Mr. Iyer in Chennai is holding my Rs 60,000 deposit. I vacated on 30 September 2026 and left the flat clean.",
+        "mode": "auto",
+        "language": "auto"
+      },
+      "status": 200,
+      "elapsed_ms": 6726,
+      "llm_calls": [
+        {
+          "id": 153,
+          "node": "triage",
+          "provider": "openai",
+          "model": "gpt-4.1-mini",
+          "input_tokens": 616,
+          "output_tokens": 18,
+          "latency_ms": 1443,
+          "ok": true,
+          "error": ""
+        },
+        {
+          "id": 154,
+          "node": "extract",
+          "provider": "openai",
+          "model": "gpt-4.1-mini",
+          "input_tokens": 563,
+          "output_tokens": 189,
+          "latency_ms": 2740,
+          "ok": true,
+          "error": ""
+        },
+        {
+          "id": 155,
+          "node": "compose",
+          "provider": "openai",
+          "model": "gpt-4.1-mini",
+          "input_tokens": 790,
+          "output_tokens": 180,
+          "latency_ms": 2439,
+          "ok": true,
+          "error": ""
+        }
+      ],
+      "assistant": {
+        "role": "assistant",
+        "mode": "build_case",
+        "content": "You vacated the flat in Chennai on 30 September 2026 and left it clean, and your landlord Mr. Iyer is holding your Rs 60,000 deposit.\n\nIf your state has adopted the Model Tenancy Act or a similar law, the landlord must refund the deposit after deducting only your actual liabilities, and the deposit cannot exceed two months' rent for residential property. [1]\n\nYour rental agreement is a contract, so if the landlord wrongfully withholds your deposit, you may claim compensation for losses that naturally arise from this breach. [2]\n\nIf you need legal help, you may contact the District Legal Services Authority or the NALSA helpline for free legal aid if you qualify under their criteria. [3]\n\nNext: Which property was it, and in which city?",
+        "meta": {
+          "risks": [],
+          "blocks": {
+            "hedge": "",
+            "notes": [],
+            "points": [
+              {
+                "refs": [],
+                "text": "You vacated the flat in Chennai on 30 September 2026 and left it clean, and your landlord Mr. Iyer is holding your Rs 60,000 deposit."
+              },
+              {
+                "refs": [
+                  1
+                ],
+                "text": "If your state has adopted the Model Tenancy Act or a similar law, the landlord must refund the deposit after deducting only your actual liabilities, and the deposit cannot exceed two months' rent for residential property."
+              },
+              {
+                "refs": [
+                  2
+                ],
+                "text": "Your rental agreement is a contract, so if the landlord wrongfully withholds your deposit, you may claim compensation for losses that naturally arise from this breach."
+              },
+              {
+                "refs": [
+                  3
+                ],
+                "text": "If you need legal help, you may contact the District Legal Services Authority or the NALSA helpline for free legal aid if you qualify under their criteria."
+              }
+            ],
+            "question": "Which property was it, and in which city?"
+          },
+          "dropped": 0,
+          "citations": [
+            {
+              "n": 1,
+              "id": "MTA-11",
+              "url": "https://udd.delhi.gov.in/sites/default/files/UD/generic_multiple_files/mta_hindi_english.pdf",
+              "title": "Security deposit under the Model Tenancy Act",
+              "caveat": "Rent law is state-specific. Whether this applies depends on your state and whether you have a lease or a leave-and-licence agreement.",
+              "locator": "Section 11 and summary point (xi)",
+              "summary": "The Model Tenancy Act is a model law. It applies only in states that have passed a tenancy law based on it. Where it applies, a residential deposit cannot exceed two months' rent (six months for non-residential), and the landlord must refund it when taking back vacant possession, after deducting only the tenant's actual liabilities.",
+              "citation": "Section 11, Model Tenancy Act, 2021",
+              "reviewed_on": "2026-11-09"
+            },
+            {
+              "n": 2,
+              "id": "ICA-73",
+              "url": "https://indiankanoon.org/doc/339747/",
+              "title": "Breach of a written or oral agreement",
+              "caveat": "Recovering money through a civil court has its own time limits and procedure. Ask a lawyer or the District Legal Services Authority early.",
+              "locator": "Section 73",
+              "summary": "A rent agreement or an employment agreement is a contract. When one side breaks it, the other side can claim compensation for loss that naturally arose from the breach. Remote or indirect losses are not covered.",
+              "citation": "Section 73, Indian Contract Act, 1872",
+              "reviewed_on": "2026-11-09"
+            },
+            {
+              "n": 3,
+              "id": "LSA-12",
+              "url": "https://nalsa.gov.in/",
+              "title": "Free legal aid",
+              "caveat": "The income limit varies by state.",
+              "locator": "Legal aid eligibility; helpline 15100",
+              "summary": "Women, children, members of Scheduled Castes and Scheduled Tribes, persons with disabilities, industrial workmen, people in custody and people below the income limit can get a free lawyer. Call the NALSA helpline 15100 or visit your District Legal Services Authority.",
+              "citation": "Section 12, Legal Services Authorities Act, 1987",
+              "reviewed_on": "2026-11-09"
+            }
+          ]
+        }
+      },
+      "case_after": {
+        "domain": "deposit",
+        "language": "en",
+        "facts": [
+          {
+            "field": "landlord",
+            "label": "Landlord",
+            "value": "Mr. Iyer",
+            "quote": "Landlord Mr. Iyer in Chennai is holding my Rs 60,000 deposit.",
+            "confirmed": false,
+            "edited": false
+          },
+          {
+            "field": "state",
+            "label": "State",
+            "value": "Chennai",
+            "quote": "Landlord Mr. Iyer in Chennai is holding my Rs 60,000 deposit.",
+            "confirmed": false,
+            "edited": false
+          },
+          {
+            "field": "deposit_amount",
+            "label": "Deposit paid",
+            "value": "Rs 60,000",
+            "quote": "Landlord Mr. Iyer in Chennai is holding my Rs 60,000 deposit.",
+            "confirmed": false,
+            "edited": false
+          },
+          {
+            "field": "move_out_date",
+            "label": "Move-out date",
+            "value": "30 September 2026",
+            "quote": "I vacated on 30 September 2026 and left the flat clean.",
+            "confirmed": false,
+            "edited": false
+          }
+        ],
+        "missing": [
+          "Property",
+          "Monthly rent",
+          "Rent agreement",
+          "Deductions claimed",
+          "Steps already taken",
+          "Proof you have",
+          "What you want"
+        ],
+        "events": [
+          {
+            "when": "30 September 2026",
+            "what": "Vacated the flat",
+            "quote": "I vacated on 30 September 2026 and left the flat clean.",
+            "turn": 1
+          }
+        ],
+        "notice": null,
+        "pending": null
+      },
+      "checks": [
+        {
+          "check": "domain",
+          "ok": true,
+          "detail": "deposit"
+        },
+        {
+          "check": "citations_exist",
+          "ok": true,
+          "detail": "unknown []"
+        },
+        {
+          "check": "displayed_points_reverify",
+          "ok": true,
+          "detail": []
+        }
+      ]
+    },
+    {
+      "turn": 2,
+      "sent": {
+        "text": "Sir, I vacated on 30 September and left the flat clean. Please return my Rs 60,000 deposit.",
+        "mode": "practice",
+        "language": "auto"
+      },
+      "status": 200,
+      "elapsed_ms": 2928,
+      "llm_calls": [
+        {
+          "id": 156,
+          "node": "triage",
+          "provider": "openai",
+          "model": "gpt-4.1-mini",
+          "input_tokens": 832,
+          "output_tokens": 17,
+          "latency_ms": 1398,
+          "ok": true,
+          "error": ""
+        },
+        {
+          "id": 157,
+          "node": "practice",
+          "provider": "openai",
+          "model": "gpt-4.1-mini",
+          "input_tokens": 692,
+          "output_tokens": 86,
+          "latency_ms": 1444,
+          "ok": true,
+          "error": ""
+        }
+      ],
+      "assistant": {
+        "role": "assistant",
+        "mode": "practice",
+        "content": "Practice mode: I'll play the landlord. Say what you'd say to them. Switch mode any time to stop.\n\nLandlord says: I understand your concern, but there were some minor damages that needed repair after you left, so I had to use part of the deposit for that. I'll send you the details soon.\n\nCoach: Politely ask for a written itemized list of the damages and the repair costs to verify the deductions. This keeps the conversation factual and professional. [1] [2]",
+        "meta": {
+          "risks": [],
+          "blocks": {
+            "practice": {
+              "tip": "Politely ask for a written itemized list of the damages and the repair costs to verify the deductions. This keeps the conversation factual and professional.",
+              "who": "Landlord says",
+              "refs": [
+                1,
+                2
+              ],
+              "them": "I understand your concern, but there were some minor damages that needed repair after you left, so I had to use part of the deposit for that. I'll send you the details soon.",
+              "intro": "Practice mode: I'll play the landlord. Say what you'd say to them. Switch mode any time to stop."
+            }
+          },
+          "dropped": 0,
+          "citations": [
+            {
+              "n": 1,
+              "id": "MTA-11",
+              "url": "https://udd.delhi.gov.in/sites/default/files/UD/generic_multiple_files/mta_hindi_english.pdf",
+              "title": "Security deposit under the Model Tenancy Act",
+              "caveat": "Rent law is state-specific. Whether this applies depends on your state and whether you have a lease or a leave-and-licence agreement.",
+              "locator": "Section 11 and summary point (xi)",
+              "summary": "The Model Tenancy Act is a model law. It applies only in states that have passed a tenancy law based on it. Where it applies, a residential deposit cannot exceed two months' rent (six months for non-residential), and the landlord must refund it when taking back vacant possession, after deducting only the tenant's actual liabilities.",
+              "citation": "Section 11, Model Tenancy Act, 2021",
+              "reviewed_on": "2026-11-09"
+            },
+            {
+              "n": 2,
+              "id": "ICA-73",
+              "url": "https://indiankanoon.org/doc/339747/",
+              "title": "Breach of a written or oral agreement",
+              "caveat": "Recovering money through a civil court has its own time limits and procedure. Ask a lawyer or the District Legal Services Authority early.",
+              "locator": "Section 73",
+              "summary": "A rent agreement or an employment agreement is a contract. When one side breaks it, the other side can claim compensation for loss that naturally arose from the breach. Remote or indirect losses are not covered.",
+              "citation": "Section 73, Indian Contract Act, 1872",
+              "reviewed_on": "2026-11-09"
+            }
+          ]
+        }
+      },
+      "case_after": {
+        "domain": "deposit",
+        "language": "en",
+        "facts": [
+          {
+            "field": "landlord",
+            "label": "Landlord",
+            "value": "Mr. Iyer",
+            "quote": "Landlord Mr. Iyer in Chennai is holding my Rs 60,000 deposit.",
+            "confirmed": false,
+            "edited": false
+          },
+          {
+            "field": "state",
+            "label": "State",
+            "value": "Chennai",
+            "quote": "Landlord Mr. Iyer in Chennai is holding my Rs 60,000 deposit.",
+            "confirmed": false,
+            "edited": false
+          },
+          {
+            "field": "deposit_amount",
+            "label": "Deposit paid",
+            "value": "Rs 60,000",
+            "quote": "Landlord Mr. Iyer in Chennai is holding my Rs 60,000 deposit.",
+            "confirmed": false,
+            "edited": false
+          },
+          {
+            "field": "move_out_date",
+            "label": "Move-out date",
+            "value": "30 September 2026",
+            "quote": "I vacated on 30 September 2026 and left the flat clean.",
+            "confirmed": false,
+            "edited": false
+          }
+        ],
+        "missing": [
+          "Property",
+          "Monthly rent",
+          "Rent agreement",
+          "Deductions claimed",
+          "Steps already taken",
+          "Proof you have",
+          "What you want"
+        ],
+        "events": [
+          {
+            "when": "30 September 2026",
+            "what": "Vacated the flat",
+            "quote": "I vacated on 30 September 2026 and left the flat clean.",
+            "turn": 1
+          }
+        ],
+        "notice": null,
+        "pending": null
+      },
+      "checks": [
+        {
+          "check": "mode",
+          "ok": true,
+          "detail": "practice"
+        },
+        {
+          "check": "practice",
+          "ok": true,
+          "detail": ""
+        },
+        {
+          "check": "cites_include",
+          "ok": true,
+          "detail": "cited ['MTA-11', 'ICA-73']; missing []"
+        },
+        {
+          "check": "reply_contains",
+          "ok": true,
+          "detail": "missing []"
+        },
+        {
+          "check": "citations_exist",
+          "ok": true,
+          "detail": "unknown []"
+        }
+      ]
+    },
+    {
+      "turn": 3,
+      "sent": {
+        "text": "Normal wear and tear is not damage. Please send me the repair bills.",
+        "mode": "practice",
+        "language": "auto"
+      },
+      "status": 200,
+      "elapsed_ms": 3063,
+      "llm_calls": [
+        {
+          "id": 158,
+          "node": "triage",
+          "provider": "openai",
+          "model": "gpt-4.1-mini",
+          "input_tokens": 974,
+          "output_tokens": 17,
+          "latency_ms": 1550,
+          "ok": true,
+          "error": ""
+        },
+        {
+          "id": 159,
+          "node": "practice",
+          "provider": "openai",
+          "model": "gpt-4.1-mini",
+          "input_tokens": 752,
+          "output_tokens": 78,
+          "latency_ms": 1434,
+          "ok": true,
+          "error": ""
+        }
+      ],
+      "assistant": {
+        "role": "assistant",
+        "mode": "practice",
+        "content": "Landlord says: I appreciate your point, but the damages were beyond normal wear and tear. I'll make sure to send you the repair bills shortly so you can see the expenses.\n\nCoach: Stay calm and insist politely on receiving the repair bills in writing to verify the deductions. This helps keep the conversation factual and professional. [1] [2]",
+        "meta": {
+          "risks": [],
+          "blocks": {
+            "practice": {
+              "tip": "Stay calm and insist politely on receiving the repair bills in writing to verify the deductions. This helps keep the conversation factual and professional.",
+              "who": "Landlord says",
+              "refs": [
+                1,
+                2
+              ],
+              "them": "I appreciate your point, but the damages were beyond normal wear and tear. I'll make sure to send you the repair bills shortly so you can see the expenses.",
+              "intro": ""
+            }
+          },
+          "dropped": 0,
+          "citations": [
+            {
+              "n": 1,
+              "id": "MTA-11",
+              "url": "https://udd.delhi.gov.in/sites/default/files/UD/generic_multiple_files/mta_hindi_english.pdf",
+              "title": "Security deposit under the Model Tenancy Act",
+              "caveat": "Rent law is state-specific. Whether this applies depends on your state and whether you have a lease or a leave-and-licence agreement.",
+              "locator": "Section 11 and summary point (xi)",
+              "summary": "The Model Tenancy Act is a model law. It applies only in states that have passed a tenancy law based on it. Where it applies, a residential deposit cannot exceed two months' rent (six months for non-residential), and the landlord must refund it when taking back vacant possession, after deducting only the tenant's actual liabilities.",
+              "citation": "Section 11, Model Tenancy Act, 2021",
+              "reviewed_on": "2026-11-09"
+            },
+            {
+              "n": 2,
+              "id": "ICA-73",
+              "url": "https://indiankanoon.org/doc/339747/",
+              "title": "Breach of a written or oral agreement",
+              "caveat": "Recovering money through a civil court has its own time limits and procedure. Ask a lawyer or the District Legal Services Authority early.",
+              "locator": "Section 73",
+              "summary": "A rent agreement or an employment agreement is a contract. When one side breaks it, the other side can claim compensation for loss that naturally arose from the breach. Remote or indirect losses are not covered.",
+              "citation": "Section 73, Indian Contract Act, 1872",
+              "reviewed_on": "2026-11-09"
+            }
+          ]
+        }
+      },
+      "case_after": {
+        "domain": "deposit",
+        "language": "en",
+        "facts": [
+          {
+            "field": "landlord",
+            "label": "Landlord",
+            "value": "Mr. Iyer",
+            "quote": "Landlord Mr. Iyer in Chennai is holding my Rs 60,000 deposit.",
+            "confirmed": false,
+            "edited": false
+          },
+          {
+            "field": "state",
+            "label": "State",
+            "value": "Chennai",
+            "quote": "Landlord Mr. Iyer in Chennai is holding my Rs 60,000 deposit.",
+            "confirmed": false,
+            "edited": false
+          },
+          {
+            "field": "deposit_amount",
+            "label": "Deposit paid",
+            "value": "Rs 60,000",
+            "quote": "Landlord Mr. Iyer in Chennai is holding my Rs 60,000 deposit.",
+            "confirmed": false,
+            "edited": false
+          },
+          {
+            "field": "move_out_date",
+            "label": "Move-out date",
+            "value": "30 September 2026",
+            "quote": "I vacated on 30 September 2026 and left the flat clean.",
+            "confirmed": false,
+            "edited": false
+          }
+        ],
+        "missing": [
+          "Property",
+          "Monthly rent",
+          "Rent agreement",
+          "Deductions claimed",
+          "Steps already taken",
+          "Proof you have",
+          "What you want"
+        ],
+        "events": [
+          {
+            "when": "30 September 2026",
+            "what": "Vacated the flat",
+            "quote": "I vacated on 30 September 2026 and left the flat clean.",
+            "turn": 1
+          }
+        ],
+        "notice": null,
+        "pending": null
+      },
+      "checks": [
+        {
+          "check": "mode",
+          "ok": true,
+          "detail": "practice"
+        },
+        {
+          "check": "practice",
+          "ok": true,
+          "detail": ""
+        },
+        {
+          "check": "reply_excludes",
+          "ok": true,
+          "detail": "found []"
+        },
+        {
+          "check": "reply_contains",
+          "ok": false,
+          "detail": "missing ['receipts']"
+        },
+        {
+          "check": "citations_exist",
+          "ok": true,
+          "detail": "unknown []"
+        }
+      ]
+    }
+  ],
+  "passed": false
+}

@@ -1,0 +1,139 @@
+{
+  "id": "notice_cheque",
+  "about": "Cheque bounce notice: explains it, quotes the deadline from the notice, cites Section 138, and says see a lawyer. Planted error: an invented 5-year jail claim in the summary.",
+  "turns": [
+    {
+      "turn": 1,
+      "sent": {
+        "text": "LEGAL NOTICE. To: Mr. Anil Verma. Under instructions from my client M/s Gupta Traders, I hereby inform you that cheque no. 004512 dated 12.09.2026 for Rs 75,000 issued by you was returned unpaid by the bank with the remark 'funds insufficient' on 20.09.2026. You are hereby called upon to pay the said amount within 15 days of receipt of this notice, failing which my client shall initiate proceedings under Section 138 of the Negotiable Instruments Act. Sd/- R. K. Mehta, Advocate",
+        "mode": "notice",
+        "language": "auto"
+      },
+      "status": 200,
+      "elapsed_ms": 4582,
+      "llm_calls": [
+        {
+          "id": 160,
+          "node": "triage",
+          "provider": "openai",
+          "model": "gpt-4.1-mini",
+          "input_tokens": 703,
+          "output_tokens": 21,
+          "latency_ms": 2280,
+          "ok": true,
+          "error": ""
+        },
+        {
+          "id": 161,
+          "node": "notice",
+          "provider": "openai",
+          "model": "gpt-4.1-mini",
+          "input_tokens": 466,
+          "output_tokens": 126,
+          "latency_ms": 2222,
+          "ok": true,
+          "error": ""
+        }
+      ],
+      "assistant": {
+        "role": "assistant",
+        "mode": "notice",
+        "content": "You issued a cheque for Rs 75,000 that was returned unpaid due to insufficient funds.\n\nThe sender is informing you about this returned cheque on behalf of their client, M/s Gupta Traders.\n\nYou are asked to pay the amount within 15 days to avoid legal action.\n\nIf you do not pay, the sender's client may start legal proceedings against you.\n\nPay the amount of Rs 75,000 within 15 days of receiving this notice.\n\nDeadline mentioned in the notice: \"within 15 days of receipt of this notice\"\n\nBecause this is a legal notice, please show it to a lawyer before the deadline. Free legal aid: 15100. [1]",
+        "meta": {
+          "risks": [
+            "court_deadline"
+          ],
+          "blocks": {
+            "notice": {
+              "law": [],
+              "asks": "Pay the amount of Rs 75,000 within 15 days of receiving this notice.",
+              "kind": "legal notice",
+              "lawyer": "Because this is a legal notice, please show it to a lawyer before the deadline. Free legal aid: 15100.",
+              "sender": "R. K. Mehta, Advocate",
+              "summary": [
+                "You issued a cheque for Rs 75,000 that was returned unpaid due to insufficient funds.",
+                "The sender is informing you about this returned cheque on behalf of their client, M/s Gupta Traders.",
+                "You are asked to pay the amount within 15 days to avoid legal action.",
+                "If you do not pay, the sender's client may start legal proceedings against you."
+              ],
+              "deadline": "within 15 days of receipt of this notice",
+              "lawyer_ref": 1,
+              "deadline_line": "Deadline mentioned in the notice: \"within 15 days of receipt of this notice\""
+            }
+          },
+          "dropped": 0,
+          "citations": [
+            {
+              "n": 1,
+              "id": "LSA-12",
+              "url": "https://nalsa.gov.in/",
+              "title": "Free legal aid",
+              "caveat": "The income limit varies by state.",
+              "locator": "Legal aid eligibility; helpline 15100",
+              "summary": "Women, children, members of Scheduled Castes and Scheduled Tribes, persons with disabilities, industrial workmen, people in custody and people below the income limit can get a free lawyer. Call the NALSA helpline 15100 or visit your District Legal Services Authority.",
+              "citation": "Section 12, Legal Services Authorities Act, 1987",
+              "reviewed_on": "2026-11-09"
+            }
+          ]
+        }
+      },
+      "case_after": {
+        "domain": "notice",
+        "language": "en",
+        "facts": [],
+        "missing": [
+          "Sent by",
+          "Received on",
+          "What it says"
+        ],
+        "events": [],
+        "notice": {
+          "kind": "legal_notice",
+          "sender": "R. K. Mehta, Advocate",
+          "deadline": "within 15 days of receipt of this notice",
+          "asks": "Pay the amount of Rs 75,000 within 15 days of receiving this notice.",
+          "excerpt": "LEGAL NOTICE. To: Mr. Anil Verma. Under instructions from my client M/s Gupta Traders, I hereby inform you that cheque no. 004512 dated 12.09.2026 for Rs 75,000 issued by you was returned unpaid by the bank with the remark 'funds insufficient' on 20.09.2026. You are hereby called upon to pay the said amount within 15 days of receipt of this notice, failing which my client shall initiate proceeding"
+        },
+        "pending": null
+      },
+      "checks": [
+        {
+          "check": "mode",
+          "ok": true,
+          "detail": "notice"
+        },
+        {
+          "check": "notice_kind",
+          "ok": false,
+          "detail": "legal_notice"
+        },
+        {
+          "check": "deadline",
+          "ok": true,
+          "detail": "within 15 days of receipt of this notice"
+        },
+        {
+          "check": "cites_include",
+          "ok": false,
+          "detail": "cited ['LSA-12']; missing ['NIA-138']"
+        },
+        {
+          "check": "reply_contains",
+          "ok": true,
+          "detail": "missing []"
+        },
+        {
+          "check": "reply_excludes",
+          "ok": true,
+          "detail": "found []"
+        },
+        {
+          "check": "citations_exist",
+          "ok": true,
+          "detail": "unknown []"
+        }
+      ]
+    }
+  ],
+  "passed": false
+}

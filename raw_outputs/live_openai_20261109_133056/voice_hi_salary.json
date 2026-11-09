@@ -1,0 +1,10 @@
+{
+  "id": "voice_hi_salary",
+  "about": "Hindi voice message (scripted transcript) about unpaid salary.",
+  "turns": [
+    {
+      "skipped": "scripted audio is only meaningful with the mock transcriber"
+    }
+  ],
+  "passed": true
+}

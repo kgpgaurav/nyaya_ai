@@ -1,0 +1,217 @@
+{
+  "id": "deposit_hi",
+  "about": "Hindi deposit question. Planted error: a wrong section number (74) presented as a guarantee.",
+  "turns": [
+    {
+      "turn": 1,
+      "sent": {
+        "text": "मेरे मकान मालिक ने 40,000 रुपये की डिपॉज़िट वापस नहीं की। मैंने 15 सितंबर को घर खाली किया था। अब क्या करूं?",
+        "mode": "auto",
+        "language": "auto"
+      },
+      "status": 200,
+      "elapsed_ms": 7420,
+      "llm_calls": [
+        {
+          "id": 138,
+          "node": "triage",
+          "provider": "openai",
+          "model": "gpt-4.1-mini",
+          "input_tokens": 618,
+          "output_tokens": 18,
+          "latency_ms": 1402,
+          "ok": true,
+          "error": ""
+        },
+        {
+          "id": 139,
+          "node": "extract",
+          "provider": "openai",
+          "model": "gpt-4.1-mini",
+          "input_tokens": 565,
+          "output_tokens": 98,
+          "latency_ms": 2529,
+          "ok": true,
+          "error": ""
+        },
+        {
+          "id": 140,
+          "node": "compose",
+          "provider": "openai",
+          "model": "gpt-4.1-mini",
+          "input_tokens": 840,
+          "output_tokens": 245,
+          "latency_ms": 3338,
+          "ok": true,
+          "error": ""
+        }
+      ],
+      "assistant": {
+        "role": "assistant",
+        "mode": "explain",
+        "content": "आपके राज्य में मॉडल किरायेदारी अधिनियम लागू है या नहीं, यह जानना जरूरी है क्योंकि यह कानून जमा राशि की सीमा और वापसी के नियम तय करता है। [1]\n\nयदि मकान मालिक ने आपकी वास्तविक देनदारी काटकर भी जमा राशि वापस नहीं की, तो आप उसे नुकसान के लिए मुआवज़ा मांग सकते हैं। [1] [2]\n\nकिरायेदारी समझौते के उल्लंघन पर आप अदालत में दावा कर सकते हैं, लेकिन इसके लिए समय सीमा और प्रक्रिया होती है, इसलिए जल्दी किसी वकील से सलाह लें। [2]\n\nयदि आपकी आय सीमा कम है या आप किसी विशेष वर्ग से हैं, तो आप मुफ्त वकीय सहायता के लिए अपने जिला विधिक सेवा प्राधिकरण से संपर्क कर सकते हैं। [3]\n\nअपने मकान मालिक को लिखित में जमा राशि वापस करने के लिए कहें और सभी दस्तावेज़ और संचार का रिकॉर्ड रखें। यह बाद में मददगार हो सकता है।\n\nअगला सवाल: मकान मालिक का नाम क्या है?",
+        "meta": {
+          "risks": [],
+          "blocks": {
+            "hedge": "",
+            "notes": [],
+            "points": [
+              {
+                "refs": [
+                  1
+                ],
+                "text": "आपके राज्य में मॉडल किरायेदारी अधिनियम लागू है या नहीं, यह जानना जरूरी है क्योंकि यह कानून जमा राशि की सीमा और वापसी के नियम तय करता है।"
+              },
+              {
+                "refs": [
+                  1,
+                  2
+                ],
+                "text": "यदि मकान मालिक ने आपकी वास्तविक देनदारी काटकर भी जमा राशि वापस नहीं की, तो आप उसे नुकसान के लिए मुआवज़ा मांग सकते हैं।"
+              },
+              {
+                "refs": [
+                  2
+                ],
+                "text": "किरायेदारी समझौते के उल्लंघन पर आप अदालत में दावा कर सकते हैं, लेकिन इसके लिए समय सीमा और प्रक्रिया होती है, इसलिए जल्दी किसी वकील से सलाह लें।"
+              },
+              {
+                "refs": [
+                  3
+                ],
+                "text": "यदि आपकी आय सीमा कम है या आप किसी विशेष वर्ग से हैं, तो आप मुफ्त वकीय सहायता के लिए अपने जिला विधिक सेवा प्राधिकरण से संपर्क कर सकते हैं।"
+              },
+              {
+                "refs": [],
+                "text": "अपने मकान मालिक को लिखित में जमा राशि वापस करने के लिए कहें और सभी दस्तावेज़ और संचार का रिकॉर्ड रखें। यह बाद में मददगार हो सकता है।"
+              }
+            ],
+            "question": "मकान मालिक का नाम क्या है?"
+          },
+          "dropped": 0,
+          "citations": [
+            {
+              "n": 1,
+              "id": "MTA-11",
+              "url": "https://udd.delhi.gov.in/sites/default/files/UD/generic_multiple_files/mta_hindi_english.pdf",
+              "title": "Security deposit under the Model Tenancy Act",
+              "caveat": "Rent law is state-specific. Whether this applies depends on your state and whether you have a lease or a leave-and-licence agreement.",
+              "locator": "Section 11 and summary point (xi)",
+              "summary": "मॉडल किरायेदारी अधिनियम एक आदर्श कानून है। यह केवल उन राज्यों में लागू होता है जिन्होंने इसके आधार पर कानून बनाया है। जहां लागू हो, आवासीय जमा राशि दो महीने के किराये से अधिक नहीं हो सकती (गैर-आवासीय में छह महीने), और मकान मालिक को खाली कब्ज़ा लेते समय, किरायेदार की वास्तविक देनदारी काटकर, जमा लौटानी होती है।",
+              "citation": "Section 11, Model Tenancy Act, 2021",
+              "reviewed_on": "2026-11-09"
+            },
+            {
+              "n": 2,
+              "id": "ICA-73",
+              "url": "https://indiankanoon.org/doc/339747/",
+              "title": "Breach of a written or oral agreement",
+              "caveat": "Recovering money through a civil court has its own time limits and procedure. Ask a lawyer or the District Legal Services Authority early.",
+              "locator": "Section 73",
+              "summary": "किराया समझौता या नौकरी का समझौता एक अनुबंध है। जब एक पक्ष इसे तोड़ता है, तो दूसरा पक्ष उस नुकसान का मुआवज़ा मांग सकता है जो उस उल्लंघन से स्वाभाविक रूप से हुआ। दूर के या अप्रत्यक्ष नुकसान शामिल नहीं हैं।",
+              "citation": "Section 73, Indian Contract Act, 1872",
+              "reviewed_on": "2026-11-09"
+            },
+            {
+              "n": 3,
+              "id": "LSA-12",
+              "url": "https://nalsa.gov.in/",
+              "title": "Free legal aid",
+              "caveat": "The income limit varies by state.",
+              "locator": "Legal aid eligibility; helpline 15100",
+              "summary": "महिलाएं, बच्चे, अनुसूचित जाति और जनजाति के सदस्य, दिव्यांगजन, औद्योगिक कामगार, हिरासत में लोग और आय सीमा से नीचे के लोग मुफ्त वकील पा सकते हैं। नालसा हेल्पलाइन 15100 पर कॉल करें या अपने जिला विधिक सेवा प्राधिकरण जाएं।",
+              "citation": "Section 12, Legal Services Authorities Act, 1987",
+              "reviewed_on": "2026-11-09"
+            }
+          ]
+        }
+      },
+      "case_after": {
+        "domain": "deposit",
+        "language": "hi",
+        "facts": [
+          {
+            "field": "deposit_amount",
+            "label": "जमा राशि",
+            "value": "40,000 रुपये",
+            "quote": "40,000 रुपये की डिपॉज़िट वापस नहीं की।",
+            "confirmed": false,
+            "edited": false
+          },
+          {
+            "field": "move_out_date",
+            "label": "घर खाली करने की तारीख",
+            "value": "15 सितंबर",
+            "quote": "मैंने 15 सितंबर को घर खाली किया था।",
+            "confirmed": false,
+            "edited": false
+          }
+        ],
+        "missing": [
+          "मकान मालिक",
+          "संपत्ति",
+          "राज्य",
+          "मासिक किराया",
+          "किराया समझौता",
+          "बताई गई कटौती",
+          "पहले किए गए प्रयास",
+          "आपके पास प्रमाण",
+          "आपकी मांग"
+        ],
+        "events": [
+          {
+            "when": "15 सितंबर",
+            "what": "घर खाली किया",
+            "quote": "मैंने 15 सितंबर को घर खाली किया था।",
+            "turn": 1
+          }
+        ],
+        "notice": null,
+        "pending": null
+      },
+      "checks": [
+        {
+          "check": "domain",
+          "ok": true,
+          "detail": "deposit"
+        },
+        {
+          "check": "language",
+          "ok": true,
+          "detail": "hi"
+        },
+        {
+          "check": "cites_include",
+          "ok": true,
+          "detail": "cited ['MTA-11', 'ICA-73', 'LSA-12']; missing []"
+        },
+        {
+          "check": "facts",
+          "ok": true,
+          "detail": "mismatched {}"
+        },
+        {
+          "check": "reply_excludes",
+          "ok": true,
+          "detail": "found []"
+        },
+        {
+          "check": "devanagari",
+          "ok": true,
+          "detail": ""
+        },
+        {
+          "check": "citations_exist",
+          "ok": true,
+          "detail": "unknown []"
+        },
+        {
+          "check": "displayed_points_reverify",
+          "ok": true,
+          "detail": []
+        }
+      ]
+    }
+  ],
+  "passed": true
+}
