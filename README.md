@@ -12,7 +12,6 @@ Nyaya AI is a multilingual conversational legal-information assistant for everyd
 | Interactive API docs | https://nyaya-mfvy.onrender.com/api/docs |
 | Source and tests | https://github.com/kgpgaurav/nyaya_ai |
 | Live OpenAI evaluation | [Raw result summary](raw_outputs/live_openai_20261109_133056/summary.json) |
-| **Three-minute video walkthrough** | [Demo script and recording plan](docs/VIDEO_DEMO_3_MINUTES.md) |
 
 The application is hosted using **Streamlit Community Cloud → Render (FastAPI) → hosted PostgreSQL/pgvector (Neon)**. The cloud backend may need a cold start after inactivity.
 
