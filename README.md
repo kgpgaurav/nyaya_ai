@@ -29,7 +29,7 @@ copy .env.example .env
 notepad .env
 ~~~
 
-Set \`OPENAI_API_KEY\` to your private key. Suggested configuration in \`.env\`:
+Set `OPENAI_API_KEY` to your private key. Suggested configuration in `.env`:
 
 ~~~dotenv
 LLM_PROVIDER=openai
@@ -41,7 +41,7 @@ EMBEDDING_PROVIDER=none
 COOKIE_SECURE=false
 ~~~
 
-Leave the Compose database URL configured for the Docker service \`db\` (the hostname works **inside** Compose, not from Windows). **Never commit your \`.env\` or API key.**
+Leave the Compose database URL configured for the Docker service `db` (the hostname works **inside** Compose, not from Windows). **Never commit your `.env` or API key.**
 
 ~~~cmd
 docker compose up --build -d
@@ -54,10 +54,10 @@ docker compose ps -a
 | FastAPI | http://localhost:8000 |
 | Health endpoint | http://localhost:8000/health |
 | Swagger API docs | http://localhost:8000/api/docs |
-| \`db\`, \`api\`, \`streamlit\` | Running / healthy |
-| \`migrate\` | Exited (0) — completed migrations and seeding; **not** a server |
+| `db`, `api`, `streamlit` | Running / healthy |
+| `migrate` | Exited (0) — completed migrations and seeding; **not** a server |
 
-Troubleshoot with \`docker compose logs --tail=100 migrate\`, \`docker compose logs --tail=100 api\`, and \`docker compose logs --tail=100 streamlit\`.
+Troubleshoot with `docker compose logs --tail=100 migrate`, `docker compose logs --tail=100 api`, and `docker compose logs --tail=100 streamlit`.
 
 **Run scripted tests and evaluation:**
 
@@ -71,25 +71,25 @@ docker compose --profile test run --rm tests
 docker compose --profile test run --rm -v "%cd%\raw_outputs:/srv/raw_outputs" tests python scripts/evaluate.py --live --out /srv/raw_outputs
 ~~~
 
-In **PowerShell**, substitute the bind mount with \`-v "\${PWD}/raw_outputs:/srv/raw_outputs"\`.
+In **PowerShell**, substitute the bind mount with `-v "${PWD}/raw_outputs:/srv/raw_outputs"`.
 
-Files appear under \`raw_outputs/live_openai_YYYYMMDD_HHMMSS/\`. To stop services **without deleting stored database data**:
+Files appear under `raw_outputs/live_openai_YYYYMMDD_HHMMSS/`. To stop services **without deleting stored database data**:
 
 ~~~cmd
 docker compose down
 ~~~
 
-Avoid \`docker compose down -v\` unless you deliberately want to delete the database volume.
+Avoid `docker compose down -v` unless you deliberately want to delete the database volume.
 
 ### Local Python venv (alternative)
 
-For running scripts without Docker, you must also configure a reachable PostgreSQL 16 instance with pgvector; the Compose hostname \`db\` is not reachable from the Windows host by default. Install \`requirements-dev.txt\` for backend/evaluation and \`streamlit/requirements.txt\` for Streamlit. Windows async Psycopg may require \`WindowsSelectorEventLoopPolicy\`. The supported one-command setup is Docker Compose above.
+For running scripts without Docker, you must also configure a reachable PostgreSQL 16 instance with pgvector; the Compose hostname `db` is not reachable from the Windows host by default. Install `requirements-dev.txt` for backend/evaluation and `streamlit/requirements.txt` for Streamlit. Windows async Psycopg may require `WindowsSelectorEventLoopPolicy`. The supported one-command setup is Docker Compose above.
 
 ## Deploying the hosted application
 
-1. **Neon PostgreSQL:** Create a database, run \`CREATE EXTENSION IF NOT EXISTS vector;\`, and securely copy its **direct/non-pooled** connection string.
-2. **Render backend:** Use **New → Blueprint** with this repository. The included [render.yaml](render.yaml) runs \`sh /srv/scripts/render_start.sh\`, which applies Alembic migrations, seeds legal source cards, and launches Uvicorn. Set \`DATABASE_URL\` and \`OPENAI_API_KEY\` as private environment variables. Verify \`/health\` and \`/api/config\` before connecting the frontend.
-3. **Streamlit Community Cloud:** Deploy repository \`kgpgaurav/nyaya_ai\`, branch \`main\`, Python entrypoint \`streamlit/app.py\`, Python 3.12. Under app **Secrets**, set:
+1. **Neon PostgreSQL:** Create a database, run `CREATE EXTENSION IF NOT EXISTS vector;`, and securely copy its **direct/non-pooled** connection string.
+2. **Render backend:** Use **New → Blueprint** with this repository. The included [render.yaml](render.yaml) runs `sh /srv/scripts/render_start.sh`, which applies Alembic migrations, seeds legal source cards, and launches Uvicorn. Set `DATABASE_URL` and `OPENAI_API_KEY` as private environment variables. Verify `/health` and `/api/config` before connecting the frontend.
+3. **Streamlit Community Cloud:** Deploy repository `kgpgaurav/nyaya_ai`, branch `main`, Python entrypoint `streamlit/app.py`, Python 3.12. Under app **Secrets**, set:
 
 ~~~toml
 NYAYA_API_URL = "https://nyaya-mfvy.onrender.com"
@@ -113,7 +113,7 @@ These are **illustrative behaviors, not guaranteed verbatim model answers**. Use
 | **Hindi input** | **Auto:** “मेरे मकान मालिक ने 40,000 रुपये की डिपॉज़िट वापस नहीं की। अब क्या करूं?” | Detects Hindi, extracts quoted facts, and responds in Hindi when classification succeeds. |
 | **Voice input** | Record a short Hindi or English case description using **Voice recording**. | STT transcribes audio through the configured provider; the transcript is then processed by the same graph. Audio needs separate hands-on testing. |
 
-**Known observed limitations:** In the 2026-11-09 GPT-4.1-mini live evaluation, \`deposit_en_full\` did not enter pending confirmation because required fields remained missing; the cheque-bounce example extracted “within 15 days of receipt” but classified the notice generically and omitted the Section 138 citation. Don't claim these paths are fully reliable without retesting.
+**Known observed limitations:** In the 2026-11-09 GPT-4.1-mini live evaluation, `deposit_en_full` did not enter pending confirmation because required fields remained missing; the cheque-bounce example extracted “within 15 days of receipt” but classified the notice generically and omitted the Section 138 citation. Don't claim these paths are fully reliable without retesting.
 
 ### Evaluation evidence
 
@@ -158,21 +158,21 @@ Streamlit (streamlit/app.py) -- HTTP requests + session cookies --> FastAPI (app
                        TXT / DOCX download
 ~~~ 
 
-**1. Frontend and API.** Streamlit renders case history, mode/language selectors, a microphone input, extracted facts, citations, and draft downloads. Its client uses a cookie-preserving HTTP session to call FastAPI's \`/api/case\`, \`/api/case/messages\`, \`/api/case/voice\`, \`/api/case/confirm\`, \`/api/case/export\` and deletion endpoints. FastAPI manages case/session lifecycle, validates inputs, records model usage and enforces per-case/day call limits.
+**1. Frontend and API.** Streamlit renders case history, mode/language selectors, a microphone input, extracted facts, citations, and draft downloads. Its client uses a cookie-preserving HTTP session to call FastAPI's `/api/case`, `/api/case/messages`, `/api/case/voice`, `/api/case/confirm`, `/api/case/export` and deletion endpoints. FastAPI manages case/session lifecycle, validates inputs, records model usage and enforces per-case/day call limits.
 
-**2. LangGraph orchestration.** The graph follows \`ingest → guard → [canned/referral | notice | practice | extract → (draft or retrieve → compose → verify → respond)]\`. \`verify\` can route back to \`compose\` for **one retry**. The graph checkpointer is stored in PostgreSQL, preserving multi-turn context. Drafting uses a LangGraph \`interrupt()\` so it cannot proceed until facts are explicitly confirmed.
+**2. LangGraph orchestration.** The graph follows `ingest → guard → [canned/referral | notice | practice | extract → (draft or retrieve → compose → verify → respond)]`. `verify` can route back to `compose` for **one retry**. The graph checkpointer is stored in PostgreSQL, preserving multi-turn context. Drafting uses a LangGraph `interrupt()` so it cannot proceed until facts are explicitly confirmed.
 
 **3. Model operations versus deterministic code.** An LLM performs structured triage, possible risk classification, fact extraction, notice summaries, coaching and answer composition. Pydantic validates structured output. Deterministic Python code checks exact user quotes, detects conflicts, retrieves allowed source cards, enforces legal-source restrictions, quotes deadlines, controls draft gates, and filters unsafe/unsupported output. The LLM is **not** allowed to invent citations or unilaterally authorize drafting.
 
-**4. Data model.** PostgreSQL holds case sessions, messages, facts, timeline events, drafts and generated documents, legal source cards, and model-call metadata (provider/model, tokens, latency, errors). SQLAlchemy and Psycopg provide database access. Alembic handles schema upgrades; the startup seed populates the legal corpus. The schema includes pgvector support, but the default \`EMBEDDING_PROVIDER=none\` uses regular full-text retrieval rather than an embedding API.
+**4. Data model.** PostgreSQL holds case sessions, messages, facts, timeline events, drafts and generated documents, legal source cards, and model-call metadata (provider/model, tokens, latency, errors). SQLAlchemy and Psycopg provide database access. Alembic handles schema upgrades; the startup seed populates the legal corpus. The schema includes pgvector support, but the default `EMBEDDING_PROVIDER=none` uses regular full-text retrieval rather than an embedding API.
 
-**5. Provenance and law verification.** \`app/provenance.py\` only accepts extracted facts when the claimed value occurs inside an **exact user-quoted span**; conflicting values should be reconciled rather than silently overwritten. \`app/corpus.py\` retrieves curated, dated legal source cards. \`app/verify.py\` rejects answer points with missing/unknown source IDs, source-unsupported acts or section numbers, invented rupee amounts, deadlines, phone numbers or links, and citations to court judgments outside the corpus. A failed composition can be retried once; when verifiable support is inadequate the assistant should hedge instead of inventing legal rules. These checks reduce, but do not eliminate, hallucination risk.
+**5. Provenance and law verification.** `app/provenance.py` only accepts extracted facts when the claimed value occurs inside an **exact user-quoted span**; conflicting values should be reconciled rather than silently overwritten. `app/corpus.py` retrieves curated, dated legal source cards. `app/verify.py` rejects answer points with missing/unknown source IDs, source-unsupported acts or section numbers, invented rupee amounts, deadlines, phone numbers or links, and citations to court judgments outside the corpus. A failed composition can be retried once; when verifiable support is inadequate the assistant should hedge instead of inventing legal rules. These checks reduce, but do not eliminate, hallucination risk.
 
-**6. Drafts and user control.** When draft requirements are satisfied, \`app/graph/nodes.py\` pauses and asks the user to confirm or edit extracted fields. Only after confirmation does \`app/drafts.py\` render a letter; the user can download TXT or DOCX. The system **does not send or file legal documents automatically**.
+**6. Drafts and user control.** When draft requirements are satisfied, `app/graph/nodes.py` pauses and asks the user to confirm or edit extracted fields. Only after confirmation does `app/drafts.py` render a letter; the user can download TXT or DOCX. The system **does not send or file legal documents automatically**.
 
-**7. Speech and model adapters.** \`app/stt.py\` performs speech-to-text with the configured provider (OpenAI Whisper is the sample deployment setting). \`app/llm.py\` abstracts OpenAI/Groq/Gemini/Ollama providers using LangChain and records model usage. This allows swapping models without changing the graph, while maintaining the same verification stages.
+**7. Speech and model adapters.** `app/stt.py` performs speech-to-text with the configured provider (OpenAI Whisper is the sample deployment setting). `app/llm.py` abstracts OpenAI/Groq/Gemini/Ollama providers using LangChain and records model usage. This allows swapping models without changing the graph, while maintaining the same verification stages.
 
-**8. Deployment boundaries.** Docker Compose runs \`db\`, one-shot \`migrate\`, \`api\`, and \`streamlit\` locally. In the public deployment the browser uses Streamlit Community Cloud, FastAPI runs as a Render Docker web service, and persistent PostgreSQL is hosted separately. Secrets belong in Render env vars and Streamlit secrets, **not in Git**.
+**8. Deployment boundaries.** Docker Compose runs `db`, one-shot `migrate`, `api`, and `streamlit` locally. In the public deployment the browser uses Streamlit Community Cloud, FastAPI runs as a Render Docker web service, and persistent PostgreSQL is hosted separately. Secrets belong in Render env vars and Streamlit secrets, **not in Git**.
 
 ### Important limitations
 
