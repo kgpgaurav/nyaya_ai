@@ -9,7 +9,7 @@ class Settings(BaseSettings):
 
     database_url: str = "postgresql+psycopg://nyaya:nyaya@localhost:5432/nyaya"
 
-    llm_provider: str = "groq"
+    llm_provider: str = "openai"
     llm_model: str = ""
     llm_temperature: float = 0.1
     llm_timeout: float = 45
@@ -22,8 +22,8 @@ class Settings(BaseSettings):
     embedding_provider: str = "none"
     embedding_model: str = ""
 
-    stt_provider: str = "groq"
-    stt_model: str = "whisper-large-v3-turbo"
+    stt_provider: str = "openai"
+    stt_model: str = "whisper-1"
     sarvam_api_key: str = ""
 
     cookie_secure: bool = False

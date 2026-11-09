@@ -4,3 +4,6 @@ __pycache__/
 *.pyc
 .pytest_cache/
 raw_outputs/live_*/
+
+# Never commit locally configured Streamlit secrets.
+.streamlit/secrets.toml

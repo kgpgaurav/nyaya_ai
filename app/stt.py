@@ -32,6 +32,34 @@ class GroqWhisper:
         return r.json().get("text", "").strip()
 
 
+
+class OpenAIWhisper:
+    """Use the same OPENAI_API_KEY for Whisper and chat."""
+
+    url = "https://api.openai.com/v1/audio/transcriptions"
+
+    def __init__(self, settings: Settings):
+        if not settings.openai_api_key:
+            raise ValueError("OPENAI_API_KEY is not set")
+        self.key = settings.openai_api_key
+        self.model = settings.stt_model if settings.stt_model not in ("", "whisper-large-v3-turbo") else "whisper-1"
+
+    async def transcribe(self, audio: bytes, filename: str, language: str | None) -> str:
+        data = {"model": self.model, "response_format": "json"}
+        if language in ("en", "hi"):
+            data["language"] = language
+        async with httpx.AsyncClient(timeout=60) as client:
+            r = await client.post(
+                self.url,
+                headers={"Authorization": f"Bearer {self.key}"},
+                data=data,
+                files={"file": (filename, audio)},
+            )
+        if r.status_code != 200:
+            raise STTError(f"transcription failed with status {r.status_code}")
+        return r.json().get("text", "").strip()
+
+
 class SarvamSTT:
     url = "https://api.sarvam.ai/speech-to-text"
 
@@ -67,6 +95,8 @@ class MockSTT:
 def build_stt(settings: Settings):
     if settings.stt_provider == "mock" or settings.llm_provider == "mock":
         return MockSTT(settings.mock_fixtures)
+    if settings.stt_provider == "openai":
+        return OpenAIWhisper(settings)
     if settings.stt_provider == "sarvam":
         return SarvamSTT(settings)
     if settings.stt_provider == "groq":

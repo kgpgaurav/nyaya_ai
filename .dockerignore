@@ -5,3 +5,5 @@ __pycache__
 *.pyc
 raw_outputs
 .pytest_cache
+
+.streamlit/secrets.toml

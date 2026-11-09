@@ -5,8 +5,7 @@ x-app: &app
     context: .
     target: runtime
   env_file:
-    - path: .env
-      required: false
+    - .env
   environment:
     DATABASE_URL: postgresql+psycopg://nyaya:nyaya@db:5432/nyaya
     OLLAMA_BASE_URL: http://ollama:11434
@@ -21,8 +20,6 @@ services:
     volumes:
       - pgdata:/var/lib/postgresql/data
       - ./docker/initdb.sql:/docker-entrypoint-initdb.d/10-test-db.sql:ro
-    ports:
-      - "127.0.0.1:5432:5432"
     healthcheck:
       test: ["CMD-SHELL", "pg_isready -U nyaya -d nyaya"]
       interval: 3s
@@ -40,10 +37,23 @@ services:
   api:
     <<: *app
     ports:
-      - "8000:8000"
+      - "127.0.0.1:8000:8000"
     depends_on:
       migrate:
         condition: service_completed_successfully
+    restart: unless-stopped
+
+  streamlit:
+    build:
+      context: .
+      dockerfile: Dockerfile.streamlit
+    environment:
+      NYAYA_API_URL: http://api:8000
+    ports:
+      - "127.0.0.1:8501:8501"
+    depends_on:
+      api:
+        condition: service_healthy
     restart: unless-stopped
 
   tests:

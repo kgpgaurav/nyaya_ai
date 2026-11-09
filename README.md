@@ -1,3 +1,29 @@
+## Quick start - OpenAI + Docker + Streamlit
+
+Windows PowerShell:
+
+```powershell
+Copy-Item .env.example .env
+notepad .env  # replace OPENAI_API_KEY with your own key; never commit .env
+docker compose up --build -d
+docker compose ps
+```
+
+Streamlit: http://localhost:8501 ; FastAPI: http://localhost:8000 .
+PostgreSQL 16 + pgvector, migrations and corpus seeding are managed automatically by Docker Compose. Stop without losing case data: `docker compose down`.
+
+### Public Streamlit link for the application form
+
+Streamlit Community Cloud runs **only the frontend**; it cannot run this repository's Docker Compose PostgreSQL and FastAPI services. First deploy a Postgres database with pgvector (e.g. Neon) and the FastAPI backend (e.g. Render using `render.yaml`, with `OPENAI_API_KEY` and `DATABASE_URL` set privately). Then create a Streamlit Community Cloud app from this repo, branch `main`, entrypoint `streamlit/app.py`, and set app secrets:
+
+```toml
+NYAYA_API_URL = "https://YOUR-DEPLOYED-FASTAPI-SERVICE.onrender.com"
+```
+
+You can submit the GitHub repository URL as your prototype even without a public hosted UI, because the application form explicitly accepts repository links. Unedited outputs are at [raw_outputs/mock](raw_outputs/mock/), and contain **scripted mock** evaluation, not measured OpenAI model accuracy.
+
+---
+
 # Nyaya
 
 A conversational legal helper for ordinary people in India. You describe the problem by text or voice, in English, Hindi or Hinglish, and it helps you act on it:
@@ -15,11 +41,11 @@ It covers three everyday problems in depth: a **security deposit** a landlord wo
 ### With Docker
 
 ```bash
-cp .env.example .env              # set GROQ_API_KEY (free at console.groq.com)
-docker compose up --build         # db + migrate/seed + api
+cp .env.example .env              # set OPENAI_API_KEY
+docker compose up --build         # db + migration/seed + API + Streamlit
 ```
 
-Open http://localhost:8000.
+Open http://localhost:8501 (Streamlit), or http://localhost:8000 (FastAPI).
 
 To run the tests and the scripted evaluation inside Docker:
 
@@ -51,7 +77,7 @@ uvicorn app.main:app --reload
 
 1. Create a free Postgres database on [Neon](https://neon.tech) and copy its direct (not pooled) connection string. Neon supports `pgvector`.
 2. On [Render](https://render.com), choose New > Blueprint and point it at this repository. `render.yaml` builds the Docker image and runs migrations and seeding on every start.
-3. Set `DATABASE_URL` (the Neon string) and `GROQ_API_KEY` when Render asks. Usage caps per case and per day are set in `render.yaml`.
+3. Set `DATABASE_URL` (the Neon string) and `OPENAI_API_KEY` when Render asks. Usage caps per case and per day are set in `render.yaml`.
 
 Free Render services sleep when idle, so the first request after a while takes about a minute.
 
@@ -77,7 +103,7 @@ All model access goes through one adapter (`app/llm.py`), built with LangChain's
 | `ollama` | none | `qwen2.5:7b-instruct` |
 | `mock` | none | scripted answers for tests |
 
-`LLM_MODEL` overrides the default. Voice uses `STT_PROVIDER=groq` (Whisper, free tier) or `sarvam` (Saaras, better on Indian languages). Retrieval uses Postgres full-text search by default. Set `EMBEDDING_PROVIDER` to `openai`, `gemini` or `ollama` to add pgvector similarity on top.
+`LLM_MODEL` overrides the default. Voice uses `STT_PROVIDER=openai` (Whisper via OPENAI_API_KEY), `groq`, or `sarvam` (Saaras, better on Indian languages). Retrieval uses Postgres full-text search by default. Set `EMBEDDING_PROVIDER` to `openai`, `gemini` or `ollama` to add pgvector similarity on top.
 
 ## How it works
 

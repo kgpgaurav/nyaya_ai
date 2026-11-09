@@ -10,12 +10,12 @@ services:
     envVars:
       - key: DATABASE_URL
         sync: false
-      - key: GROQ_API_KEY
+      - key: OPENAI_API_KEY
         sync: false
       - key: LLM_PROVIDER
-        value: groq
+        value: openai
       - key: STT_PROVIDER
-        value: groq
+        value: openai
       - key: COOKIE_SECURE
         value: "true"
       - key: MAX_CALLS_PER_CASE
