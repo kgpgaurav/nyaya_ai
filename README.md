@@ -1,95 +1,184 @@
-## Quick start - OpenAI + Docker + Streamlit
+# Nyaya AI — Indian Legal Guidance Assistant
 
-Windows PowerShell:
+Nyaya AI is a multilingual conversational legal-information assistant for everyday issues in India. It builds a structured case from a user's narrative, retrieves a small curated set of legal source cards, verifies generated legal statements, and supports notice interpretation, practice, and fact-confirmed letter drafting. **It is not a lawyer, legal representation, or an automatic filing service.**
 
-```powershell
-Copy-Item .env.example .env
-notepad .env  # replace OPENAI_API_KEY with your own key; never commit .env
+## Live application and project links
+
+| Resource | URL |
+|---|---|
+| **Public Streamlit app** | https://nyayaai-4gzcqxi2pc4gueuij6ygyg.streamlit.app/ |
+| **FastAPI backend on Render** | https://nyaya-mfvy.onrender.com/ |
+| API health | https://nyaya-mfvy.onrender.com/health |
+| Interactive API docs | https://nyaya-mfvy.onrender.com/api/docs |
+| Source and tests | https://github.com/kgpgaurav/nyaya_ai |
+| Live OpenAI evaluation | [Raw result summary](raw_outputs/live_openai_20261109_133056/summary.json) |
+| **Three-minute video walkthrough** | [Demo script and recording plan](docs/VIDEO_DEMO_3_MINUTES.md) |
+
+The application is hosted using **Streamlit Community Cloud → Render (FastAPI) → hosted PostgreSQL/pgvector (Neon)**. The cloud backend may need a cold start after inactivity.
+
+## Run locally: Docker Desktop (recommended)
+
+**Prerequisites:** Git, Docker Desktop with Compose running, an OpenAI API key with active credits. Docker provides Python, PostgreSQL, migrations, FastAPI and Streamlit; you **do not need to activate a Windows venv** for this path. Local hosting still needs internet for the OpenAI API.
+
+Open **Windows CMD** in a working directory:
+
+~~~cmd
+git clone https://github.com/kgpgaurav/nyaya_ai.git
+cd nyaya_ai
+copy .env.example .env
+notepad .env
+~~~
+
+Set \`OPENAI_API_KEY\` to your private key. Suggested configuration in \`.env\`:
+
+~~~dotenv
+LLM_PROVIDER=openai
+LLM_MODEL=gpt-4.1-mini
+OPENAI_API_KEY=YOUR_PRIVATE_KEY
+STT_PROVIDER=openai
+STT_MODEL=whisper-1
+EMBEDDING_PROVIDER=none
+COOKIE_SECURE=false
+~~~
+
+Leave the Compose database URL configured for the Docker service \`db\` (the hostname works **inside** Compose, not from Windows). **Never commit your \`.env\` or API key.**
+
+~~~cmd
 docker compose up --build -d
-docker compose ps
-```
+docker compose ps -a
+~~~
 
-Streamlit: http://localhost:8501 ; FastAPI: http://localhost:8000 .
-PostgreSQL 16 + pgvector, migrations and corpus seeding are managed automatically by Docker Compose. Stop without losing case data: `docker compose down`.
+| Local service | URL / expected state |
+|---|---|
+| Streamlit UI | http://localhost:8501 |
+| FastAPI | http://localhost:8000 |
+| Health endpoint | http://localhost:8000/health |
+| Swagger API docs | http://localhost:8000/api/docs |
+| \`db\`, \`api\`, \`streamlit\` | Running / healthy |
+| \`migrate\` | Exited (0) — completed migrations and seeding; **not** a server |
 
-### Public Streamlit link for the application form
+Troubleshoot with \`docker compose logs --tail=100 migrate\`, \`docker compose logs --tail=100 api\`, and \`docker compose logs --tail=100 streamlit\`.
 
-Streamlit Community Cloud runs **only the frontend**; it cannot run this repository's Docker Compose PostgreSQL and FastAPI services. First deploy a Postgres database with pgvector (e.g. Neon) and the FastAPI backend (e.g. Render using `render.yaml`, with `OPENAI_API_KEY` and `DATABASE_URL` set privately). Then create a Streamlit Community Cloud app from this repo, branch `main`, entrypoint `streamlit/app.py`, and set app secrets:
+**Run scripted tests and evaluation:**
 
-```toml
-NYAYA_API_URL = "https://YOUR-DEPLOYED-FASTAPI-SERVICE.onrender.com"
-```
+~~~cmd
+docker compose --profile test run --rm tests
+~~~
 
-You can submit the GitHub repository URL as your prototype even without a public hosted UI, because the application form explicitly accepts repository links. Unedited outputs are at [raw_outputs/mock](raw_outputs/mock/), and contain **scripted mock** evaluation, not measured OpenAI model accuracy.
+**Run real OpenAI evaluation on Windows CMD** (makes billable API calls; stores JSON files on the host):
+
+~~~cmd
+docker compose --profile test run --rm -v "%cd%\raw_outputs:/srv/raw_outputs" tests python scripts/evaluate.py --live --out /srv/raw_outputs
+~~~
+
+In **PowerShell**, substitute the bind mount with \`-v "\${PWD}/raw_outputs:/srv/raw_outputs"\`.
+
+Files appear under \`raw_outputs/live_openai_YYYYMMDD_HHMMSS/\`. To stop services **without deleting stored database data**:
+
+~~~cmd
+docker compose down
+~~~
+
+Avoid \`docker compose down -v\` unless you deliberately want to delete the database volume.
+
+### Local Python venv (alternative)
+
+For running scripts without Docker, you must also configure a reachable PostgreSQL 16 instance with pgvector; the Compose hostname \`db\` is not reachable from the Windows host by default. Install \`requirements-dev.txt\` for backend/evaluation and \`streamlit/requirements.txt\` for Streamlit. Windows async Psycopg may require \`WindowsSelectorEventLoopPolicy\`. The supported one-command setup is Docker Compose above.
+
+## Deploying the hosted application
+
+1. **Neon PostgreSQL:** Create a database, run \`CREATE EXTENSION IF NOT EXISTS vector;\`, and securely copy its **direct/non-pooled** connection string.
+2. **Render backend:** Use **New → Blueprint** with this repository. The included [render.yaml](render.yaml) runs \`sh /srv/scripts/render_start.sh\`, which applies Alembic migrations, seeds legal source cards, and launches Uvicorn. Set \`DATABASE_URL\` and \`OPENAI_API_KEY\` as private environment variables. Verify \`/health\` and \`/api/config\` before connecting the frontend.
+3. **Streamlit Community Cloud:** Deploy repository \`kgpgaurav/nyaya_ai\`, branch \`main\`, Python entrypoint \`streamlit/app.py\`, Python 3.12. Under app **Secrets**, set:
+
+~~~toml
+NYAYA_API_URL = "https://nyaya-mfvy.onrender.com"
+~~~
+
+4. Open the public Streamlit URL and test **New case**, cited answer, notice, voice recording, fact confirmation where enough facts are available, and case deletion. This is required even after the Render health check passes. **Your local Docker Desktop can remain stopped once both hosted services work.**
+
+## Example inputs and how the model responds
+
+These are **illustrative behaviors, not guaranteed verbatim model answers**. Use fictitious information when demonstrating the public app. Click **New case** between independent examples; choose the indicated mode in the sidebar.
+
+| Scenario | Mode and example prompt | Expected application behavior |
+|---|---|---|
+| **Rental deposit** | **Auto:** “My landlord in Pune kept my Rs 50,000 deposit. I moved out on 31 August 2026 and returned the keys. What are my options?” | Classifies a deposit dispute; extracts amount and date with quoted evidence; offers cautious, cited next steps and asks for missing tenancy details. |
+| **Defective purchase** | **Auto:** “I paid Rs 12,000 for an online mixer grinder on 2 October. It was faulty on day one, and the seller refuses a refund. What should I do?” | Classifies a consumer-refund issue, requests invoice/order details, and provides supported grievance options with relevant source cards. |
+| **Unpaid wages** | **Auto:** “BrightTech Solutions has not paid my Rs 35,000 salary for September and October 2026.” | Identifies employer, amount and unpaid period; offers sourced wage-related guidance and follow-up questions rather than a guaranteed outcome. |
+| **No explicit notice deadline** | **Understand a notice:** “Dear tenant, rent increases from Rs 18,000 to Rs 22,000 next month. Confirm or vacate.” | Summarizes the notice and does not invent a precise calendar deadline where the text supplies none. |
+| **Fake evidence request** | **Auto:** “Can you create a fake rent receipt saying I paid Rs 60,000?” | Refuses to fabricate records and points toward genuine evidence. |
+| **Criminal/police matter** | **Auto:** “Police say an FIR was filed against me. What should I do?” | Refers the user to legal counsel and free legal-aid information, rather than handling an unsupported criminal-law workflow. |
+| **Letter drafting** | **Draft a letter:** “Please draft a request for return of my deposit.” | Collects required facts, pauses for explicit confirmation when sufficient information exists, then generates a draft for download. An incomplete case **will not** draft immediately. |
+| **Hindi input** | **Auto:** “मेरे मकान मालिक ने 40,000 रुपये की डिपॉज़िट वापस नहीं की। अब क्या करूं?” | Detects Hindi, extracts quoted facts, and responds in Hindi when classification succeeds. |
+| **Voice input** | Record a short Hindi or English case description using **Voice recording**. | STT transcribes audio through the configured provider; the transcript is then processed by the same graph. Audio needs separate hands-on testing. |
+
+**Known observed limitations:** In the 2026-11-09 GPT-4.1-mini live evaluation, \`deposit_en_full\` did not enter pending confirmation because required fields remained missing; the cheque-bounce example extracted “within 15 days of receipt” but classified the notice generically and omitted the Section 138 citation. Don't claim these paths are fully reliable without retesting.
+
+### Evaluation evidence
+
+The scripted mock fixture suite and live-model evaluation measure **different things**: mock responses test deterministic filtering, whereas live responses vary. For the run [live_openai_20261109_133056](raw_outputs/live_openai_20261109_133056/summary.json), **12/19 scenarios passed (63.2%)**, with **39,444 input tokens**, **5,453 output tokens**, **2,105 ms median** model-call latency and **3,465 ms p90**. The live voice fixture skipped its scripted audio turn, so that pass does **not** validate live transcription.
+
+## Technical architecture and design decisions
+
+### Component and request flow
+
+~~~text
+Browser / microphone
+      |
+      v
+Streamlit (streamlit/app.py) -- HTTP requests + session cookies --> FastAPI (app/main.py)
+                                                                |
+                                                    Validation, budgets, sessions
+                                                                |
+                                                                v
+                                                          LangGraph workflow
+                                                                |
+        +------------------------+------------------------------+--------------------+
+        |                        |                              |                    |
+   Safety / routing        Case fact extraction          Notice reading       Practice mode
+        |                        |                              |                    |
+        |                        v                              |                    |
+        |                Retrieval (Postgres)                  |                    |
+        |                        |                              |                    |
+        |                  LLM composition                     |                    |
+        |                        |                              |                    |
+        |              Deterministic verification <------------+--------------------+
+        |                   |         |
+        |            accepted       rejected --> one retry / safe fallback
+        |                   |
+        +-------------------+--------------------> API response with citations
+                                |
+                         Draft requested?
+                                |
+                       Missing facts? Ask user
+                                |
+                       Fact confirmation gate
+                                |
+                       TXT / DOCX download
+~~~ 
+
+**1. Frontend and API.** Streamlit renders case history, mode/language selectors, a microphone input, extracted facts, citations, and draft downloads. Its client uses a cookie-preserving HTTP session to call FastAPI's \`/api/case\`, \`/api/case/messages\`, \`/api/case/voice\`, \`/api/case/confirm\`, \`/api/case/export\` and deletion endpoints. FastAPI manages case/session lifecycle, validates inputs, records model usage and enforces per-case/day call limits.
+
+**2. LangGraph orchestration.** The graph follows \`ingest → guard → [canned/referral | notice | practice | extract → (draft or retrieve → compose → verify → respond)]\`. \`verify\` can route back to \`compose\` for **one retry**. The graph checkpointer is stored in PostgreSQL, preserving multi-turn context. Drafting uses a LangGraph \`interrupt()\` so it cannot proceed until facts are explicitly confirmed.
+
+**3. Model operations versus deterministic code.** An LLM performs structured triage, possible risk classification, fact extraction, notice summaries, coaching and answer composition. Pydantic validates structured output. Deterministic Python code checks exact user quotes, detects conflicts, retrieves allowed source cards, enforces legal-source restrictions, quotes deadlines, controls draft gates, and filters unsafe/unsupported output. The LLM is **not** allowed to invent citations or unilaterally authorize drafting.
+
+**4. Data model.** PostgreSQL holds case sessions, messages, facts, timeline events, drafts and generated documents, legal source cards, and model-call metadata (provider/model, tokens, latency, errors). SQLAlchemy and Psycopg provide database access. Alembic handles schema upgrades; the startup seed populates the legal corpus. The schema includes pgvector support, but the default \`EMBEDDING_PROVIDER=none\` uses regular full-text retrieval rather than an embedding API.
+
+**5. Provenance and law verification.** \`app/provenance.py\` only accepts extracted facts when the claimed value occurs inside an **exact user-quoted span**; conflicting values should be reconciled rather than silently overwritten. \`app/corpus.py\` retrieves curated, dated legal source cards. \`app/verify.py\` rejects answer points with missing/unknown source IDs, source-unsupported acts or section numbers, invented rupee amounts, deadlines, phone numbers or links, and citations to court judgments outside the corpus. A failed composition can be retried once; when verifiable support is inadequate the assistant should hedge instead of inventing legal rules. These checks reduce, but do not eliminate, hallucination risk.
+
+**6. Drafts and user control.** When draft requirements are satisfied, \`app/graph/nodes.py\` pauses and asks the user to confirm or edit extracted fields. Only after confirmation does \`app/drafts.py\` render a letter; the user can download TXT or DOCX. The system **does not send or file legal documents automatically**.
+
+**7. Speech and model adapters.** \`app/stt.py\` performs speech-to-text with the configured provider (OpenAI Whisper is the sample deployment setting). \`app/llm.py\` abstracts OpenAI/Groq/Gemini/Ollama providers using LangChain and records model usage. This allows swapping models without changing the graph, while maintaining the same verification stages.
+
+**8. Deployment boundaries.** Docker Compose runs \`db\`, one-shot \`migrate\`, \`api\`, and \`streamlit\` locally. In the public deployment the browser uses Streamlit Community Cloud, FastAPI runs as a Render Docker web service, and persistent PostgreSQL is hosted separately. Secrets belong in Render env vars and Streamlit secrets, **not in Git**.
+
+### Important limitations
+
+Nyaya covers a constrained set of Indian civil/consumer/employment topics with a small curated corpus, not every legal jurisdiction or current rule. State-specific tenancy and employment rules require care. Quote-based facts show **where text came from**, not independent truth. Regex-based verification has gaps; LLM classification may still misclassify notices or fail to flag injection. PostgreSQL case content is not application-level encrypted; avoid real confidential details in public demos, and restrict access/spending before any broader release.
 
 ---
-
-# Nyaya
-
-A conversational legal helper for ordinary people in India. You describe the problem by text or voice, in English, Hindi or Hinglish, and it helps you act on it:
-
-- **Build your case**: turns a messy story into facts, a timeline and a list of proof, each fact tied to your exact words.
-- **Explain your options**: plain-language rights and next steps, every legal claim linked to a checked source.
-- **Draft a letter**: a demand letter or grievance complaint, written only after you confirm the facts.
-- **Practise**: it plays the landlord, seller or employer so you can rehearse, with a coach tip after each reply.
-- **Explain a notice**: paste a notice and get what it says, what it asks and its deadline, quoted from the notice itself.
-
-It covers three everyday problems in depth: a **security deposit** a landlord won't return, a **refund** for a faulty or undelivered purchase, and **unpaid salary**. It also explains **notices**. Anything involving police, criminal cases, family law, court dates, threats or fabricated evidence is routed to a lawyer and free legal aid (NALSA 15100), not answered.
-
-## Run it
-
-### With Docker
-
-```bash
-cp .env.example .env              # set OPENAI_API_KEY
-docker compose up --build         # db + migration/seed + API + Streamlit
-```
-
-Open http://localhost:8501 (Streamlit), or http://localhost:8000 (FastAPI).
-
-To run the tests and the scripted evaluation inside Docker:
-
-```bash
-docker compose --profile test run --rm tests
-```
-
-For a fully local model, start Ollama as well, then set `LLM_PROVIDER=ollama` in `.env` and pull a model:
-
-```bash
-docker compose --profile local-llm up -d ollama
-docker compose exec ollama ollama pull qwen2.5:7b-instruct
-```
-
-### Without Docker
-
-You need Python 3.12 and Postgres 16 with the `pgvector` extension.
-
-```bash
-python3.12 -m venv .venv && source .venv/bin/activate
-pip install -r requirements-dev.txt
-cp .env.example .env              # set DATABASE_URL and an API key
-alembic upgrade head
-python -m app.seed
-uvicorn app.main:app --reload
-```
-
-### Deploy (free tiers)
-
-1. Create a free Postgres database on [Neon](https://neon.tech) and copy its direct (not pooled) connection string. Neon supports `pgvector`.
-2. On [Render](https://render.com), choose New > Blueprint and point it at this repository. `render.yaml` builds the Docker image and runs migrations and seeding on every start.
-3. Set `DATABASE_URL` (the Neon string) and `OPENAI_API_KEY` when Render asks. Usage caps per case and per day are set in `render.yaml`.
-
-Free Render services sleep when idle, so the first request after a while takes about a minute.
-
-### Tests and evaluation
-
-```bash
-python -m pytest -q                       # 75 tests; needs a nyaya_test database (TEST_DATABASE_URL)
-python scripts/evaluate.py                # 19 scripted scenarios -> raw_outputs/mock/
-python scripts/evaluate.py --live         # same scenarios against the configured model -> raw_outputs/live_<provider>_<time>/
-```
-
-The scripted run uses a mock model that returns fixed answers from `tests/mock_llm.json`. Those answers deliberately include the mistakes real models make: invented judgments, repealed Acts, made-up deadlines, wrong section numbers and prompt injection. The run proves that the checks catch them. It says nothing about how good a real model is; that is what `--live` is for. Every run writes one JSON file per scenario (inputs, replies, citations, model calls, tokens, latency, pass/fail per check), any drafts as `.txt`, and a `summary.json`.
 
 ## Switching models
 
