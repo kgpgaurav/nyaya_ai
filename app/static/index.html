@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Nyaya: help with everyday legal problems</title>
+<link rel="icon" href="/static/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="/static/style.css">
+<script src="/static/app.js" defer></script>
+</head>
+<body>
+<header class="bar">
+  <div class="brand">
+    <span class="mark" aria-hidden="true">न्या</span>
+    <span class="name">Nyaya</span>
+  </div>
+  <div class="bar-actions">
+    <label class="lang">
+      <span class="sr-only" data-i18n="language">Language</span>
+      <select id="language">
+        <option value="auto">Auto</option>
+        <option value="en">English</option>
+        <option value="hi">हिंदी</option>
+        <option value="hinglish">Hinglish</option>
+      </select>
+    </label>
+    <button type="button" id="toggle-file" class="ghost file-toggle" aria-controls="case-file" aria-expanded="false" data-i18n="caseFile">Case file</button>
+    <button type="button" id="new-case" class="ghost" data-i18n="newCase">New case</button>
+  </div>
+</header>
+
+<main class="layout">
+  <section class="talk" aria-label="Conversation">
+    <div id="status" class="status" role="status" hidden></div>
+    <ol id="messages" class="messages" aria-live="polite"></ol>
+
+    <form id="composer" class="composer" autocomplete="off">
+      <fieldset class="modes">
+        <legend class="sr-only" data-i18n="modeLegend">What do you want to do?</legend>
+        <label><input type="radio" name="mode" value="auto" checked><span data-i18n="m_auto">Just talk</span></label>
+        <label><input type="radio" name="mode" value="build_case"><span data-i18n="m_build_case">Build my case</span></label>
+        <label><input type="radio" name="mode" value="explain"><span data-i18n="m_explain">My options</span></label>
+        <label><input type="radio" name="mode" value="draft"><span data-i18n="m_draft">Draft a letter</span></label>
+        <label><input type="radio" name="mode" value="practice"><span data-i18n="m_practice">Practise</span></label>
+        <label><input type="radio" name="mode" value="notice"><span data-i18n="m_notice">Explain a notice</span></label>
+      </fieldset>
+      <div class="entry">
+        <label for="text" class="sr-only" data-i18n="typeHere">Describe your problem</label>
+        <textarea id="text" rows="3" maxlength="4000" data-i18n-placeholder="placeholder" placeholder="What happened? Write it the way you'd tell a friend."></textarea>
+        <div class="entry-actions">
+          <button type="button" id="mic" class="mic" aria-pressed="false" data-i18n-aria="speak" aria-label="Speak instead of typing">
+            <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="M12 15a3 3 0 0 0 3-3V6a3 3 0 1 0-6 0v6a3 3 0 0 0 3 3Zm5-3a5 5 0 0 1-10 0H5a7 7 0 0 0 6 6.92V21h2v-2.08A7 7 0 0 0 19 12h-2Z" fill="currentColor"/></svg>
+          </button>
+          <button type="submit" id="send" class="primary" data-i18n="send">Send</button>
+        </div>
+      </div>
+      <p id="error" class="error" role="alert" hidden></p>
+    </form>
+  </section>
+
+  <aside id="case-file" class="file" aria-label="Case file">
+    <div class="file-head">
+      <h2 data-i18n="caseFile">Case file</h2>
+      <p id="domain" class="domain"></p>
+    </div>
+    <section class="file-block">
+      <h3 data-i18n="whatYouToldMe">What you've told me</h3>
+      <dl id="facts" class="facts"></dl>
+      <p id="facts-empty" class="quiet" data-i18n="factsEmpty">Facts appear here as you describe what happened, each with the words you used.</p>
+    </section>
+    <section class="file-block" id="missing-block" hidden>
+      <h3 data-i18n="stillNeeded">Still useful to know</h3>
+      <ul id="missing" class="missing"></ul>
+    </section>
+    <section class="file-block" id="timeline-block" hidden>
+      <h3 data-i18n="timeline">Timeline</h3>
+      <ol id="timeline" class="timeline"></ol>
+    </section>
+    <section class="file-block" id="docs-block" hidden>
+      <h3 data-i18n="documents">Drafts</h3>
+      <ul id="documents" class="documents"></ul>
+    </section>
+    <section class="file-block fine">
+      <p data-i18n="limits">Nyaya gives general information from a small set of checked sources. It is not a lawyer and can be wrong. For police, court or family matters, speak to a lawyer. Free legal aid: 15100.</p>
+      <p class="file-links">
+        <a href="/api/case/export" download data-i18n="export">Download my case</a>
+        <button type="button" id="delete-case" class="link" data-i18n="deleteData">Delete my data</button>
+      </p>
+    </section>
+  </aside>
+</main>
+
+<template id="tpl-confirm">
+  <form class="confirm">
+    <p class="confirm-prompt"></p>
+    <div class="confirm-rows"></div>
+    <div class="confirm-actions">
+      <button type="submit" class="primary" data-i18n="confirmDraft">Facts are right, write the draft</button>
+      <button type="button" class="ghost cancel" data-i18n="notYet">Not yet</button>
+    </div>
+  </form>
+</template>
+</body>
+</html>

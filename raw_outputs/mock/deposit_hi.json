@@ -1,0 +1,198 @@
+{
+  "id": "deposit_hi",
+  "about": "Hindi deposit question. Planted error: a wrong section number (74) presented as a guarantee.",
+  "turns": [
+    {
+      "turn": 1,
+      "sent": {
+        "text": "मेरे मकान मालिक ने 40,000 रुपये की डिपॉज़िट वापस नहीं की। मैंने 15 सितंबर को घर खाली किया था। अब क्या करूं?",
+        "mode": "auto",
+        "language": "auto"
+      },
+      "status": 200,
+      "elapsed_ms": 66,
+      "llm_calls": [
+        {
+          "id": 106,
+          "node": "triage",
+          "provider": "mock",
+          "model": "scripted",
+          "input_tokens": 0,
+          "output_tokens": 0,
+          "latency_ms": 0,
+          "ok": true,
+          "error": ""
+        },
+        {
+          "id": 107,
+          "node": "extract",
+          "provider": "mock",
+          "model": "scripted",
+          "input_tokens": 0,
+          "output_tokens": 0,
+          "latency_ms": 0,
+          "ok": true,
+          "error": ""
+        },
+        {
+          "id": 108,
+          "node": "compose",
+          "provider": "mock",
+          "model": "scripted",
+          "input_tokens": 0,
+          "output_tokens": 0,
+          "latency_ms": 0,
+          "ok": true,
+          "error": ""
+        }
+      ],
+      "assistant": {
+        "role": "assistant",
+        "mode": "explain",
+        "content": "आपकी 40,000 रुपये की डिपॉज़िट 15 सितंबर को घर खाली करने के बाद भी वापस नहीं मिली है।\n\nकिराया समझौता एक अनुबंध है। मकान मालिक इसे तोड़े तो आप हुए नुकसान का मुआवज़ा मांग सकते हैं। [1]\n\nअगर आपके राज्य ने मॉडल किरायेदारी अधिनियम पर आधारित कानून बनाया है, तो खाली कब्ज़ा लेते समय डिपॉज़िट लौटानी होती है। [2]\n\nअगला सवाल: मकान मालिक का नाम क्या है?",
+        "meta": {
+          "risks": [],
+          "blocks": {
+            "hedge": "",
+            "notes": [],
+            "points": [
+              {
+                "refs": [],
+                "text": "आपकी 40,000 रुपये की डिपॉज़िट 15 सितंबर को घर खाली करने के बाद भी वापस नहीं मिली है।"
+              },
+              {
+                "refs": [
+                  1
+                ],
+                "text": "किराया समझौता एक अनुबंध है। मकान मालिक इसे तोड़े तो आप हुए नुकसान का मुआवज़ा मांग सकते हैं।"
+              },
+              {
+                "refs": [
+                  2
+                ],
+                "text": "अगर आपके राज्य ने मॉडल किरायेदारी अधिनियम पर आधारित कानून बनाया है, तो खाली कब्ज़ा लेते समय डिपॉज़िट लौटानी होती है।"
+              }
+            ],
+            "question": "मकान मालिक का नाम क्या है?"
+          },
+          "dropped": 1,
+          "citations": [
+            {
+              "n": 1,
+              "id": "ICA-73",
+              "url": "https://indiankanoon.org/doc/339747/",
+              "title": "Breach of a written or oral agreement",
+              "caveat": "Recovering money through a civil court has its own time limits and procedure. Ask a lawyer or the District Legal Services Authority early.",
+              "locator": "Section 73",
+              "summary": "किराया समझौता या नौकरी का समझौता एक अनुबंध है। जब एक पक्ष इसे तोड़ता है, तो दूसरा पक्ष उस नुकसान का मुआवज़ा मांग सकता है जो उस उल्लंघन से स्वाभाविक रूप से हुआ। दूर के या अप्रत्यक्ष नुकसान शामिल नहीं हैं।",
+              "citation": "Section 73, Indian Contract Act, 1872",
+              "reviewed_on": "2026-11-09"
+            },
+            {
+              "n": 2,
+              "id": "MTA-11",
+              "url": "https://udd.delhi.gov.in/sites/default/files/UD/generic_multiple_files/mta_hindi_english.pdf",
+              "title": "Security deposit under the Model Tenancy Act",
+              "caveat": "Rent law is state-specific. Whether this applies depends on your state and whether you have a lease or a leave-and-licence agreement.",
+              "locator": "Section 11 and summary point (xi)",
+              "summary": "मॉडल किरायेदारी अधिनियम एक आदर्श कानून है। यह केवल उन राज्यों में लागू होता है जिन्होंने इसके आधार पर कानून बनाया है। जहां लागू हो, आवासीय जमा राशि दो महीने के किराये से अधिक नहीं हो सकती (गैर-आवासीय में छह महीने), और मकान मालिक को खाली कब्ज़ा लेते समय, किरायेदार की वास्तविक देनदारी काटकर, जमा लौटानी होती है।",
+              "citation": "Section 11, Model Tenancy Act, 2021",
+              "reviewed_on": "2026-11-09"
+            }
+          ]
+        }
+      },
+      "case_after": {
+        "domain": "deposit",
+        "language": "hi",
+        "facts": [
+          {
+            "field": "deposit_amount",
+            "label": "जमा राशि",
+            "value": "40,000 रुपये",
+            "quote": "मेरे मकान मालिक ने 40,000 रुपये की डिपॉज़िट वापस नहीं की",
+            "confirmed": false,
+            "edited": false
+          },
+          {
+            "field": "move_out_date",
+            "label": "घर खाली करने की तारीख",
+            "value": "15 सितंबर",
+            "quote": "मैंने 15 सितंबर को घर खाली किया था",
+            "confirmed": false,
+            "edited": false
+          }
+        ],
+        "missing": [
+          "मकान मालिक",
+          "संपत्ति",
+          "राज्य",
+          "मासिक किराया",
+          "किराया समझौता",
+          "बताई गई कटौती",
+          "पहले किए गए प्रयास",
+          "आपके पास प्रमाण",
+          "आपकी मांग"
+        ],
+        "events": [
+          {
+            "when": "15 सितंबर",
+            "what": "घर खाली किया",
+            "quote": "मैंने 15 सितंबर को घर खाली किया था",
+            "turn": 1
+          }
+        ],
+        "notice": null,
+        "pending": null
+      },
+      "checks": [
+        {
+          "check": "domain",
+          "ok": true,
+          "detail": "deposit"
+        },
+        {
+          "check": "language",
+          "ok": true,
+          "detail": "hi"
+        },
+        {
+          "check": "cites_include",
+          "ok": true,
+          "detail": "cited ['ICA-73', 'MTA-11']; missing []"
+        },
+        {
+          "check": "dropped_min",
+          "ok": true,
+          "detail": "dropped 1"
+        },
+        {
+          "check": "facts",
+          "ok": true,
+          "detail": "mismatched {}"
+        },
+        {
+          "check": "reply_excludes",
+          "ok": true,
+          "detail": "found []"
+        },
+        {
+          "check": "devanagari",
+          "ok": true,
+          "detail": ""
+        },
+        {
+          "check": "citations_exist",
+          "ok": true,
+          "detail": "unknown []"
+        },
+        {
+          "check": "displayed_points_reverify",
+          "ok": true,
+          "detail": []
+        }
+      ]
+    }
+  ],
+  "passed": true
+}

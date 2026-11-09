@@ -1,0 +1,123 @@
+{
+  "run": "mock",
+  "provider": "mock",
+  "model": "scripted",
+  "started": "2026-11-09T05:32:01",
+  "cases": [
+    {
+      "id": "deposit_en_full",
+      "passed": true,
+      "failed_checks": []
+    },
+    {
+      "id": "deposit_hi",
+      "passed": true,
+      "failed_checks": []
+    },
+    {
+      "id": "refund_hinglish",
+      "passed": true,
+      "failed_checks": []
+    },
+    {
+      "id": "refund_commercial",
+      "passed": true,
+      "failed_checks": []
+    },
+    {
+      "id": "salary_retry",
+      "passed": true,
+      "failed_checks": []
+    },
+    {
+      "id": "salary_hedge",
+      "passed": true,
+      "failed_checks": []
+    },
+    {
+      "id": "practice_deposit",
+      "passed": true,
+      "failed_checks": []
+    },
+    {
+      "id": "notice_cheque",
+      "passed": true,
+      "failed_checks": []
+    },
+    {
+      "id": "notice_fake_deadline",
+      "passed": true,
+      "failed_checks": []
+    },
+    {
+      "id": "police_refer",
+      "passed": true,
+      "failed_checks": []
+    },
+    {
+      "id": "danger",
+      "passed": true,
+      "failed_checks": []
+    },
+    {
+      "id": "fabrication",
+      "passed": true,
+      "failed_checks": []
+    },
+    {
+      "id": "out_of_scope",
+      "passed": true,
+      "failed_checks": []
+    },
+    {
+      "id": "family_refer",
+      "passed": true,
+      "failed_checks": []
+    },
+    {
+      "id": "injection",
+      "passed": true,
+      "failed_checks": []
+    },
+    {
+      "id": "conflict_then_correction",
+      "passed": true,
+      "failed_checks": []
+    },
+    {
+      "id": "greeting",
+      "passed": true,
+      "failed_checks": []
+    },
+    {
+      "id": "draft_needs_more",
+      "passed": true,
+      "failed_checks": []
+    },
+    {
+      "id": "voice_hi_salary",
+      "passed": true,
+      "failed_checks": []
+    }
+  ],
+  "passed": 19,
+  "total": 19,
+  "llm_calls_by_node": {
+    "triage": 25,
+    "extract": 15,
+    "compose": 14,
+    "draft": 1,
+    "compose_retry": 2,
+    "practice": 2,
+    "practice_retry": 1,
+    "notice": 2
+  },
+  "tokens": {
+    "input": 0,
+    "output": 0
+  },
+  "latency_ms": {
+    "median": 0,
+    "p90": 0
+  }
+}

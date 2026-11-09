@@ -1,0 +1,243 @@
+{
+  "id": "salary_retry",
+  "about": "Salary case where the first answer cites the repealed Payment of Wages Act; the verifier rejects it and the retry succeeds.",
+  "turns": [
+    {
+      "turn": 1,
+      "sent": {
+        "text": "My employer BrightTech Solutions in Bengaluru hasn't paid my salary of Rs 35,000 for September and October 2026. I resigned and my last working day was 31 October. HR keeps saying next week.",
+        "mode": "auto",
+        "language": "auto"
+      },
+      "status": 200,
+      "elapsed_ms": 69,
+      "llm_calls": [
+        {
+          "id": 115,
+          "node": "triage",
+          "provider": "mock",
+          "model": "scripted",
+          "input_tokens": 0,
+          "output_tokens": 0,
+          "latency_ms": 0,
+          "ok": true,
+          "error": ""
+        },
+        {
+          "id": 116,
+          "node": "extract",
+          "provider": "mock",
+          "model": "scripted",
+          "input_tokens": 0,
+          "output_tokens": 0,
+          "latency_ms": 0,
+          "ok": true,
+          "error": ""
+        },
+        {
+          "id": 117,
+          "node": "compose",
+          "provider": "mock",
+          "model": "scripted",
+          "input_tokens": 0,
+          "output_tokens": 0,
+          "latency_ms": 0,
+          "ok": true,
+          "error": ""
+        },
+        {
+          "id": 118,
+          "node": "compose_retry",
+          "provider": "mock",
+          "model": "scripted",
+          "input_tokens": 0,
+          "output_tokens": 0,
+          "latency_ms": 0,
+          "ok": true,
+          "error": ""
+        }
+      ],
+      "assistant": {
+        "role": "assistant",
+        "mode": "explain",
+        "content": "Wage payments are now governed by the Code on Wages, 2019, in force since 21 November 2025. [1]\n\nSince you resigned, the wages due to you should have been paid within two working days of your last working day. [2]\n\nYou can file a claim before the wage authority within three years of the date it arose. The local labour office can tell you who that is in Karnataka. [3]\n\nKeep your offer letter, salary slips, bank statements and HR's messages.\n\nNext: What was your job there?",
+        "meta": {
+          "risks": [],
+          "blocks": {
+            "hedge": "",
+            "notes": [],
+            "points": [
+              {
+                "refs": [
+                  1
+                ],
+                "text": "Wage payments are now governed by the Code on Wages, 2019, in force since 21 November 2025."
+              },
+              {
+                "refs": [
+                  2
+                ],
+                "text": "Since you resigned, the wages due to you should have been paid within two working days of your last working day."
+              },
+              {
+                "refs": [
+                  3
+                ],
+                "text": "You can file a claim before the wage authority within three years of the date it arose. The local labour office can tell you who that is in Karnataka."
+              },
+              {
+                "refs": [],
+                "text": "Keep your offer letter, salary slips, bank statements and HR's messages."
+              }
+            ],
+            "question": "What was your job there?"
+          },
+          "dropped": 2,
+          "citations": [
+            {
+              "n": 1,
+              "id": "COW-COMMENCE",
+              "url": "https://static.pib.gov.in/WriteReadData/specificdocs/documents/2025/nov/doc20251123703501.pdf",
+              "title": "Which wage law applies now",
+              "caveat": "Which authority hears claims, and some details, depend on your state's rules.",
+              "locator": "PIB explainer on the Labour Codes, November 2025",
+              "summary": "The Code on Wages, 2019 came into force on 21 November 2025 and replaced the Payment of Wages Act 1936, the Minimum Wages Act 1948, the Payment of Bonus Act 1965 and the Equal Remuneration Act 1976. Some rules under it are still being notified state by state.",
+              "citation": "Code on Wages, 2019",
+              "reviewed_on": "2026-11-09"
+            },
+            {
+              "n": 2,
+              "id": "COW-17",
+              "url": "https://static.pib.gov.in/WriteReadData/specificdocs/documents/2025/nov/doc20251123703501.pdf",
+              "title": "When wages must be paid",
+              "caveat": "The government can set a different time limit under Section 17(3). The two-day rule covers wages, not every item in a full-and-final settlement.",
+              "locator": "Section 17(1) and 17(2)",
+              "summary": "Monthly wages must be paid before the end of the seventh day of the following month. Weekly wages are due on the last working day of the week, and daily wages at the end of the shift. If you were removed, dismissed, retrenched, resigned, or the establishment closed, wages due must be paid within two working days.",
+              "citation": "Section 17, Code on Wages, 2019",
+              "reviewed_on": "2026-11-09"
+            },
+            {
+              "n": 3,
+              "id": "COW-45",
+              "url": "https://indiankanoon.org/doc/138728918/",
+              "title": "Filing a claim for unpaid wages",
+              "caveat": "Who the authority is in your area depends on your state's notification. Ask the local labour office.",
+              "locator": "Section 45(1), 45(4), 45(6)",
+              "summary": "Claims under the Code are heard by an authority the government appoints. The employee, their registered trade union, or an Inspector-cum-Facilitator can file. The claim should be filed within three years of the date it arose; a later claim needs sufficient cause. The authority tries to decide within three months.",
+              "citation": "Section 45, Code on Wages, 2019",
+              "reviewed_on": "2026-11-09"
+            }
+          ]
+        }
+      },
+      "case_after": {
+        "domain": "salary",
+        "language": "en",
+        "facts": [
+          {
+            "field": "employer",
+            "label": "Employer",
+            "value": "BrightTech Solutions",
+            "quote": "My employer BrightTech Solutions in Bengaluru",
+            "confirmed": false,
+            "edited": false
+          },
+          {
+            "field": "state",
+            "label": "State",
+            "value": "Bengaluru",
+            "quote": "My employer BrightTech Solutions in Bengaluru",
+            "confirmed": false,
+            "edited": false
+          },
+          {
+            "field": "salary",
+            "label": "Salary",
+            "value": "Rs 35,000",
+            "quote": "my salary of Rs 35,000",
+            "confirmed": false,
+            "edited": false
+          },
+          {
+            "field": "unpaid_period",
+            "label": "Unpaid period",
+            "value": "September and October 2026",
+            "quote": "for September and October 2026",
+            "confirmed": false,
+            "edited": false
+          },
+          {
+            "field": "employment_status",
+            "label": "Still working?",
+            "value": "I resigned and my last working day was 31 October",
+            "quote": "I resigned and my last working day was 31 October",
+            "confirmed": false,
+            "edited": false
+          },
+          {
+            "field": "actions",
+            "label": "Steps already taken",
+            "value": "HR keeps saying next week",
+            "quote": "HR keeps saying next week",
+            "confirmed": false,
+            "edited": false
+          }
+        ],
+        "missing": [
+          "Your job",
+          "Amount owed",
+          "Proof you have",
+          "What you want"
+        ],
+        "events": [
+          {
+            "when": "31 October",
+            "what": "Last working day after resigning",
+            "quote": "I resigned and my last working day was 31 October",
+            "turn": 1
+          }
+        ],
+        "notice": null,
+        "pending": null
+      },
+      "checks": [
+        {
+          "check": "domain",
+          "ok": true,
+          "detail": "salary"
+        },
+        {
+          "check": "cites_include",
+          "ok": true,
+          "detail": "cited ['COW-COMMENCE', 'COW-17', 'COW-45']; missing []"
+        },
+        {
+          "check": "dropped_min",
+          "ok": true,
+          "detail": "dropped 2"
+        },
+        {
+          "check": "reply_excludes",
+          "ok": true,
+          "detail": "found []"
+        },
+        {
+          "check": "facts",
+          "ok": true,
+          "detail": "mismatched {}"
+        },
+        {
+          "check": "citations_exist",
+          "ok": true,
+          "detail": "unknown []"
+        },
+        {
+          "check": "displayed_points_reverify",
+          "ok": true,
+          "detail": []
+        }
+      ]
+    }
+  ],
+  "passed": true
+}

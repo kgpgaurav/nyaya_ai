@@ -1,0 +1,227 @@
+{
+  "id": "refund_hinglish",
+  "about": "Hinglish refund case: e-commerce grievance route and the consumer helpline.",
+  "turns": [
+    {
+      "turn": 1,
+      "sent": {
+        "text": "Maine Flipkart se 12,000 ka mixer grinder liya tha 2 October ko, woh pehle din se kharab hai. Seller refund nahi de raha. Kya karun?",
+        "mode": "auto",
+        "language": "auto"
+      },
+      "status": 200,
+      "elapsed_ms": 64,
+      "llm_calls": [
+        {
+          "id": 109,
+          "node": "triage",
+          "provider": "mock",
+          "model": "scripted",
+          "input_tokens": 0,
+          "output_tokens": 0,
+          "latency_ms": 0,
+          "ok": true,
+          "error": ""
+        },
+        {
+          "id": 110,
+          "node": "extract",
+          "provider": "mock",
+          "model": "scripted",
+          "input_tokens": 0,
+          "output_tokens": 0,
+          "latency_ms": 0,
+          "ok": true,
+          "error": ""
+        },
+        {
+          "id": 111,
+          "node": "compose",
+          "provider": "mock",
+          "model": "scripted",
+          "input_tokens": 0,
+          "output_tokens": 0,
+          "latency_ms": 0,
+          "ok": true,
+          "error": ""
+        }
+      ],
+      "assistant": {
+        "role": "assistant",
+        "mode": "explain",
+        "content": "Kharab saamaan ke liye seller return ya refund se mana nahi kar sakta. [1]\n\nPehle platform ke grievance officer ko likhit complaint karein. Unhe 48 hours mein complaint acknowledge karni hoti hai aur ek mahine mein redress karna hota hai. [2]\n\nAgar jawab na mile to National Consumer Helpline 1915 par call karein ya 8800001915 par WhatsApp karein. [3]\n\nInvoice, photos aur support chats sambhaal kar rakhein.\n\nNext: Kya aapke paas order ya transaction number hai?",
+        "meta": {
+          "risks": [],
+          "blocks": {
+            "hedge": "",
+            "notes": [],
+            "points": [
+              {
+                "refs": [
+                  1
+                ],
+                "text": "Kharab saamaan ke liye seller return ya refund se mana nahi kar sakta."
+              },
+              {
+                "refs": [
+                  2
+                ],
+                "text": "Pehle platform ke grievance officer ko likhit complaint karein. Unhe 48 hours mein complaint acknowledge karni hoti hai aur ek mahine mein redress karna hota hai."
+              },
+              {
+                "refs": [
+                  3
+                ],
+                "text": "Agar jawab na mile to National Consumer Helpline 1915 par call karein ya 8800001915 par WhatsApp karein."
+              },
+              {
+                "refs": [],
+                "text": "Invoice, photos aur support chats sambhaal kar rakhein."
+              }
+            ],
+            "question": "Kya aapke paas order ya transaction number hai?"
+          },
+          "dropped": 0,
+          "citations": [
+            {
+              "n": 1,
+              "id": "ECOM-REFUND",
+              "url": "https://thc.nic.in/Central%20Governmental%20Rules/Consumer%20Protection%20%28E-Commerce%29%20Rules%2C%202020.pdf",
+              "title": "Refusing returns for defective goods",
+              "caveat": "Whether the goods were defective or late is a disputed fact the seller may contest. A refund is not guaranteed.",
+              "locator": "Printed pages 84 and 86",
+              "summary": "Marketplace sellers and inventory e-commerce entities cannot refuse to take back, or refuse a refund for, goods that are defective, deficient, spurious or not as described, or that were delivered late beyond the stated date, except where the delay was due to force majeure.",
+              "citation": "Rules 6(3) and 7(4), Consumer Protection (E-Commerce) Rules, 2020",
+              "reviewed_on": "2026-11-09"
+            },
+            {
+              "n": 2,
+              "id": "ECOM-4",
+              "url": "https://thc.nic.in/Central%20Governmental%20Rules/Consumer%20Protection%20%28E-Commerce%29%20Rules%2C%202020.pdf",
+              "title": "E-commerce grievance officer",
+              "caveat": "One month is the redressal timeline for the grievance, not a universal refund deadline.",
+              "locator": "Rule 4, printed page 82",
+              "summary": "Every e-commerce entity must appoint a grievance officer and show their contact details on the platform. The officer must acknowledge a complaint within 48 hours and redress it within one month of receiving it.",
+              "citation": "Rules 4(4) and 4(5), Consumer Protection (E-Commerce) Rules, 2020",
+              "reviewed_on": "2026-11-09"
+            },
+            {
+              "n": 3,
+              "id": "NCH",
+              "url": "https://consumerhelpline.gov.in/public/contact",
+              "title": "National Consumer Helpline",
+              "caveat": "",
+              "locator": "Contact page",
+              "summary": "The National Consumer Helpline is a free pre-litigation channel, not a court. Call 1915 or 1800-11-4000 (8 AM to 8 PM), WhatsApp or SMS 8800001915, or register at consumerhelpline.gov.in. A resolution is not guaranteed.",
+              "citation": "National Consumer Helpline, Department of Consumer Affairs",
+              "reviewed_on": "2026-11-09"
+            }
+          ]
+        }
+      },
+      "case_after": {
+        "domain": "refund",
+        "language": "hinglish",
+        "facts": [
+          {
+            "field": "seller",
+            "label": "Seller / platform",
+            "value": "Flipkart",
+            "quote": "Maine Flipkart se 12,000 ka mixer grinder liya tha",
+            "confirmed": false,
+            "edited": false
+          },
+          {
+            "field": "product",
+            "label": "Product or service",
+            "value": "mixer grinder",
+            "quote": "Maine Flipkart se 12,000 ka mixer grinder liya tha",
+            "confirmed": false,
+            "edited": false
+          },
+          {
+            "field": "amount",
+            "label": "Amount paid",
+            "value": "12,000",
+            "quote": "Maine Flipkart se 12,000 ka mixer grinder liya tha",
+            "confirmed": false,
+            "edited": false
+          },
+          {
+            "field": "purchase_date",
+            "label": "Purchase date",
+            "value": "2 October",
+            "quote": "liya tha 2 October ko",
+            "confirmed": false,
+            "edited": false
+          },
+          {
+            "field": "problem",
+            "label": "What went wrong",
+            "value": "pehle din se kharab hai",
+            "quote": "woh pehle din se kharab hai",
+            "confirmed": false,
+            "edited": false
+          },
+          {
+            "field": "actions",
+            "label": "Steps already taken",
+            "value": "Seller refund nahi de raha",
+            "quote": "Seller refund nahi de raha",
+            "confirmed": false,
+            "edited": false
+          }
+        ],
+        "missing": [
+          "Order reference",
+          "Proof you have",
+          "What you want",
+          "Purchase purpose"
+        ],
+        "events": [
+          {
+            "when": "2 October",
+            "what": "Mixer grinder kharida",
+            "quote": "liya tha 2 October ko",
+            "turn": 1
+          }
+        ],
+        "notice": null,
+        "pending": null
+      },
+      "checks": [
+        {
+          "check": "domain",
+          "ok": true,
+          "detail": "refund"
+        },
+        {
+          "check": "language",
+          "ok": true,
+          "detail": "hinglish"
+        },
+        {
+          "check": "cites_include",
+          "ok": true,
+          "detail": "cited ['ECOM-REFUND', 'ECOM-4', 'NCH']; missing []"
+        },
+        {
+          "check": "facts",
+          "ok": true,
+          "detail": "mismatched {}"
+        },
+        {
+          "check": "citations_exist",
+          "ok": true,
+          "detail": "unknown []"
+        },
+        {
+          "check": "displayed_points_reverify",
+          "ok": true,
+          "detail": []
+        }
+      ]
+    }
+  ],
+  "passed": true
+}

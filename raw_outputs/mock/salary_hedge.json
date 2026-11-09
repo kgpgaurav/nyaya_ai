@@ -1,0 +1,148 @@
+{
+  "id": "salary_hedge",
+  "about": "Both attempts invent law. The assistant must say it cannot confirm, and give no legal claim.",
+  "turns": [
+    {
+      "turn": 1,
+      "sent": {
+        "text": "The shop owner I worked for in Lucknow has not paid me for 3 months. I was a delivery helper. What does the law say?",
+        "mode": "auto",
+        "language": "auto"
+      },
+      "status": 200,
+      "elapsed_ms": 68,
+      "llm_calls": [
+        {
+          "id": 119,
+          "node": "triage",
+          "provider": "mock",
+          "model": "scripted",
+          "input_tokens": 0,
+          "output_tokens": 0,
+          "latency_ms": 0,
+          "ok": true,
+          "error": ""
+        },
+        {
+          "id": 120,
+          "node": "extract",
+          "provider": "mock",
+          "model": "scripted",
+          "input_tokens": 0,
+          "output_tokens": 0,
+          "latency_ms": 0,
+          "ok": true,
+          "error": ""
+        },
+        {
+          "id": 121,
+          "node": "compose",
+          "provider": "mock",
+          "model": "scripted",
+          "input_tokens": 0,
+          "output_tokens": 0,
+          "latency_ms": 0,
+          "ok": true,
+          "error": ""
+        },
+        {
+          "id": 122,
+          "node": "compose_retry",
+          "provider": "mock",
+          "model": "scripted",
+          "input_tokens": 0,
+          "output_tokens": 0,
+          "latency_ms": 0,
+          "ok": true,
+          "error": ""
+        }
+      ],
+      "assistant": {
+        "role": "assistant",
+        "mode": "explain",
+        "content": "I couldn't confirm the legal rules for this from my checked sources, so I won't guess. A lawyer or the free legal aid helpline 15100 can tell you where you stand.\n\nNext: Who is the employer (company or person)?",
+        "meta": {
+          "risks": [],
+          "blocks": {
+            "hedge": "I couldn't confirm the legal rules for this from my checked sources, so I won't guess. A lawyer or the free legal aid helpline 15100 can tell you where you stand.",
+            "notes": [],
+            "points": [],
+            "question": "Who is the employer (company or person)?"
+          },
+          "dropped": 3,
+          "citations": []
+        }
+      },
+      "case_after": {
+        "domain": "salary",
+        "language": "en",
+        "facts": [
+          {
+            "field": "role",
+            "label": "Your job",
+            "value": "delivery helper",
+            "quote": "I was a delivery helper",
+            "confirmed": false,
+            "edited": false
+          },
+          {
+            "field": "state",
+            "label": "State",
+            "value": "Lucknow",
+            "quote": "I worked for in Lucknow",
+            "confirmed": false,
+            "edited": false
+          },
+          {
+            "field": "unpaid_period",
+            "label": "Unpaid period",
+            "value": "3 months",
+            "quote": "has not paid me for 3 months",
+            "confirmed": false,
+            "edited": false
+          }
+        ],
+        "missing": [
+          "Employer",
+          "Salary",
+          "Amount owed",
+          "Still working?",
+          "Steps already taken",
+          "Proof you have",
+          "What you want"
+        ],
+        "events": [],
+        "notice": null,
+        "pending": null
+      },
+      "checks": [
+        {
+          "check": "domain",
+          "ok": true,
+          "detail": "salary"
+        },
+        {
+          "check": "hedge",
+          "ok": true,
+          "detail": "I couldn't confirm the legal rules for this from my checked sources, so I won't guess. A lawyer or the free legal aid helpline 15100 can tell you where you stand."
+        },
+        {
+          "check": "cites_exclude",
+          "ok": true,
+          "detail": "cited []"
+        },
+        {
+          "check": "reply_excludes",
+          "ok": true,
+          "detail": "found []"
+        },
+        {
+          "check": "citations_exist",
+          "ok": true,
+          "detail": "unknown []"
+        }
+      ]
+    }
+  ],
+  "passed": true
+}

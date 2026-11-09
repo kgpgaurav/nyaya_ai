@@ -1,0 +1,804 @@
+{
+  "id": "deposit_en_full",
+  "about": "English deposit case from first message to a confirmed draft. Planted errors: a fake judgment in compose and an invented legal deadline in the draft.",
+  "turns": [
+    {
+      "turn": 1,
+      "sent": {
+        "text": "My landlord Mr. Sharma in Pune has not returned my deposit of Rs 50,000. I moved out on 31 August 2026 and gave back the keys. What are my options?",
+        "mode": "auto",
+        "language": "auto"
+      },
+      "status": 200,
+      "elapsed_ms": 107,
+      "llm_calls": [
+        {
+          "id": 97,
+          "node": "triage",
+          "provider": "mock",
+          "model": "scripted",
+          "input_tokens": 0,
+          "output_tokens": 0,
+          "latency_ms": 0,
+          "ok": true,
+          "error": ""
+        },
+        {
+          "id": 98,
+          "node": "extract",
+          "provider": "mock",
+          "model": "scripted",
+          "input_tokens": 0,
+          "output_tokens": 0,
+          "latency_ms": 0,
+          "ok": true,
+          "error": ""
+        },
+        {
+          "id": 99,
+          "node": "compose",
+          "provider": "mock",
+          "model": "scripted",
+          "input_tokens": 0,
+          "output_tokens": 0,
+          "latency_ms": 0,
+          "ok": true,
+          "error": ""
+        }
+      ],
+      "assistant": {
+        "role": "assistant",
+        "mode": "explain",
+        "content": "I've noted that Mr. Sharma has kept your Rs 50,000 deposit since you moved out on 31 August 2026.\n\nYour rent agreement is a contract. If the landlord breaks it by keeping the deposit without reason, you can claim compensation for the loss. [1]\n\nIf your state has passed a tenancy law based on the Model Tenancy Act, the landlord must refund the deposit when taking back vacant possession, after deducting only your actual dues. [2]\n\nAsk for the deposit back in writing, and keep the message, so there is a dated record.\n\nNext: Which state is the property in? Rent rules differ by state.",
+        "meta": {
+          "risks": [],
+          "blocks": {
+            "hedge": "",
+            "notes": [],
+            "points": [
+              {
+                "refs": [],
+                "text": "I've noted that Mr. Sharma has kept your Rs 50,000 deposit since you moved out on 31 August 2026."
+              },
+              {
+                "refs": [
+                  1
+                ],
+                "text": "Your rent agreement is a contract. If the landlord breaks it by keeping the deposit without reason, you can claim compensation for the loss."
+              },
+              {
+                "refs": [
+                  2
+                ],
+                "text": "If your state has passed a tenancy law based on the Model Tenancy Act, the landlord must refund the deposit when taking back vacant possession, after deducting only your actual dues."
+              },
+              {
+                "refs": [],
+                "text": "Ask for the deposit back in writing, and keep the message, so there is a dated record."
+              }
+            ],
+            "question": "Which state is the property in? Rent rules differ by state."
+          },
+          "dropped": 1,
+          "citations": [
+            {
+              "n": 1,
+              "id": "ICA-73",
+              "url": "https://indiankanoon.org/doc/339747/",
+              "title": "Breach of a written or oral agreement",
+              "caveat": "Recovering money through a civil court has its own time limits and procedure. Ask a lawyer or the District Legal Services Authority early.",
+              "locator": "Section 73",
+              "summary": "A rent agreement or an employment agreement is a contract. When one side breaks it, the other side can claim compensation for loss that naturally arose from the breach. Remote or indirect losses are not covered.",
+              "citation": "Section 73, Indian Contract Act, 1872",
+              "reviewed_on": "2026-11-09"
+            },
+            {
+              "n": 2,
+              "id": "MTA-11",
+              "url": "https://udd.delhi.gov.in/sites/default/files/UD/generic_multiple_files/mta_hindi_english.pdf",
+              "title": "Security deposit under the Model Tenancy Act",
+              "caveat": "Rent law is state-specific. Whether this applies depends on your state and whether you have a lease or a leave-and-licence agreement.",
+              "locator": "Section 11 and summary point (xi)",
+              "summary": "The Model Tenancy Act is a model law. It applies only in states that have passed a tenancy law based on it. Where it applies, a residential deposit cannot exceed two months' rent (six months for non-residential), and the landlord must refund it when taking back vacant possession, after deducting only the tenant's actual liabilities.",
+              "citation": "Section 11, Model Tenancy Act, 2021",
+              "reviewed_on": "2026-11-09"
+            }
+          ]
+        }
+      },
+      "case_after": {
+        "domain": "deposit",
+        "language": "en",
+        "facts": [
+          {
+            "field": "landlord",
+            "label": "Landlord",
+            "value": "Mr. Sharma",
+            "quote": "My landlord Mr. Sharma in Pune",
+            "confirmed": false,
+            "edited": false
+          },
+          {
+            "field": "property",
+            "label": "Property",
+            "value": "Pune",
+            "quote": "My landlord Mr. Sharma in Pune",
+            "confirmed": false,
+            "edited": false
+          },
+          {
+            "field": "deposit_amount",
+            "label": "Deposit paid",
+            "value": "Rs 50,000",
+            "quote": "my deposit of Rs 50,000",
+            "confirmed": false,
+            "edited": false
+          },
+          {
+            "field": "move_out_date",
+            "label": "Move-out date",
+            "value": "31 August 2026",
+            "quote": "I moved out on 31 August 2026 and gave back the keys",
+            "confirmed": false,
+            "edited": false
+          }
+        ],
+        "missing": [
+          "State",
+          "Monthly rent",
+          "Rent agreement",
+          "Deductions claimed",
+          "Steps already taken",
+          "Proof you have",
+          "What you want"
+        ],
+        "events": [
+          {
+            "when": "31 August 2026",
+            "what": "Moved out and returned the keys",
+            "quote": "I moved out on 31 August 2026 and gave back the keys",
+            "turn": 1
+          }
+        ],
+        "notice": null,
+        "pending": null
+      },
+      "checks": [
+        {
+          "check": "domain",
+          "ok": true,
+          "detail": "deposit"
+        },
+        {
+          "check": "mode",
+          "ok": true,
+          "detail": "explain"
+        },
+        {
+          "check": "cites_include",
+          "ok": true,
+          "detail": "cited ['ICA-73', 'MTA-11']; missing []"
+        },
+        {
+          "check": "dropped_min",
+          "ok": true,
+          "detail": "dropped 1"
+        },
+        {
+          "check": "facts",
+          "ok": true,
+          "detail": "mismatched {}"
+        },
+        {
+          "check": "reply_excludes",
+          "ok": true,
+          "detail": "found []"
+        },
+        {
+          "check": "question",
+          "ok": true,
+          "detail": "Which state is the property in? Rent rules differ by state."
+        },
+        {
+          "check": "citations_exist",
+          "ok": true,
+          "detail": "unknown []"
+        },
+        {
+          "check": "displayed_points_reverify",
+          "ok": true,
+          "detail": []
+        }
+      ]
+    },
+    {
+      "turn": 2,
+      "sent": {
+        "text": "It's in Maharashtra. We signed a leave and licence agreement which says the deposit is refundable on vacating.",
+        "mode": "auto",
+        "language": "auto"
+      },
+      "status": 200,
+      "elapsed_ms": 76,
+      "llm_calls": [
+        {
+          "id": 100,
+          "node": "triage",
+          "provider": "mock",
+          "model": "scripted",
+          "input_tokens": 0,
+          "output_tokens": 0,
+          "latency_ms": 0,
+          "ok": true,
+          "error": ""
+        },
+        {
+          "id": 101,
+          "node": "extract",
+          "provider": "mock",
+          "model": "scripted",
+          "input_tokens": 0,
+          "output_tokens": 0,
+          "latency_ms": 0,
+          "ok": true,
+          "error": ""
+        },
+        {
+          "id": 102,
+          "node": "compose",
+          "provider": "mock",
+          "model": "scripted",
+          "input_tokens": 0,
+          "output_tokens": 0,
+          "latency_ms": 0,
+          "ok": true,
+          "error": ""
+        }
+      ],
+      "assistant": {
+        "role": "assistant",
+        "mode": "build_case",
+        "content": "Your leave and licence agreement says the deposit is refundable on vacating, which supports your claim.\n\nBecause the agreement is a contract, keeping the deposit against its terms can let you claim compensation. [1]\n\nNext: What was the monthly rent?",
+        "meta": {
+          "risks": [],
+          "blocks": {
+            "hedge": "",
+            "notes": [],
+            "points": [
+              {
+                "refs": [],
+                "text": "Your leave and licence agreement says the deposit is refundable on vacating, which supports your claim."
+              },
+              {
+                "refs": [
+                  1
+                ],
+                "text": "Because the agreement is a contract, keeping the deposit against its terms can let you claim compensation."
+              }
+            ],
+            "question": "What was the monthly rent?"
+          },
+          "dropped": 1,
+          "citations": [
+            {
+              "n": 1,
+              "id": "ICA-73",
+              "url": "https://indiankanoon.org/doc/339747/",
+              "title": "Breach of a written or oral agreement",
+              "caveat": "Recovering money through a civil court has its own time limits and procedure. Ask a lawyer or the District Legal Services Authority early.",
+              "locator": "Section 73",
+              "summary": "A rent agreement or an employment agreement is a contract. When one side breaks it, the other side can claim compensation for loss that naturally arose from the breach. Remote or indirect losses are not covered.",
+              "citation": "Section 73, Indian Contract Act, 1872",
+              "reviewed_on": "2026-11-09"
+            }
+          ]
+        }
+      },
+      "case_after": {
+        "domain": "deposit",
+        "language": "en",
+        "facts": [
+          {
+            "field": "landlord",
+            "label": "Landlord",
+            "value": "Mr. Sharma",
+            "quote": "My landlord Mr. Sharma in Pune",
+            "confirmed": false,
+            "edited": false
+          },
+          {
+            "field": "property",
+            "label": "Property",
+            "value": "Pune",
+            "quote": "My landlord Mr. Sharma in Pune",
+            "confirmed": false,
+            "edited": false
+          },
+          {
+            "field": "state",
+            "label": "State",
+            "value": "Maharashtra",
+            "quote": "It's in Maharashtra",
+            "confirmed": false,
+            "edited": false
+          },
+          {
+            "field": "deposit_amount",
+            "label": "Deposit paid",
+            "value": "Rs 50,000",
+            "quote": "my deposit of Rs 50,000",
+            "confirmed": false,
+            "edited": false
+          },
+          {
+            "field": "move_out_date",
+            "label": "Move-out date",
+            "value": "31 August 2026",
+            "quote": "I moved out on 31 August 2026 and gave back the keys",
+            "confirmed": false,
+            "edited": false
+          },
+          {
+            "field": "agreement",
+            "label": "Rent agreement",
+            "value": "a leave and licence agreement which says the deposit is refundable on vacating",
+            "quote": "We signed a leave and licence agreement which says the deposit is refundable on vacating",
+            "confirmed": false,
+            "edited": false
+          }
+        ],
+        "missing": [
+          "Monthly rent",
+          "Deductions claimed",
+          "Steps already taken",
+          "Proof you have",
+          "What you want"
+        ],
+        "events": [
+          {
+            "when": "31 August 2026",
+            "what": "Moved out and returned the keys",
+            "quote": "I moved out on 31 August 2026 and gave back the keys",
+            "turn": 1
+          }
+        ],
+        "notice": null,
+        "pending": null
+      },
+      "checks": [
+        {
+          "check": "domain",
+          "ok": true,
+          "detail": "deposit"
+        },
+        {
+          "check": "facts",
+          "ok": true,
+          "detail": "mismatched {}"
+        },
+        {
+          "check": "cites_include",
+          "ok": true,
+          "detail": "cited ['ICA-73']; missing []"
+        },
+        {
+          "check": "citations_exist",
+          "ok": true,
+          "detail": "unknown []"
+        },
+        {
+          "check": "displayed_points_reverify",
+          "ok": true,
+          "detail": []
+        }
+      ]
+    },
+    {
+      "turn": 3,
+      "sent": {
+        "text": "Please draft a letter asking for the full Rs 50,000 back",
+        "mode": "draft",
+        "language": "auto"
+      },
+      "status": 200,
+      "elapsed_ms": 52,
+      "llm_calls": [
+        {
+          "id": 103,
+          "node": "triage",
+          "provider": "mock",
+          "model": "scripted",
+          "input_tokens": 0,
+          "output_tokens": 0,
+          "latency_ms": 0,
+          "ok": true,
+          "error": ""
+        },
+        {
+          "id": 104,
+          "node": "extract",
+          "provider": "mock",
+          "model": "scripted",
+          "input_tokens": 0,
+          "output_tokens": 0,
+          "latency_ms": 0,
+          "ok": true,
+          "error": ""
+        }
+      ],
+      "assistant": {
+        "role": "assistant",
+        "mode": "draft",
+        "content": "Please check these facts before I draft anything. Edit anything that's wrong, then confirm.",
+        "meta": {
+          "pending": {
+            "kind": "confirm_facts",
+            "facts": [
+              {
+                "field": "landlord",
+                "label": "Landlord",
+                "quote": "My landlord Mr. Sharma in Pune",
+                "value": "Mr. Sharma"
+              },
+              {
+                "field": "property",
+                "label": "Property",
+                "quote": "My landlord Mr. Sharma in Pune",
+                "value": "Pune"
+              },
+              {
+                "field": "state",
+                "label": "State",
+                "quote": "It's in Maharashtra",
+                "value": "Maharashtra"
+              },
+              {
+                "field": "deposit_amount",
+                "label": "Deposit paid",
+                "quote": "my deposit of Rs 50,000",
+                "value": "Rs 50,000"
+              },
+              {
+                "field": "move_out_date",
+                "label": "Move-out date",
+                "quote": "I moved out on 31 August 2026 and gave back the keys",
+                "value": "31 August 2026"
+              },
+              {
+                "field": "agreement",
+                "label": "Rent agreement",
+                "quote": "We signed a leave and licence agreement which says the deposit is refundable on vacating",
+                "value": "a leave and licence agreement which says the deposit is refundable on vacating"
+              },
+              {
+                "field": "resolution",
+                "label": "What you want",
+                "quote": "asking for the full Rs 50,000 back",
+                "value": "the full Rs 50,000 back"
+              }
+            ],
+            "domain": "deposit",
+            "prompt": "Please check these facts before I draft anything. Edit anything that's wrong, then confirm."
+          }
+        }
+      },
+      "case_after": {
+        "domain": "deposit",
+        "language": "en",
+        "facts": [
+          {
+            "field": "landlord",
+            "label": "Landlord",
+            "value": "Mr. Sharma",
+            "quote": "My landlord Mr. Sharma in Pune",
+            "confirmed": false,
+            "edited": false
+          },
+          {
+            "field": "property",
+            "label": "Property",
+            "value": "Pune",
+            "quote": "My landlord Mr. Sharma in Pune",
+            "confirmed": false,
+            "edited": false
+          },
+          {
+            "field": "state",
+            "label": "State",
+            "value": "Maharashtra",
+            "quote": "It's in Maharashtra",
+            "confirmed": false,
+            "edited": false
+          },
+          {
+            "field": "deposit_amount",
+            "label": "Deposit paid",
+            "value": "Rs 50,000",
+            "quote": "my deposit of Rs 50,000",
+            "confirmed": false,
+            "edited": false
+          },
+          {
+            "field": "move_out_date",
+            "label": "Move-out date",
+            "value": "31 August 2026",
+            "quote": "I moved out on 31 August 2026 and gave back the keys",
+            "confirmed": false,
+            "edited": false
+          },
+          {
+            "field": "agreement",
+            "label": "Rent agreement",
+            "value": "a leave and licence agreement which says the deposit is refundable on vacating",
+            "quote": "We signed a leave and licence agreement which says the deposit is refundable on vacating",
+            "confirmed": false,
+            "edited": false
+          },
+          {
+            "field": "resolution",
+            "label": "What you want",
+            "value": "the full Rs 50,000 back",
+            "quote": "asking for the full Rs 50,000 back",
+            "confirmed": false,
+            "edited": false
+          }
+        ],
+        "missing": [
+          "Monthly rent",
+          "Deductions claimed",
+          "Steps already taken",
+          "Proof you have"
+        ],
+        "events": [
+          {
+            "when": "31 August 2026",
+            "what": "Moved out and returned the keys",
+            "quote": "I moved out on 31 August 2026 and gave back the keys",
+            "turn": 1
+          }
+        ],
+        "notice": null,
+        "pending": {
+          "kind": "confirm_facts",
+          "domain": "deposit",
+          "prompt": "Please check these facts before I draft anything. Edit anything that's wrong, then confirm.",
+          "facts": [
+            {
+              "field": "landlord",
+              "label": "Landlord",
+              "value": "Mr. Sharma",
+              "quote": "My landlord Mr. Sharma in Pune"
+            },
+            {
+              "field": "property",
+              "label": "Property",
+              "value": "Pune",
+              "quote": "My landlord Mr. Sharma in Pune"
+            },
+            {
+              "field": "state",
+              "label": "State",
+              "value": "Maharashtra",
+              "quote": "It's in Maharashtra"
+            },
+            {
+              "field": "deposit_amount",
+              "label": "Deposit paid",
+              "value": "Rs 50,000",
+              "quote": "my deposit of Rs 50,000"
+            },
+            {
+              "field": "move_out_date",
+              "label": "Move-out date",
+              "value": "31 August 2026",
+              "quote": "I moved out on 31 August 2026 and gave back the keys"
+            },
+            {
+              "field": "agreement",
+              "label": "Rent agreement",
+              "value": "a leave and licence agreement which says the deposit is refundable on vacating",
+              "quote": "We signed a leave and licence agreement which says the deposit is refundable on vacating"
+            },
+            {
+              "field": "resolution",
+              "label": "What you want",
+              "value": "the full Rs 50,000 back",
+              "quote": "asking for the full Rs 50,000 back"
+            }
+          ]
+        }
+      },
+      "checks": [
+        {
+          "check": "pending",
+          "ok": true,
+          "detail": "pending"
+        },
+        {
+          "check": "facts",
+          "ok": true,
+          "detail": "mismatched {}"
+        },
+        {
+          "check": "citations_exist",
+          "ok": true,
+          "detail": "unknown []"
+        }
+      ]
+    },
+    {
+      "turn": 4,
+      "sent": {
+        "confirm": {
+          "confirmed": true,
+          "edits": {
+            "landlord": "Mr. Rajesh Sharma"
+          }
+        }
+      },
+      "status": 200,
+      "elapsed_ms": 40,
+      "llm_calls": [
+        {
+          "id": 105,
+          "node": "draft",
+          "provider": "mock",
+          "model": "scripted",
+          "input_tokens": 0,
+          "output_tokens": 0,
+          "latency_ms": 0,
+          "ok": true,
+          "error": ""
+        }
+      ],
+      "assistant": {
+        "role": "assistant",
+        "mode": "draft",
+        "content": "Your draft is ready to download. Read it fully, fill the blanks in [brackets], and only send what is true. Nothing has been sent for you.",
+        "meta": {
+          "risks": [],
+          "blocks": {
+            "draft": {
+              "id": 5,
+              "text": "Your draft is ready to download. Read it fully, fill the blanks in [brackets], and only send what is true. Nothing has been sent for you.",
+              "preview": "DRAFT - CHECK EVERY LINE BEFORE SENDING\nPrepared with Nyaya, a self-help tool. This is not a notice issued by a lawyer.\n\nFrom: [Your full name]\n[Your address and phone number]\n\nTo: Mr. Rajesh Sharma\n[Their address]\n\nDate: [DD/MM/YYYY]\n\nSubject: Return of security deposit for Pune\n\nDear Sir/Madam,\n\nI rented the flat in Pune from you under a leave and licence agreement and paid a security deposit of Rs 50,000.\n\nI moved out on 31 August 2026 and gave back the keys. The agreement says the deposit is refundable on vacating.\n\nI request: the full Rs 50,000 back.\n\nPlease reply in writing within [number] days of receiving this letter.\n\nRules that may be relevant (confirm with a lawyer before relying on them):\n- Section 73, Indian Contract Act, 1872: A rent agreement or an employment agreement is a contract. When one side breaks it, the other side can claim compensation for loss that naturally arose from the breach. Remote or indirect losses are not covered. (Recovering money through a civil court has its own time limits and procedure. Ask a lawyer or the District Legal Services Authority early.)\n- Section 11, Model Tenancy Act, 2021: The Model Tenancy Act is a model law. It applies only in states that have passed a tenancy law based on it. Where it applies, a residential deposit cannot exceed two months' rent (six months for non-residential), and the landlord must refund it when taking back vacant possession, after deducting only the tenant's actual liabilities. (Rent law is state-specific. Whether this applies depends on your state and whether you have a lease or a leave-and-licence agreement.)\n\nAttached: [List only the documents you are actually attaching]\n\nYours faithfully,\n[Your name and signature]",
+              "fallback": false,
+              "rejected": 1
+            }
+          },
+          "dropped": 0,
+          "citations": [
+            {
+              "n": 1,
+              "id": "ICA-73",
+              "url": "https://indiankanoon.org/doc/339747/",
+              "title": "Breach of a written or oral agreement",
+              "caveat": "Recovering money through a civil court has its own time limits and procedure. Ask a lawyer or the District Legal Services Authority early.",
+              "locator": "Section 73",
+              "summary": "A rent agreement or an employment agreement is a contract. When one side breaks it, the other side can claim compensation for loss that naturally arose from the breach. Remote or indirect losses are not covered.",
+              "citation": "Section 73, Indian Contract Act, 1872",
+              "reviewed_on": "2026-11-09"
+            },
+            {
+              "n": 2,
+              "id": "MTA-11",
+              "url": "https://udd.delhi.gov.in/sites/default/files/UD/generic_multiple_files/mta_hindi_english.pdf",
+              "title": "Security deposit under the Model Tenancy Act",
+              "caveat": "Rent law is state-specific. Whether this applies depends on your state and whether you have a lease or a leave-and-licence agreement.",
+              "locator": "Section 11 and summary point (xi)",
+              "summary": "The Model Tenancy Act is a model law. It applies only in states that have passed a tenancy law based on it. Where it applies, a residential deposit cannot exceed two months' rent (six months for non-residential), and the landlord must refund it when taking back vacant possession, after deducting only the tenant's actual liabilities.",
+              "citation": "Section 11, Model Tenancy Act, 2021",
+              "reviewed_on": "2026-11-09"
+            }
+          ]
+        }
+      },
+      "case_after": {
+        "domain": "deposit",
+        "language": "en",
+        "facts": [
+          {
+            "field": "landlord",
+            "label": "Landlord",
+            "value": "Mr. Rajesh Sharma",
+            "quote": "Mr. Rajesh Sharma",
+            "confirmed": true,
+            "edited": true
+          },
+          {
+            "field": "property",
+            "label": "Property",
+            "value": "Pune",
+            "quote": "My landlord Mr. Sharma in Pune",
+            "confirmed": true,
+            "edited": false
+          },
+          {
+            "field": "state",
+            "label": "State",
+            "value": "Maharashtra",
+            "quote": "It's in Maharashtra",
+            "confirmed": true,
+            "edited": false
+          },
+          {
+            "field": "deposit_amount",
+            "label": "Deposit paid",
+            "value": "Rs 50,000",
+            "quote": "my deposit of Rs 50,000",
+            "confirmed": true,
+            "edited": false
+          },
+          {
+            "field": "move_out_date",
+            "label": "Move-out date",
+            "value": "31 August 2026",
+            "quote": "I moved out on 31 August 2026 and gave back the keys",
+            "confirmed": true,
+            "edited": false
+          },
+          {
+            "field": "agreement",
+            "label": "Rent agreement",
+            "value": "a leave and licence agreement which says the deposit is refundable on vacating",
+            "quote": "We signed a leave and licence agreement which says the deposit is refundable on vacating",
+            "confirmed": true,
+            "edited": false
+          },
+          {
+            "field": "resolution",
+            "label": "What you want",
+            "value": "the full Rs 50,000 back",
+            "quote": "asking for the full Rs 50,000 back",
+            "confirmed": true,
+            "edited": false
+          }
+        ],
+        "missing": [
+          "Monthly rent",
+          "Deductions claimed",
+          "Steps already taken",
+          "Proof you have"
+        ],
+        "events": [
+          {
+            "when": "31 August 2026",
+            "what": "Moved out and returned the keys",
+            "quote": "I moved out on 31 August 2026 and gave back the keys",
+            "turn": 1
+          }
+        ],
+        "notice": null,
+        "pending": null
+      },
+      "checks": [
+        {
+          "check": "draft",
+          "ok": true,
+          "detail": ""
+        },
+        {
+          "check": "draft_contains",
+          "ok": true,
+          "detail": "missing []"
+        },
+        {
+          "check": "draft_excludes",
+          "ok": true,
+          "detail": "found []"
+        },
+        {
+          "check": "rejected_paragraphs_min",
+          "ok": true,
+          "detail": "rejected 1"
+        },
+        {
+          "check": "citations_exist",
+          "ok": true,
+          "detail": "unknown []"
+        }
+      ]
+    }
+  ],
+  "passed": true
+}

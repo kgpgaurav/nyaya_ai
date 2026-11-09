@@ -1,0 +1,202 @@
+{
+  "id": "refund_commercial",
+  "about": "Resale purchase: should flag that the consumer route may not apply.",
+  "turns": [
+    {
+      "turn": 1,
+      "sent": {
+        "text": "I bought 20 phone covers for Rs 4,000 from a wholesaler on IndiaMart to resell in my shop and half of them are broken. Can I file a consumer case?",
+        "mode": "auto",
+        "language": "auto"
+      },
+      "status": 200,
+      "elapsed_ms": 61,
+      "llm_calls": [
+        {
+          "id": 112,
+          "node": "triage",
+          "provider": "mock",
+          "model": "scripted",
+          "input_tokens": 0,
+          "output_tokens": 0,
+          "latency_ms": 0,
+          "ok": true,
+          "error": ""
+        },
+        {
+          "id": 113,
+          "node": "extract",
+          "provider": "mock",
+          "model": "scripted",
+          "input_tokens": 0,
+          "output_tokens": 0,
+          "latency_ms": 0,
+          "ok": true,
+          "error": ""
+        },
+        {
+          "id": 114,
+          "node": "compose",
+          "provider": "mock",
+          "model": "scripted",
+          "input_tokens": 0,
+          "output_tokens": 0,
+          "latency_ms": 0,
+          "ok": true,
+          "error": ""
+        }
+      ],
+      "assistant": {
+        "role": "assistant",
+        "mode": "explain",
+        "content": "The consumer route covers goods bought for payment, but purchases made for resale are excluded. [1]\n\nSince you bought these to resell, you may not count as a consumer for this purchase. A lawyer can confirm. [1]\n\nYou can still complain to the platform's grievance officer about the broken items. [2]\n\nNote: if this was bought for resale or business, the consumer route may not apply. A lawyer should check that.\n\nNext: When did you buy it? An approximate date is fine.",
+        "meta": {
+          "risks": [
+            "commercial"
+          ],
+          "blocks": {
+            "hedge": "",
+            "notes": [
+              "Note: if this was bought for resale or business, the consumer route may not apply. A lawyer should check that."
+            ],
+            "points": [
+              {
+                "refs": [
+                  1
+                ],
+                "text": "The consumer route covers goods bought for payment, but purchases made for resale are excluded."
+              },
+              {
+                "refs": [
+                  1
+                ],
+                "text": "Since you bought these to resell, you may not count as a consumer for this purchase. A lawyer can confirm."
+              },
+              {
+                "refs": [
+                  2
+                ],
+                "text": "You can still complain to the platform's grievance officer about the broken items."
+              }
+            ],
+            "question": "When did you buy it? An approximate date is fine."
+          },
+          "dropped": 0,
+          "citations": [
+            {
+              "n": 1,
+              "id": "CPA-2-7",
+              "url": "https://www.indiacode.nic.in/",
+              "title": "Who counts as a consumer",
+              "caveat": "Whether a particular purchase is commercial depends on facts. Business purchases need a lawyer's view.",
+              "locator": "India Code: search 'Consumer Protection Act, 2019', Section 2(7)",
+              "summary": "You are a consumer if you bought goods or hired a service for payment. Buying for resale or another commercial purpose is excluded. Goods bought only to earn a livelihood through self-employment are not treated as commercial.",
+              "citation": "Section 2(7), Consumer Protection Act, 2019",
+              "reviewed_on": "2026-11-09"
+            },
+            {
+              "n": 2,
+              "id": "ECOM-4",
+              "url": "https://thc.nic.in/Central%20Governmental%20Rules/Consumer%20Protection%20%28E-Commerce%29%20Rules%2C%202020.pdf",
+              "title": "E-commerce grievance officer",
+              "caveat": "One month is the redressal timeline for the grievance, not a universal refund deadline.",
+              "locator": "Rule 4, printed page 82",
+              "summary": "Every e-commerce entity must appoint a grievance officer and show their contact details on the platform. The officer must acknowledge a complaint within 48 hours and redress it within one month of receiving it.",
+              "citation": "Rules 4(4) and 4(5), Consumer Protection (E-Commerce) Rules, 2020",
+              "reviewed_on": "2026-11-09"
+            }
+          ]
+        }
+      },
+      "case_after": {
+        "domain": "refund",
+        "language": "en",
+        "facts": [
+          {
+            "field": "seller",
+            "label": "Seller / platform",
+            "value": "a wholesaler on IndiaMart",
+            "quote": "from a wholesaler on IndiaMart",
+            "confirmed": false,
+            "edited": false
+          },
+          {
+            "field": "product",
+            "label": "Product or service",
+            "value": "20 phone covers",
+            "quote": "I bought 20 phone covers for Rs 4,000",
+            "confirmed": false,
+            "edited": false
+          },
+          {
+            "field": "amount",
+            "label": "Amount paid",
+            "value": "Rs 4,000",
+            "quote": "I bought 20 phone covers for Rs 4,000",
+            "confirmed": false,
+            "edited": false
+          },
+          {
+            "field": "problem",
+            "label": "What went wrong",
+            "value": "half of them are broken",
+            "quote": "half of them are broken",
+            "confirmed": false,
+            "edited": false
+          },
+          {
+            "field": "purpose",
+            "label": "Purchase purpose",
+            "value": "to resell in my shop",
+            "quote": "to resell in my shop",
+            "confirmed": false,
+            "edited": false
+          }
+        ],
+        "missing": [
+          "Purchase date",
+          "Order reference",
+          "Steps already taken",
+          "Proof you have",
+          "What you want"
+        ],
+        "events": [],
+        "notice": null,
+        "pending": null
+      },
+      "checks": [
+        {
+          "check": "domain",
+          "ok": true,
+          "detail": "refund"
+        },
+        {
+          "check": "cites_include",
+          "ok": true,
+          "detail": "cited ['CPA-2-7', 'ECOM-4']; missing []"
+        },
+        {
+          "check": "notes_contains",
+          "ok": true,
+          "detail": "missing []"
+        },
+        {
+          "check": "risks_include",
+          "ok": true,
+          "detail": "risks ['commercial']"
+        },
+        {
+          "check": "citations_exist",
+          "ok": true,
+          "detail": "unknown []"
+        },
+        {
+          "check": "displayed_points_reverify",
+          "ok": true,
+          "detail": []
+        }
+      ]
+    }
+  ],
+  "passed": true
+}

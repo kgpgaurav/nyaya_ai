@@ -1,0 +1,84 @@
+{
+  "id": "family_refer",
+  "about": "Family law: refers to a lawyer.",
+  "turns": [
+    {
+      "turn": 1,
+      "sent": {
+        "text": "My husband wants a divorce and is asking for custody of our child. What are my rights?",
+        "mode": "auto",
+        "language": "auto"
+      },
+      "status": 200,
+      "elapsed_ms": 37,
+      "llm_calls": [
+        {
+          "id": 139,
+          "node": "triage",
+          "provider": "mock",
+          "model": "scripted",
+          "input_tokens": 0,
+          "output_tokens": 0,
+          "latency_ms": 0,
+          "ok": true,
+          "error": ""
+        }
+      ],
+      "assistant": {
+        "role": "assistant",
+        "mode": "explain",
+        "content": "This involves a family matter, which needs a real lawyer, not an app. Please don't rely on me for this part. If cost is a concern, call the free legal aid helpline 15100 or visit your District Legal Services Authority.",
+        "meta": {
+          "risks": [
+            "family"
+          ],
+          "blocks": {
+            "text": "This involves a family matter, which needs a real lawyer, not an app. Please don't rely on me for this part. If cost is a concern, call the free legal aid helpline 15100 or visit your District Legal Services Authority.",
+            "canned": "needs_lawyer"
+          },
+          "dropped": 0,
+          "citations": [
+            {
+              "n": 1,
+              "id": "LSA-12",
+              "url": "https://nalsa.gov.in/",
+              "title": "Free legal aid",
+              "caveat": "The income limit varies by state.",
+              "locator": "Legal aid eligibility; helpline 15100",
+              "summary": "Women, children, members of Scheduled Castes and Scheduled Tribes, persons with disabilities, industrial workmen, people in custody and people below the income limit can get a free lawyer. Call the NALSA helpline 15100 or visit your District Legal Services Authority.",
+              "citation": "Section 12, Legal Services Authorities Act, 1987",
+              "reviewed_on": "2026-11-09"
+            }
+          ]
+        }
+      },
+      "case_after": {
+        "domain": "other",
+        "language": "en",
+        "facts": [],
+        "missing": [],
+        "events": [],
+        "notice": null,
+        "pending": null
+      },
+      "checks": [
+        {
+          "check": "canned",
+          "ok": true,
+          "detail": "needs_lawyer"
+        },
+        {
+          "check": "reply_contains",
+          "ok": true,
+          "detail": "missing []"
+        },
+        {
+          "check": "citations_exist",
+          "ok": true,
+          "detail": "unknown []"
+        }
+      ]
+    }
+  ],
+  "passed": true
+}

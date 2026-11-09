@@ -1,0 +1,192 @@
+{
+  "id": "voice_hi_salary",
+  "about": "Hindi voice message (scripted transcript) about unpaid salary.",
+  "turns": [
+    {
+      "turn": 1,
+      "sent": {
+        "voice_bytes": 28,
+        "mode": "auto"
+      },
+      "status": 200,
+      "elapsed_ms": 60,
+      "llm_calls": [
+        {
+          "id": 156,
+          "node": "triage",
+          "provider": "mock",
+          "model": "scripted",
+          "input_tokens": 0,
+          "output_tokens": 0,
+          "latency_ms": 0,
+          "ok": true,
+          "error": ""
+        },
+        {
+          "id": 157,
+          "node": "extract",
+          "provider": "mock",
+          "model": "scripted",
+          "input_tokens": 0,
+          "output_tokens": 0,
+          "latency_ms": 0,
+          "ok": true,
+          "error": ""
+        },
+        {
+          "id": 158,
+          "node": "compose",
+          "provider": "mock",
+          "model": "scripted",
+          "input_tokens": 0,
+          "output_tokens": 0,
+          "latency_ms": 0,
+          "ok": true,
+          "error": ""
+        }
+      ],
+      "assistant": {
+        "role": "assistant",
+        "mode": "explain",
+        "content": "वेतन से जुड़े मामले अब वेतन संहिता, 2019 के तहत आते हैं। [1]\n\nमासिक वेतन अगले महीने के सातवें दिन के अंत से पहले देना होता है। [2]\n\nआप तीन साल के भीतर वेतन प्राधिकारी के पास दावा कर सकते हैं। [3]\n\nअगला सवाल: नियोक्ता कौन है (कंपनी या व्यक्ति)?",
+        "meta": {
+          "risks": [],
+          "blocks": {
+            "hedge": "",
+            "notes": [],
+            "points": [
+              {
+                "refs": [
+                  1
+                ],
+                "text": "वेतन से जुड़े मामले अब वेतन संहिता, 2019 के तहत आते हैं।"
+              },
+              {
+                "refs": [
+                  2
+                ],
+                "text": "मासिक वेतन अगले महीने के सातवें दिन के अंत से पहले देना होता है।"
+              },
+              {
+                "refs": [
+                  3
+                ],
+                "text": "आप तीन साल के भीतर वेतन प्राधिकारी के पास दावा कर सकते हैं।"
+              }
+            ],
+            "question": "नियोक्ता कौन है (कंपनी या व्यक्ति)?"
+          },
+          "dropped": 0,
+          "citations": [
+            {
+              "n": 1,
+              "id": "COW-COMMENCE",
+              "url": "https://static.pib.gov.in/WriteReadData/specificdocs/documents/2025/nov/doc20251123703501.pdf",
+              "title": "Which wage law applies now",
+              "caveat": "Which authority hears claims, and some details, depend on your state's rules.",
+              "locator": "PIB explainer on the Labour Codes, November 2025",
+              "summary": "वेतन संहिता, 2019 21 नवंबर 2025 से लागू है और इसने वेतन भुगतान अधिनियम 1936, न्यूनतम वेतन अधिनियम 1948, बोनस भुगतान अधिनियम 1965 और समान पारिश्रमिक अधिनियम 1976 की जगह ली है। इसके कुछ नियम अभी राज्यवार अधिसूचित हो रहे हैं।",
+              "citation": "Code on Wages, 2019",
+              "reviewed_on": "2026-11-09"
+            },
+            {
+              "n": 2,
+              "id": "COW-17",
+              "url": "https://static.pib.gov.in/WriteReadData/specificdocs/documents/2025/nov/doc20251123703501.pdf",
+              "title": "When wages must be paid",
+              "caveat": "The government can set a different time limit under Section 17(3). The two-day rule covers wages, not every item in a full-and-final settlement.",
+              "locator": "Section 17(1) and 17(2)",
+              "summary": "मासिक वेतन अगले महीने के सातवें दिन के अंत से पहले देना होता है। साप्ताहिक वेतन सप्ताह के अंतिम कार्य दिवस पर और दैनिक वेतन पाली के अंत में देय है। हटाए जाने, बर्खास्तगी, छंटनी, इस्तीफ़े या प्रतिष्ठान बंद होने पर बकाया वेतन दो कार्य दिवसों में देना होता है।",
+              "citation": "Section 17, Code on Wages, 2019",
+              "reviewed_on": "2026-11-09"
+            },
+            {
+              "n": 3,
+              "id": "COW-45",
+              "url": "https://indiankanoon.org/doc/138728918/",
+              "title": "Filing a claim for unpaid wages",
+              "caveat": "Who the authority is in your area depends on your state's notification. Ask the local labour office.",
+              "locator": "Section 45(1), 45(4), 45(6)",
+              "summary": "संहिता के तहत दावों की सुनवाई सरकार द्वारा नियुक्त प्राधिकारी करता है। कर्मचारी, उसकी पंजीकृत यूनियन या निरीक्षक-सह-सुविधाकर्ता दावा कर सकते हैं। दावा उत्पन्न होने के तीन साल के भीतर दायर होना चाहिए; बाद में दायर करने पर पर्याप्त कारण चाहिए। प्राधिकारी तीन महीने में फैसले का प्रयास करता है।",
+              "citation": "Section 45, Code on Wages, 2019",
+              "reviewed_on": "2026-11-09"
+            }
+          ]
+        }
+      },
+      "case_after": {
+        "domain": "salary",
+        "language": "hi",
+        "facts": [
+          {
+            "field": "unpaid_period",
+            "label": "बकाया अवधि",
+            "value": "दो महीने",
+            "quote": "मेरी कंपनी ने दो महीने से वेतन नहीं दिया है",
+            "confirmed": false,
+            "edited": false
+          },
+          {
+            "field": "employment_status",
+            "label": "अभी भी काम कर रहे हैं?",
+            "value": "मैं अभी भी वहीं काम करता हूं",
+            "quote": "मैं अभी भी वहीं काम करता हूं",
+            "confirmed": false,
+            "edited": false
+          }
+        ],
+        "missing": [
+          "नियोक्ता",
+          "आपका काम",
+          "राज्य",
+          "वेतन",
+          "बकाया राशि",
+          "पहले किए गए प्रयास",
+          "आपके पास प्रमाण",
+          "आपकी मांग"
+        ],
+        "events": [],
+        "notice": null,
+        "pending": null
+      },
+      "checks": [
+        {
+          "check": "domain",
+          "ok": true,
+          "detail": "salary"
+        },
+        {
+          "check": "language",
+          "ok": true,
+          "detail": "hi"
+        },
+        {
+          "check": "cites_include",
+          "ok": true,
+          "detail": "cited ['COW-COMMENCE', 'COW-17', 'COW-45']; missing []"
+        },
+        {
+          "check": "devanagari",
+          "ok": true,
+          "detail": ""
+        },
+        {
+          "check": "via",
+          "ok": true,
+          "detail": ""
+        },
+        {
+          "check": "citations_exist",
+          "ok": true,
+          "detail": "unknown []"
+        },
+        {
+          "check": "displayed_points_reverify",
+          "ok": true,
+          "detail": []
+        }
+      ]
+    }
+  ],
+  "passed": true
+}

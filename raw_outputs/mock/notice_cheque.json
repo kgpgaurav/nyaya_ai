@@ -1,0 +1,153 @@
+{
+  "id": "notice_cheque",
+  "about": "Cheque bounce notice: explains it, quotes the deadline from the notice, cites Section 138, and says see a lawyer. Planted error: an invented 5-year jail claim in the summary.",
+  "turns": [
+    {
+      "turn": 1,
+      "sent": {
+        "text": "LEGAL NOTICE. To: Mr. Anil Verma. Under instructions from my client M/s Gupta Traders, I hereby inform you that cheque no. 004512 dated 12.09.2026 for Rs 75,000 issued by you was returned unpaid by the bank with the remark 'funds insufficient' on 20.09.2026. You are hereby called upon to pay the said amount within 15 days of receipt of this notice, failing which my client shall initiate proceedings under Section 138 of the Negotiable Instruments Act. Sd/- R. K. Mehta, Advocate",
+        "mode": "notice",
+        "language": "auto"
+      },
+      "status": 200,
+      "elapsed_ms": 45,
+      "llm_calls": [
+        {
+          "id": 131,
+          "node": "triage",
+          "provider": "mock",
+          "model": "scripted",
+          "input_tokens": 0,
+          "output_tokens": 0,
+          "latency_ms": 0,
+          "ok": true,
+          "error": ""
+        },
+        {
+          "id": 132,
+          "node": "notice",
+          "provider": "mock",
+          "model": "scripted",
+          "input_tokens": 0,
+          "output_tokens": 0,
+          "latency_ms": 0,
+          "ok": true,
+          "error": ""
+        }
+      ],
+      "assistant": {
+        "role": "assistant",
+        "mode": "notice",
+        "content": "This is a cheque bounce notice sent by a lawyer for Gupta Traders.\n\nIt says your cheque for Rs 75,000 dated 12.09.2026 was returned unpaid because of insufficient funds.\n\nPay Rs 75,000 to Gupta Traders for the cheque that bounced.\n\nDeadline mentioned in the notice: \"within 15 days of receipt of this notice\"\n\nIf a cheque bounces, the payee must send a written demand within 30 days of hearing from the bank. The person who wrote the cheque then has 15 days from receiving the notice to pay. If they do not, a criminal complaint can follow. [1]\n\nBecause this is a cheque bounce notice, please show it to a lawyer before the deadline. Free legal aid: 15100. [2]",
+        "meta": {
+          "risks": [],
+          "blocks": {
+            "notice": {
+              "law": [
+                {
+                  "refs": [
+                    1
+                  ],
+                  "text": "If a cheque bounces, the payee must send a written demand within 30 days of hearing from the bank. The person who wrote the cheque then has 15 days from receiving the notice to pay. If they do not, a criminal complaint can follow."
+                }
+              ],
+              "asks": "Pay Rs 75,000 to Gupta Traders for the cheque that bounced.",
+              "kind": "cheque bounce notice",
+              "lawyer": "Because this is a cheque bounce notice, please show it to a lawyer before the deadline. Free legal aid: 15100.",
+              "sender": "R. K. Mehta, Advocate",
+              "summary": [
+                "This is a cheque bounce notice sent by a lawyer for Gupta Traders.",
+                "It says your cheque for Rs 75,000 dated 12.09.2026 was returned unpaid because of insufficient funds."
+              ],
+              "deadline": "within 15 days of receipt of this notice",
+              "lawyer_ref": 2,
+              "deadline_line": "Deadline mentioned in the notice: \"within 15 days of receipt of this notice\""
+            }
+          },
+          "dropped": 0,
+          "citations": [
+            {
+              "n": 1,
+              "id": "NIA-138",
+              "url": "https://indiankanoon.org/doc/1823824/",
+              "title": "Cheque bounce notice",
+              "caveat": "This is a criminal matter. If you received such a notice, speak to a lawyer before the 15 days run out.",
+              "locator": "Section 138, provisos (b) and (c)",
+              "summary": "If a cheque bounces, the payee must send a written demand within 30 days of hearing from the bank. The person who wrote the cheque then has 15 days from receiving the notice to pay. If they do not, a criminal complaint can follow.",
+              "citation": "Section 138, Negotiable Instruments Act, 1881",
+              "reviewed_on": "2026-11-09"
+            },
+            {
+              "n": 2,
+              "id": "LSA-12",
+              "url": "https://nalsa.gov.in/",
+              "title": "Free legal aid",
+              "caveat": "The income limit varies by state.",
+              "locator": "Legal aid eligibility; helpline 15100",
+              "summary": "Women, children, members of Scheduled Castes and Scheduled Tribes, persons with disabilities, industrial workmen, people in custody and people below the income limit can get a free lawyer. Call the NALSA helpline 15100 or visit your District Legal Services Authority.",
+              "citation": "Section 12, Legal Services Authorities Act, 1987",
+              "reviewed_on": "2026-11-09"
+            }
+          ]
+        }
+      },
+      "case_after": {
+        "domain": "notice",
+        "language": "en",
+        "facts": [],
+        "missing": [
+          "Sent by",
+          "Received on",
+          "What it says"
+        ],
+        "events": [],
+        "notice": {
+          "kind": "cheque_bounce",
+          "sender": "R. K. Mehta, Advocate",
+          "deadline": "within 15 days of receipt of this notice",
+          "asks": "Pay Rs 75,000 to Gupta Traders for the cheque that bounced.",
+          "excerpt": "LEGAL NOTICE. To: Mr. Anil Verma. Under instructions from my client M/s Gupta Traders, I hereby inform you that cheque no. 004512 dated 12.09.2026 for Rs 75,000 issued by you was returned unpaid by the bank with the remark 'funds insufficient' on 20.09.2026. You are hereby called upon to pay the said amount within 15 days of receipt of this notice, failing which my client shall initiate proceeding"
+        },
+        "pending": null
+      },
+      "checks": [
+        {
+          "check": "mode",
+          "ok": true,
+          "detail": "notice"
+        },
+        {
+          "check": "notice_kind",
+          "ok": true,
+          "detail": "cheque_bounce"
+        },
+        {
+          "check": "deadline",
+          "ok": true,
+          "detail": "within 15 days of receipt of this notice"
+        },
+        {
+          "check": "cites_include",
+          "ok": true,
+          "detail": "cited ['NIA-138', 'LSA-12']; missing []"
+        },
+        {
+          "check": "reply_contains",
+          "ok": true,
+          "detail": "missing []"
+        },
+        {
+          "check": "reply_excludes",
+          "ok": true,
+          "detail": "found []"
+        },
+        {
+          "check": "citations_exist",
+          "ok": true,
+          "detail": "unknown []"
+        }
+      ]
+    }
+  ],
+  "passed": true
+}

@@ -1,0 +1,442 @@
+{
+  "id": "conflict_then_correction",
+  "about": "A contradictory amount is held back and queried; an explicit correction then replaces it.",
+  "turns": [
+    {
+      "turn": 1,
+      "sent": {
+        "text": "Landlord Mr. Gupta in Delhi kept my deposit of Rs 30,000 after I moved out.",
+        "mode": "auto",
+        "language": "auto"
+      },
+      "status": 200,
+      "elapsed_ms": 58,
+      "llm_calls": [
+        {
+          "id": 143,
+          "node": "triage",
+          "provider": "mock",
+          "model": "scripted",
+          "input_tokens": 0,
+          "output_tokens": 0,
+          "latency_ms": 0,
+          "ok": true,
+          "error": ""
+        },
+        {
+          "id": 144,
+          "node": "extract",
+          "provider": "mock",
+          "model": "scripted",
+          "input_tokens": 0,
+          "output_tokens": 0,
+          "latency_ms": 0,
+          "ok": true,
+          "error": ""
+        },
+        {
+          "id": 145,
+          "node": "compose",
+          "provider": "mock",
+          "model": "scripted",
+          "input_tokens": 0,
+          "output_tokens": 0,
+          "latency_ms": 0,
+          "ok": true,
+          "error": ""
+        }
+      ],
+      "assistant": {
+        "role": "assistant",
+        "mode": "build_case",
+        "content": "I've noted that Mr. Gupta in Delhi kept your Rs 30,000 deposit after you moved out.\n\nKeeping the deposit against your agreement can let you claim compensation. [1]\n\nNext: Which state is the property in? Rent rules differ by state.",
+        "meta": {
+          "risks": [],
+          "blocks": {
+            "hedge": "",
+            "notes": [],
+            "points": [
+              {
+                "refs": [],
+                "text": "I've noted that Mr. Gupta in Delhi kept your Rs 30,000 deposit after you moved out."
+              },
+              {
+                "refs": [
+                  1
+                ],
+                "text": "Keeping the deposit against your agreement can let you claim compensation."
+              }
+            ],
+            "question": "Which state is the property in? Rent rules differ by state."
+          },
+          "dropped": 0,
+          "citations": [
+            {
+              "n": 1,
+              "id": "ICA-73",
+              "url": "https://indiankanoon.org/doc/339747/",
+              "title": "Breach of a written or oral agreement",
+              "caveat": "Recovering money through a civil court has its own time limits and procedure. Ask a lawyer or the District Legal Services Authority early.",
+              "locator": "Section 73",
+              "summary": "A rent agreement or an employment agreement is a contract. When one side breaks it, the other side can claim compensation for loss that naturally arose from the breach. Remote or indirect losses are not covered.",
+              "citation": "Section 73, Indian Contract Act, 1872",
+              "reviewed_on": "2026-11-09"
+            }
+          ]
+        }
+      },
+      "case_after": {
+        "domain": "deposit",
+        "language": "en",
+        "facts": [
+          {
+            "field": "landlord",
+            "label": "Landlord",
+            "value": "Mr. Gupta",
+            "quote": "Landlord Mr. Gupta in Delhi",
+            "confirmed": false,
+            "edited": false
+          },
+          {
+            "field": "property",
+            "label": "Property",
+            "value": "Delhi",
+            "quote": "Landlord Mr. Gupta in Delhi",
+            "confirmed": false,
+            "edited": false
+          },
+          {
+            "field": "deposit_amount",
+            "label": "Deposit paid",
+            "value": "Rs 30,000",
+            "quote": "my deposit of Rs 30,000",
+            "confirmed": false,
+            "edited": false
+          }
+        ],
+        "missing": [
+          "State",
+          "Monthly rent",
+          "Move-out date",
+          "Rent agreement",
+          "Deductions claimed",
+          "Steps already taken",
+          "Proof you have",
+          "What you want"
+        ],
+        "events": [],
+        "notice": null,
+        "pending": null
+      },
+      "checks": [
+        {
+          "check": "facts",
+          "ok": true,
+          "detail": "mismatched {}"
+        },
+        {
+          "check": "citations_exist",
+          "ok": true,
+          "detail": "unknown []"
+        },
+        {
+          "check": "displayed_points_reverify",
+          "ok": true,
+          "detail": []
+        }
+      ]
+    },
+    {
+      "turn": 2,
+      "sent": {
+        "text": "The deposit was Rs 35,000.",
+        "mode": "auto",
+        "language": "auto"
+      },
+      "status": 200,
+      "elapsed_ms": 64,
+      "llm_calls": [
+        {
+          "id": 146,
+          "node": "triage",
+          "provider": "mock",
+          "model": "scripted",
+          "input_tokens": 0,
+          "output_tokens": 0,
+          "latency_ms": 0,
+          "ok": true,
+          "error": ""
+        },
+        {
+          "id": 147,
+          "node": "extract",
+          "provider": "mock",
+          "model": "scripted",
+          "input_tokens": 0,
+          "output_tokens": 0,
+          "latency_ms": 0,
+          "ok": true,
+          "error": ""
+        },
+        {
+          "id": 148,
+          "node": "compose",
+          "provider": "mock",
+          "model": "scripted",
+          "input_tokens": 0,
+          "output_tokens": 0,
+          "latency_ms": 0,
+          "ok": true,
+          "error": ""
+        }
+      ],
+      "assistant": {
+        "role": "assistant",
+        "mode": "build_case",
+        "content": "A rent agreement is a contract, and breaking it can let you claim compensation. [1]\n\nEarlier you said Deposit paid was \"Rs 30,000\", now \"Rs 35,000\". Which is right? I've kept the earlier one until you confirm.",
+        "meta": {
+          "risks": [],
+          "blocks": {
+            "hedge": "",
+            "notes": [
+              "Earlier you said Deposit paid was \"Rs 30,000\", now \"Rs 35,000\". Which is right? I've kept the earlier one until you confirm."
+            ],
+            "points": [
+              {
+                "refs": [
+                  1
+                ],
+                "text": "A rent agreement is a contract, and breaking it can let you claim compensation."
+              }
+            ],
+            "question": ""
+          },
+          "dropped": 0,
+          "citations": [
+            {
+              "n": 1,
+              "id": "ICA-73",
+              "url": "https://indiankanoon.org/doc/339747/",
+              "title": "Breach of a written or oral agreement",
+              "caveat": "Recovering money through a civil court has its own time limits and procedure. Ask a lawyer or the District Legal Services Authority early.",
+              "locator": "Section 73",
+              "summary": "A rent agreement or an employment agreement is a contract. When one side breaks it, the other side can claim compensation for loss that naturally arose from the breach. Remote or indirect losses are not covered.",
+              "citation": "Section 73, Indian Contract Act, 1872",
+              "reviewed_on": "2026-11-09"
+            }
+          ]
+        }
+      },
+      "case_after": {
+        "domain": "deposit",
+        "language": "en",
+        "facts": [
+          {
+            "field": "landlord",
+            "label": "Landlord",
+            "value": "Mr. Gupta",
+            "quote": "Landlord Mr. Gupta in Delhi",
+            "confirmed": false,
+            "edited": false
+          },
+          {
+            "field": "property",
+            "label": "Property",
+            "value": "Delhi",
+            "quote": "Landlord Mr. Gupta in Delhi",
+            "confirmed": false,
+            "edited": false
+          },
+          {
+            "field": "deposit_amount",
+            "label": "Deposit paid",
+            "value": "Rs 30,000",
+            "quote": "my deposit of Rs 30,000",
+            "confirmed": false,
+            "edited": false
+          }
+        ],
+        "missing": [
+          "State",
+          "Monthly rent",
+          "Move-out date",
+          "Rent agreement",
+          "Deductions claimed",
+          "Steps already taken",
+          "Proof you have",
+          "What you want"
+        ],
+        "events": [],
+        "notice": null,
+        "pending": null
+      },
+      "checks": [
+        {
+          "check": "facts",
+          "ok": true,
+          "detail": "mismatched {}"
+        },
+        {
+          "check": "notes_contains",
+          "ok": true,
+          "detail": "missing []"
+        },
+        {
+          "check": "citations_exist",
+          "ok": true,
+          "detail": "unknown []"
+        },
+        {
+          "check": "displayed_points_reverify",
+          "ok": true,
+          "detail": []
+        }
+      ]
+    },
+    {
+      "turn": 3,
+      "sent": {
+        "text": "Sorry, I was wrong earlier, the deposit was actually Rs 35,000.",
+        "mode": "auto",
+        "language": "auto"
+      },
+      "status": 200,
+      "elapsed_ms": 69,
+      "llm_calls": [
+        {
+          "id": 149,
+          "node": "triage",
+          "provider": "mock",
+          "model": "scripted",
+          "input_tokens": 0,
+          "output_tokens": 0,
+          "latency_ms": 0,
+          "ok": true,
+          "error": ""
+        },
+        {
+          "id": 150,
+          "node": "extract",
+          "provider": "mock",
+          "model": "scripted",
+          "input_tokens": 0,
+          "output_tokens": 0,
+          "latency_ms": 0,
+          "ok": true,
+          "error": ""
+        },
+        {
+          "id": 151,
+          "node": "compose",
+          "provider": "mock",
+          "model": "scripted",
+          "input_tokens": 0,
+          "output_tokens": 0,
+          "latency_ms": 0,
+          "ok": true,
+          "error": ""
+        }
+      ],
+      "assistant": {
+        "role": "assistant",
+        "mode": "build_case",
+        "content": "Updated: your deposit was Rs 35,000.\n\nA rent agreement is a contract, and breaking it can let you claim compensation. [1]\n\nNext: Which state is the property in? Rent rules differ by state.",
+        "meta": {
+          "risks": [],
+          "blocks": {
+            "hedge": "",
+            "notes": [],
+            "points": [
+              {
+                "refs": [],
+                "text": "Updated: your deposit was Rs 35,000."
+              },
+              {
+                "refs": [
+                  1
+                ],
+                "text": "A rent agreement is a contract, and breaking it can let you claim compensation."
+              }
+            ],
+            "question": "Which state is the property in? Rent rules differ by state."
+          },
+          "dropped": 0,
+          "citations": [
+            {
+              "n": 1,
+              "id": "ICA-73",
+              "url": "https://indiankanoon.org/doc/339747/",
+              "title": "Breach of a written or oral agreement",
+              "caveat": "Recovering money through a civil court has its own time limits and procedure. Ask a lawyer or the District Legal Services Authority early.",
+              "locator": "Section 73",
+              "summary": "A rent agreement or an employment agreement is a contract. When one side breaks it, the other side can claim compensation for loss that naturally arose from the breach. Remote or indirect losses are not covered.",
+              "citation": "Section 73, Indian Contract Act, 1872",
+              "reviewed_on": "2026-11-09"
+            }
+          ]
+        }
+      },
+      "case_after": {
+        "domain": "deposit",
+        "language": "en",
+        "facts": [
+          {
+            "field": "landlord",
+            "label": "Landlord",
+            "value": "Mr. Gupta",
+            "quote": "Landlord Mr. Gupta in Delhi",
+            "confirmed": false,
+            "edited": false
+          },
+          {
+            "field": "property",
+            "label": "Property",
+            "value": "Delhi",
+            "quote": "Landlord Mr. Gupta in Delhi",
+            "confirmed": false,
+            "edited": false
+          },
+          {
+            "field": "deposit_amount",
+            "label": "Deposit paid",
+            "value": "Rs 35,000",
+            "quote": "the deposit was actually Rs 35,000",
+            "confirmed": false,
+            "edited": false
+          }
+        ],
+        "missing": [
+          "State",
+          "Monthly rent",
+          "Move-out date",
+          "Rent agreement",
+          "Deductions claimed",
+          "Steps already taken",
+          "Proof you have",
+          "What you want"
+        ],
+        "events": [],
+        "notice": null,
+        "pending": null
+      },
+      "checks": [
+        {
+          "check": "facts",
+          "ok": true,
+          "detail": "mismatched {}"
+        },
+        {
+          "check": "citations_exist",
+          "ok": true,
+          "detail": "unknown []"
+        },
+        {
+          "check": "displayed_points_reverify",
+          "ok": true,
+          "detail": []
+        }
+      ]
+    }
+  ],
+  "passed": true
+}

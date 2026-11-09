@@ -1,0 +1,464 @@
+{
+  "id": "practice_deposit",
+  "about": "Practise against the landlord. In turn 3 the opponent cites a section and the coach invents a deadline; both are rejected and retried.",
+  "turns": [
+    {
+      "turn": 1,
+      "sent": {
+        "text": "Landlord Mr. Iyer in Chennai is holding my Rs 60,000 deposit. I vacated on 30 September 2026 and left the flat clean.",
+        "mode": "auto",
+        "language": "auto"
+      },
+      "status": 200,
+      "elapsed_ms": 59,
+      "llm_calls": [
+        {
+          "id": 123,
+          "node": "triage",
+          "provider": "mock",
+          "model": "scripted",
+          "input_tokens": 0,
+          "output_tokens": 0,
+          "latency_ms": 0,
+          "ok": true,
+          "error": ""
+        },
+        {
+          "id": 124,
+          "node": "extract",
+          "provider": "mock",
+          "model": "scripted",
+          "input_tokens": 0,
+          "output_tokens": 0,
+          "latency_ms": 0,
+          "ok": true,
+          "error": ""
+        },
+        {
+          "id": 125,
+          "node": "compose",
+          "provider": "mock",
+          "model": "scripted",
+          "input_tokens": 0,
+          "output_tokens": 0,
+          "latency_ms": 0,
+          "ok": true,
+          "error": ""
+        }
+      ],
+      "assistant": {
+        "role": "assistant",
+        "mode": "build_case",
+        "content": "I've noted that Mr. Iyer is holding your Rs 60,000 deposit after you vacated on 30 September 2026.\n\nKeeping the deposit against the agreement can let you claim compensation for the loss. [1]\n\nNext: Which state is the property in? Rent rules differ by state.",
+        "meta": {
+          "risks": [],
+          "blocks": {
+            "hedge": "",
+            "notes": [],
+            "points": [
+              {
+                "refs": [],
+                "text": "I've noted that Mr. Iyer is holding your Rs 60,000 deposit after you vacated on 30 September 2026."
+              },
+              {
+                "refs": [
+                  1
+                ],
+                "text": "Keeping the deposit against the agreement can let you claim compensation for the loss."
+              }
+            ],
+            "question": "Which state is the property in? Rent rules differ by state."
+          },
+          "dropped": 0,
+          "citations": [
+            {
+              "n": 1,
+              "id": "ICA-73",
+              "url": "https://indiankanoon.org/doc/339747/",
+              "title": "Breach of a written or oral agreement",
+              "caveat": "Recovering money through a civil court has its own time limits and procedure. Ask a lawyer or the District Legal Services Authority early.",
+              "locator": "Section 73",
+              "summary": "A rent agreement or an employment agreement is a contract. When one side breaks it, the other side can claim compensation for loss that naturally arose from the breach. Remote or indirect losses are not covered.",
+              "citation": "Section 73, Indian Contract Act, 1872",
+              "reviewed_on": "2026-11-09"
+            }
+          ]
+        }
+      },
+      "case_after": {
+        "domain": "deposit",
+        "language": "en",
+        "facts": [
+          {
+            "field": "landlord",
+            "label": "Landlord",
+            "value": "Mr. Iyer",
+            "quote": "Landlord Mr. Iyer in Chennai",
+            "confirmed": false,
+            "edited": false
+          },
+          {
+            "field": "property",
+            "label": "Property",
+            "value": "Chennai",
+            "quote": "Landlord Mr. Iyer in Chennai",
+            "confirmed": false,
+            "edited": false
+          },
+          {
+            "field": "deposit_amount",
+            "label": "Deposit paid",
+            "value": "Rs 60,000",
+            "quote": "my Rs 60,000 deposit",
+            "confirmed": false,
+            "edited": false
+          },
+          {
+            "field": "move_out_date",
+            "label": "Move-out date",
+            "value": "30 September 2026",
+            "quote": "I vacated on 30 September 2026",
+            "confirmed": false,
+            "edited": false
+          },
+          {
+            "field": "deductions",
+            "label": "Deductions claimed",
+            "value": "left the flat clean",
+            "quote": "left the flat clean",
+            "confirmed": false,
+            "edited": false
+          }
+        ],
+        "missing": [
+          "State",
+          "Monthly rent",
+          "Rent agreement",
+          "Steps already taken",
+          "Proof you have",
+          "What you want"
+        ],
+        "events": [],
+        "notice": null,
+        "pending": null
+      },
+      "checks": [
+        {
+          "check": "domain",
+          "ok": true,
+          "detail": "deposit"
+        },
+        {
+          "check": "citations_exist",
+          "ok": true,
+          "detail": "unknown []"
+        },
+        {
+          "check": "displayed_points_reverify",
+          "ok": true,
+          "detail": []
+        }
+      ]
+    },
+    {
+      "turn": 2,
+      "sent": {
+        "text": "Sir, I vacated on 30 September and left the flat clean. Please return my Rs 60,000 deposit.",
+        "mode": "practice",
+        "language": "auto"
+      },
+      "status": 200,
+      "elapsed_ms": 60,
+      "llm_calls": [
+        {
+          "id": 126,
+          "node": "triage",
+          "provider": "mock",
+          "model": "scripted",
+          "input_tokens": 0,
+          "output_tokens": 0,
+          "latency_ms": 0,
+          "ok": true,
+          "error": ""
+        },
+        {
+          "id": 127,
+          "node": "practice",
+          "provider": "mock",
+          "model": "scripted",
+          "input_tokens": 0,
+          "output_tokens": 0,
+          "latency_ms": 0,
+          "ok": true,
+          "error": ""
+        }
+      ],
+      "assistant": {
+        "role": "assistant",
+        "mode": "practice",
+        "content": "Practice mode: I'll play the landlord. Say what you'd say to them. Switch mode any time to stop.\n\nLandlord says: The walls need repainting and the geyser is damaged. I will have to deduct for that, so I can return only Rs 35,000.\n\nCoach: Ask for the deductions in writing with bills. Where an MTA-based law applies, only your actual liabilities can be deducted. [1]",
+        "meta": {
+          "risks": [],
+          "blocks": {
+            "practice": {
+              "tip": "Ask for the deductions in writing with bills. Where an MTA-based law applies, only your actual liabilities can be deducted.",
+              "who": "Landlord says",
+              "refs": [
+                1
+              ],
+              "them": "The walls need repainting and the geyser is damaged. I will have to deduct for that, so I can return only Rs 35,000.",
+              "intro": "Practice mode: I'll play the landlord. Say what you'd say to them. Switch mode any time to stop."
+            }
+          },
+          "dropped": 0,
+          "citations": [
+            {
+              "n": 1,
+              "id": "MTA-11",
+              "url": "https://udd.delhi.gov.in/sites/default/files/UD/generic_multiple_files/mta_hindi_english.pdf",
+              "title": "Security deposit under the Model Tenancy Act",
+              "caveat": "Rent law is state-specific. Whether this applies depends on your state and whether you have a lease or a leave-and-licence agreement.",
+              "locator": "Section 11 and summary point (xi)",
+              "summary": "The Model Tenancy Act is a model law. It applies only in states that have passed a tenancy law based on it. Where it applies, a residential deposit cannot exceed two months' rent (six months for non-residential), and the landlord must refund it when taking back vacant possession, after deducting only the tenant's actual liabilities.",
+              "citation": "Section 11, Model Tenancy Act, 2021",
+              "reviewed_on": "2026-11-09"
+            }
+          ]
+        }
+      },
+      "case_after": {
+        "domain": "deposit",
+        "language": "en",
+        "facts": [
+          {
+            "field": "landlord",
+            "label": "Landlord",
+            "value": "Mr. Iyer",
+            "quote": "Landlord Mr. Iyer in Chennai",
+            "confirmed": false,
+            "edited": false
+          },
+          {
+            "field": "property",
+            "label": "Property",
+            "value": "Chennai",
+            "quote": "Landlord Mr. Iyer in Chennai",
+            "confirmed": false,
+            "edited": false
+          },
+          {
+            "field": "deposit_amount",
+            "label": "Deposit paid",
+            "value": "Rs 60,000",
+            "quote": "my Rs 60,000 deposit",
+            "confirmed": false,
+            "edited": false
+          },
+          {
+            "field": "move_out_date",
+            "label": "Move-out date",
+            "value": "30 September 2026",
+            "quote": "I vacated on 30 September 2026",
+            "confirmed": false,
+            "edited": false
+          },
+          {
+            "field": "deductions",
+            "label": "Deductions claimed",
+            "value": "left the flat clean",
+            "quote": "left the flat clean",
+            "confirmed": false,
+            "edited": false
+          }
+        ],
+        "missing": [
+          "State",
+          "Monthly rent",
+          "Rent agreement",
+          "Steps already taken",
+          "Proof you have",
+          "What you want"
+        ],
+        "events": [],
+        "notice": null,
+        "pending": null
+      },
+      "checks": [
+        {
+          "check": "mode",
+          "ok": true,
+          "detail": "practice"
+        },
+        {
+          "check": "practice",
+          "ok": true,
+          "detail": ""
+        },
+        {
+          "check": "cites_include",
+          "ok": true,
+          "detail": "cited ['MTA-11']; missing []"
+        },
+        {
+          "check": "reply_contains",
+          "ok": true,
+          "detail": "missing []"
+        },
+        {
+          "check": "citations_exist",
+          "ok": true,
+          "detail": "unknown []"
+        }
+      ]
+    },
+    {
+      "turn": 3,
+      "sent": {
+        "text": "Normal wear and tear is not damage. Please send me the repair bills.",
+        "mode": "practice",
+        "language": "auto"
+      },
+      "status": 200,
+      "elapsed_ms": 61,
+      "llm_calls": [
+        {
+          "id": 128,
+          "node": "triage",
+          "provider": "mock",
+          "model": "scripted",
+          "input_tokens": 0,
+          "output_tokens": 0,
+          "latency_ms": 0,
+          "ok": true,
+          "error": ""
+        },
+        {
+          "id": 129,
+          "node": "practice",
+          "provider": "mock",
+          "model": "scripted",
+          "input_tokens": 0,
+          "output_tokens": 0,
+          "latency_ms": 0,
+          "ok": true,
+          "error": ""
+        },
+        {
+          "id": 130,
+          "node": "practice_retry",
+          "provider": "mock",
+          "model": "scripted",
+          "input_tokens": 0,
+          "output_tokens": 0,
+          "latency_ms": 0,
+          "ok": true,
+          "error": ""
+        }
+      ],
+      "assistant": {
+        "role": "assistant",
+        "mode": "practice",
+        "content": "Landlord says: Bills take time. Painters don't give receipts, you know how it is.\n\nCoach: Stay calm and say that without bills you don't accept the deduction, and ask for the balance by a date in writing.",
+        "meta": {
+          "risks": [],
+          "blocks": {
+            "practice": {
+              "tip": "Stay calm and say that without bills you don't accept the deduction, and ask for the balance by a date in writing.",
+              "who": "Landlord says",
+              "refs": [],
+              "them": "Bills take time. Painters don't give receipts, you know how it is.",
+              "intro": ""
+            }
+          },
+          "dropped": 0,
+          "citations": []
+        }
+      },
+      "case_after": {
+        "domain": "deposit",
+        "language": "en",
+        "facts": [
+          {
+            "field": "landlord",
+            "label": "Landlord",
+            "value": "Mr. Iyer",
+            "quote": "Landlord Mr. Iyer in Chennai",
+            "confirmed": false,
+            "edited": false
+          },
+          {
+            "field": "property",
+            "label": "Property",
+            "value": "Chennai",
+            "quote": "Landlord Mr. Iyer in Chennai",
+            "confirmed": false,
+            "edited": false
+          },
+          {
+            "field": "deposit_amount",
+            "label": "Deposit paid",
+            "value": "Rs 60,000",
+            "quote": "my Rs 60,000 deposit",
+            "confirmed": false,
+            "edited": false
+          },
+          {
+            "field": "move_out_date",
+            "label": "Move-out date",
+            "value": "30 September 2026",
+            "quote": "I vacated on 30 September 2026",
+            "confirmed": false,
+            "edited": false
+          },
+          {
+            "field": "deductions",
+            "label": "Deductions claimed",
+            "value": "left the flat clean",
+            "quote": "left the flat clean",
+            "confirmed": false,
+            "edited": false
+          }
+        ],
+        "missing": [
+          "State",
+          "Monthly rent",
+          "Rent agreement",
+          "Steps already taken",
+          "Proof you have",
+          "What you want"
+        ],
+        "events": [],
+        "notice": null,
+        "pending": null
+      },
+      "checks": [
+        {
+          "check": "mode",
+          "ok": true,
+          "detail": "practice"
+        },
+        {
+          "check": "practice",
+          "ok": true,
+          "detail": ""
+        },
+        {
+          "check": "reply_excludes",
+          "ok": true,
+          "detail": "found []"
+        },
+        {
+          "check": "reply_contains",
+          "ok": true,
+          "detail": "missing []"
+        },
+        {
+          "check": "citations_exist",
+          "ok": true,
+          "detail": "unknown []"
+        }
+      ]
+    }
+  ],
+  "passed": true
+}

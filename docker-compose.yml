@@ -1,0 +1,73 @@
+name: nyaya
+
+x-app: &app
+  build:
+    context: .
+    target: runtime
+  env_file:
+    - path: .env
+      required: false
+  environment:
+    DATABASE_URL: postgresql+psycopg://nyaya:nyaya@db:5432/nyaya
+    OLLAMA_BASE_URL: http://ollama:11434
+
+services:
+  db:
+    image: pgvector/pgvector:pg16
+    environment:
+      POSTGRES_USER: nyaya
+      POSTGRES_PASSWORD: nyaya
+      POSTGRES_DB: nyaya
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+      - ./docker/initdb.sql:/docker-entrypoint-initdb.d/10-test-db.sql:ro
+    ports:
+      - "127.0.0.1:5432:5432"
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U nyaya -d nyaya"]
+      interval: 3s
+      timeout: 3s
+      retries: 20
+
+  migrate:
+    <<: *app
+    command: ["sh", "-c", "alembic upgrade head && python -m app.seed"]
+    depends_on:
+      db:
+        condition: service_healthy
+    restart: "no"
+
+  api:
+    <<: *app
+    ports:
+      - "8000:8000"
+    depends_on:
+      migrate:
+        condition: service_completed_successfully
+    restart: unless-stopped
+
+  tests:
+    <<: *app
+    build:
+      context: .
+      target: dev
+    profiles: ["test"]
+    environment:
+      DATABASE_URL: postgresql+psycopg://nyaya:nyaya@db:5432/nyaya
+      TEST_DATABASE_URL: postgresql+psycopg://nyaya:nyaya@db:5432/nyaya_test
+    command: ["sh", "-c", "python -m pytest -q && python scripts/evaluate.py --out /tmp/raw_outputs"]
+    depends_on:
+      migrate:
+        condition: service_completed_successfully
+
+  ollama:
+    image: ollama/ollama:latest
+    profiles: ["local-llm"]
+    volumes:
+      - ollama:/root/.ollama
+    ports:
+      - "127.0.0.1:11434:11434"
+
+volumes:
+  pgdata:
+  ollama:

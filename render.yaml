@@ -1,0 +1,24 @@
+services:
+  - type: web
+    name: nyaya
+    runtime: docker
+    plan: free
+    dockerfilePath: ./Dockerfile
+    dockerContext: .
+    dockerCommand: sh -c "alembic upgrade head && python -m app.seed && uvicorn app.main:app --host 0.0.0.0 --port $PORT --proxy-headers --forwarded-allow-ips '*'"
+    healthCheckPath: /health
+    envVars:
+      - key: DATABASE_URL
+        sync: false
+      - key: GROQ_API_KEY
+        sync: false
+      - key: LLM_PROVIDER
+        value: groq
+      - key: STT_PROVIDER
+        value: groq
+      - key: COOKIE_SECURE
+        value: "true"
+      - key: MAX_CALLS_PER_CASE
+        value: "40"
+      - key: MAX_CALLS_PER_DAY
+        value: "800"

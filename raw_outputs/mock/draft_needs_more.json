@@ -1,0 +1,162 @@
+{
+  "id": "draft_needs_more",
+  "about": "Draft requested too early: lists what's missing and asks, without drafting.",
+  "turns": [
+    {
+      "turn": 1,
+      "sent": {
+        "text": "Write a complaint to Amazon about my broken headphones",
+        "mode": "draft",
+        "language": "auto"
+      },
+      "status": 200,
+      "elapsed_ms": 67,
+      "llm_calls": [
+        {
+          "id": 153,
+          "node": "triage",
+          "provider": "mock",
+          "model": "scripted",
+          "input_tokens": 0,
+          "output_tokens": 0,
+          "latency_ms": 0,
+          "ok": true,
+          "error": ""
+        },
+        {
+          "id": 154,
+          "node": "extract",
+          "provider": "mock",
+          "model": "scripted",
+          "input_tokens": 0,
+          "output_tokens": 0,
+          "latency_ms": 0,
+          "ok": true,
+          "error": ""
+        },
+        {
+          "id": 155,
+          "node": "compose",
+          "provider": "mock",
+          "model": "scripted",
+          "input_tokens": 0,
+          "output_tokens": 0,
+          "latency_ms": 0,
+          "ok": true,
+          "error": ""
+        }
+      ],
+      "assistant": {
+        "role": "assistant",
+        "mode": "build_case",
+        "content": "I can draft this once I know a few more details.\n\nThe platform's grievance officer must acknowledge your complaint within 48 hours. [1]\n\nBefore I can draft this I still need: Amount paid, Purchase date, What you want.\n\nNext: How much did you pay?",
+        "meta": {
+          "risks": [],
+          "blocks": {
+            "hedge": "",
+            "notes": [
+              "Before I can draft this I still need: Amount paid, Purchase date, What you want."
+            ],
+            "points": [
+              {
+                "refs": [],
+                "text": "I can draft this once I know a few more details."
+              },
+              {
+                "refs": [
+                  1
+                ],
+                "text": "The platform's grievance officer must acknowledge your complaint within 48 hours."
+              }
+            ],
+            "question": "How much did you pay?"
+          },
+          "dropped": 0,
+          "citations": [
+            {
+              "n": 1,
+              "id": "ECOM-4",
+              "url": "https://thc.nic.in/Central%20Governmental%20Rules/Consumer%20Protection%20%28E-Commerce%29%20Rules%2C%202020.pdf",
+              "title": "E-commerce grievance officer",
+              "caveat": "One month is the redressal timeline for the grievance, not a universal refund deadline.",
+              "locator": "Rule 4, printed page 82",
+              "summary": "Every e-commerce entity must appoint a grievance officer and show their contact details on the platform. The officer must acknowledge a complaint within 48 hours and redress it within one month of receiving it.",
+              "citation": "Rules 4(4) and 4(5), Consumer Protection (E-Commerce) Rules, 2020",
+              "reviewed_on": "2026-11-09"
+            }
+          ]
+        }
+      },
+      "case_after": {
+        "domain": "refund",
+        "language": "en",
+        "facts": [
+          {
+            "field": "seller",
+            "label": "Seller / platform",
+            "value": "Amazon",
+            "quote": "Write a complaint to Amazon",
+            "confirmed": false,
+            "edited": false
+          },
+          {
+            "field": "product",
+            "label": "Product or service",
+            "value": "headphones",
+            "quote": "about my broken headphones",
+            "confirmed": false,
+            "edited": false
+          },
+          {
+            "field": "problem",
+            "label": "What went wrong",
+            "value": "my broken headphones",
+            "quote": "about my broken headphones",
+            "confirmed": false,
+            "edited": false
+          }
+        ],
+        "missing": [
+          "Amount paid",
+          "Purchase date",
+          "Order reference",
+          "Steps already taken",
+          "Proof you have",
+          "What you want",
+          "Purchase purpose"
+        ],
+        "events": [],
+        "notice": null,
+        "pending": null
+      },
+      "checks": [
+        {
+          "check": "mode",
+          "ok": true,
+          "detail": "build_case"
+        },
+        {
+          "check": "pending",
+          "ok": true,
+          "detail": "none"
+        },
+        {
+          "check": "notes_contains",
+          "ok": true,
+          "detail": "missing []"
+        },
+        {
+          "check": "citations_exist",
+          "ok": true,
+          "detail": "unknown []"
+        },
+        {
+          "check": "displayed_points_reverify",
+          "ok": true,
+          "detail": []
+        }
+      ]
+    }
+  ],
+  "passed": true
+}
